@@ -1,0 +1,8 @@
+#!/bin/bash
+#BSUB -J 1us0P1_xtb_300K
+#BSUB -q cpu38      # this queue just contain cu39.
+#BSUB -n 64
+#BSUB -o 1us0P1_xtb_300K
+
+
+nohup qr.refine 1us0H_mod_P1box.pdb  mode=opt maxnum_residues_in_cluster=15 quantum.nproc=12 parallel.nproc=5  max_bond_rmsd=0.03  stpmax=0.2 gradient_only=true clustering=true use_convergence_test=true  opt_log=1 restraints=qm  engine_name=xtb quantum.method=' --acc 0.1 --gbsa h2o' > 1us0H_No312_P1box_xtb_OPT_stpmax02_MaxRes15_MaxBondRMSD003_300K.log 2>&1 

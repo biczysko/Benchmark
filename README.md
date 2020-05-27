@@ -10,3 +10,5 @@ Test cases for benchmarking QM methods
 2. helix_1us0, helix extracted from 1us0 and perturbed, test case as used and described in paper Q|R and in https://github.com/qrefine/qr-tests-1us0
 
 3. helix_3nir, helix extracted from 3nir, as described in https://github.com/qrefine/qr-helix-3nir
+
+4. 4gif: PDB example from Q|R#2 paper, also included in the 70 organic PDB test set from DOI: 10.1021/acs.jpcb.0c00549

@@ -1,0 +1,2 @@
+nohup qr.refine 1us0H_mod_P1box.pdb mode=opt max_bond_rmsd=0.03 stpmax=0.2 clustering=true restraints=qm parallel.method=lsf parallel.qsub_command="bsub -n 4 -q gpu" engine_name=terachem   basis=minix quantum.qm_addon=gcp-d3 quantum.qm_addon_method="hf3c+hf3c -bj" opt_log=1 gradient_only=true  use_convergence_test=true > 1us0H_No312_HF3c_H2O_OPT_MaxBondRMSD003.log 2>&1 &
+

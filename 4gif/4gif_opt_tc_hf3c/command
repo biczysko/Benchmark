@@ -1,0 +1,3 @@
+nohup qr.refine 4gif_refine_001_complete.pdb_modified_Pavel16March.pdb  mode=opt max_bond_rmsd=0.02 stpmax=0.2 clustering=true restraints=qm opt_log=1 gradient_only=true  use_convergence_test=true  parallel.method=lsf parallel.qsub_command="bsub -n 4 -q gpu" engine_name=terachem   basis=minix quantum.qm_addon=gcp-d3 quantum.qm_addon_method="hf3c+hf3c -bj"  > 4gif_refine_001_complete.pdb_modified_Pavel16March_OPT-HF3c.log
+
+

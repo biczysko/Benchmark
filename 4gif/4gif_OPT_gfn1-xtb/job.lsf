@@ -1,0 +1,9 @@
+#!/bin/bash
+#BSUB -J 4gif_xtb-gfn1
+#BSUB -q cpu38      # this queue just contain cu39.
+#BSUB -n 64
+#BSUB -o xtb-gfn1
+
+nohup qr.refine 4gif_refine_001_complete.pdb_modified_Pavel16March.pdb  mode=opt quantum.nproc=12 parallel.nproc=5  max_bond_rmsd=0.02 stpmax=0.2 clustering=true restraints=qm engine_name=xtb quantum.method='--gfn 1 --gbsa h2o' opt_log=1 gradient_only=true  use_convergence_test=true > 4gif_refine_001_complete.pdb_modified_Pavel16March_OPT-GFN1.log
+
+

@@ -1,0 +1,2321 @@
+Starting Q|R
+version:   v1.0-163-gd92089  
+Running refinement
+   input {
+     xray_data {
+       file_name = None
+       labels = None
+       high_resolution = None
+       low_resolution = None
+       outliers_rejection = True
+       french_wilson_scale = True
+       french_wilson {
+         max_bins = 60
+         min_bin_size = 40
+       }
+       sigma_fobs_rejection_criterion = None
+       sigma_iobs_rejection_criterion = None
+       ignore_all_zeros = True
+       force_anomalous_flag_to_be_equal_to = None
+       convert_to_non_anomalous_if_ratio_pairs_lone_less_than_threshold = 0.5
+       r_free_flags {
+         file_name = None
+         label = None
+         test_flag_value = None
+         ignore_r_free_flags = False
+         disable_suitability_test = False
+         ignore_pdb_hexdigest = False
+         generate = False
+         fraction = 0.1
+         max_free = 2000
+         lattice_symmetry_max_delta = 5
+         use_lattice_symmetry = True
+         use_dataman_shells = False
+         n_shells = 20
+       }
+     }
+     pdb {
+       file_name = None
+     }
+     monomers {
+       file_name = None
+     }
+     maps {
+       map_file_name = None
+       d_min = None
+       map_coefficients_file_name = None
+       map_coefficients_label = None
+     }
+     sequence = None
+     scattering_table = wk1995 it1992 *n_gaussian neutron electron
+     wavelength = None
+     energy = None
+     twin_law = Auto
+   }
+   max_atoms = 15000
+   debug = False
+   cluster {
+     fast_interaction = False
+     charge_cutoff = 8.0
+     clustering = false
+     charge_embedding = False
+     two_buffers = False
+     maxnum_residues_in_cluster = 15
+     clustering_method = gnc *bcc
+     altloc_method = *average subtract
+     g_scan = 10 15 20
+     g_mode = None
+     save_clusters = True
+   }
+   restraints = cctbx *qm
+   quantum {
+     engine_name = mopac ani torchani *terachem turbomole pyscf orca gaussian \
+                   xtb
+     charge = None
+     basis = Auto
+     method = Auto
+     memory = None
+     nproc = None
+     qm_addon = gcp dftd3 gcp-d3
+     qm_addon_method = None
+   }
+   refine {
+     dry_run = False
+     sf_algorithm = *direct fft
+     refinement_target_name = *ml ls_wunit_k1
+     mode = *opt refine gtest
+     number_of_macro_cycles = 1
+     number_of_weight_search_cycles = 50
+     number_of_refine_cycles = 5
+     number_of_micro_cycles = 50
+     data_weight = None
+     choose_best_use_r_work = False
+     skip_weight_search = False
+     adjust_restraints_weight_scale_value = 2
+     max_iterations_weight = 50
+     max_iterations_refine = 50
+     use_ase_lbfgs = False
+     line_search = True
+     stpmax = 0.2
+     gradient_only = true
+     update_all_scales = True
+     refine_sites = True
+     refine_adp = False
+     restraints_weight_scale = 1.0
+     shake_sites = False
+     use_convergence_test = true
+     max_bond_rmsd = 0.03
+     max_r_work_r_free_gap = 5.0
+     r_tolerance = 0.001
+     rmsd_tolerance = 0.01
+     opt_log = 1
+     pre_opt = False
+     pre_opt_stpmax = 0.1
+     pre_opt_iter = 10
+     pre_opt_switch = 2
+     pre_opt_gconv = 3000
+   }
+   parallel {
+     method = multiprocessing slurm pbs sge *lsf threading
+     nproc = None
+     qsub_command = bsub -n 8 -q st2
+   }
+   output_file_name_prefix = None
+   output_folder_name = "pdb"
+   shared_disk = True
+   rst_file = None
+   dump_gradients = None
+
+Setting QM defaults
+  Setting QM method to HF
+  Setting QM basis to 6-31g
+
+
+***********************************************************
+restart info will be stored in /home/qr/helix_1us0_tc_offclust/0.3/pdb/7.rst.pickle
+***********************************************************
+
+start   0 rmsd(b):  0.0120 rws:  1.000 n_fev: 0
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.011989
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99997e+07, |g|=8607.64, x_min=3.768, x_mean=10.9174, x_max=25.983
+  step:   2 bond rmsd: 0.078415
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99946e+07, |g|=32155.5, x_min=3.78822, x_mean=10.9174, x_max=26.1646
+  step:   3 bond rmsd: 0.078415
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99946e+07, |g|=32155.5, x_min=3.78822, x_mean=10.9174, x_max=26.1646
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.066678
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99967e+07, |g|=23416.9, x_min=3.7862, x_mean=10.9174, x_max=26.1416
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.054681
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99981e+07, |g|=19081.8, x_min=3.78463, x_mean=10.9174, x_max=26.1169
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.042757
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99991e+07, |g|=15140.7, x_min=3.78374, x_mean=10.9174, x_max=26.0869
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.034156
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99997e+07, |g|=12015.1, x_min=3.78385, x_mean=10.9174, x_max=26.0628
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.028478
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00001e+07, |g|=9629.06, x_min=3.78465, x_mean=10.9174, x_max=26.0482
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.024317
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00003e+07, |g|=7745.18, x_min=3.78576, x_mean=10.9174, x_max=26.0395
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.021282
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00005e+07, |g|=6158.87, x_min=3.78712, x_mean=10.9174, x_max=26.0348
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.018832
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00006e+07, |g|=4885.69, x_min=3.78857, x_mean=10.9174, x_max=26.0318
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.016946
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00007e+07, |g|=3833.81, x_min=3.79011, x_mean=10.9174, x_max=26.0302
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.015444
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00007e+07, |g|=2973.59, x_min=3.79171, x_mean=10.9174, x_max=26.0292
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.014277
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00008e+07, |g|=2268.48, x_min=3.7934, x_mean=10.9174, x_max=26.0289
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.013385
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00008e+07, |g|=1707.3, x_min=3.79524, x_mean=10.9174, x_max=26.0292
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.012699
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00009e+07, |g|=1281.8, x_min=3.7973, x_mean=10.9174, x_max=26.0297
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.012217
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00009e+07, |g|=996.052, x_min=3.79968, x_mean=10.9174, x_max=26.0307
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.011915
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00009e+07, |g|=846.968, x_min=3.8025, x_mean=10.9174, x_max=26.0319
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.011841
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.0001e+07, |g|=769.007, x_min=3.80578, x_mean=10.9174, x_max=26.0333
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.011559
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.0001e+07, |g|=802.543, x_min=3.80956, x_mean=10.9174, x_max=26.0318
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.012343
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.0001e+07, |g|=709.899, x_min=3.81491, x_mean=10.9174, x_max=26.0346
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.012176
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00011e+07, |g|=634.682, x_min=3.81802, x_mean=10.9174, x_max=26.0322
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.012607
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00011e+07, |g|=837.825, x_min=3.82136, x_mean=10.9174, x_max=26.0333
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.012670
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00011e+07, |g|=713.707, x_min=3.82435, x_mean=10.9174, x_max=26.0299
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.012343
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00011e+07, |g|=775.626, x_min=3.82691, x_mean=10.9174, x_max=26.0267
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.012746
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00012e+07, |g|=650.563, x_min=3.83043, x_mean=10.9174, x_max=26.0211
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.012701
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00012e+07, |g|=641.371, x_min=3.83331, x_mean=10.9174, x_max=26.0159
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.012932
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00012e+07, |g|=719.051, x_min=3.83693, x_mean=10.9174, x_max=26.0103
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.012984
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00012e+07, |g|=605.118, x_min=3.8398, x_mean=10.9174, x_max=26.0039
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.013522
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00013e+07, |g|=683.455, x_min=3.84335, x_mean=10.9174, x_max=26.0006
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.013335
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00013e+07, |g|=569.654, x_min=3.84673, x_mean=10.9174, x_max=25.9934
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.013717
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00013e+07, |g|=549.79, x_min=3.84954, x_mean=10.9174, x_max=25.9907
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.013713
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00013e+07, |g|=621.567, x_min=3.85371, x_mean=10.9174, x_max=25.9842
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.013776
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00013e+07, |g|=529.128, x_min=3.85674, x_mean=10.9174, x_max=25.9823
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.014074
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00014e+07, |g|=628.005, x_min=3.85993, x_mean=10.9174, x_max=25.98
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.014114
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00014e+07, |g|=530.096, x_min=3.86325, x_mean=10.9174, x_max=25.9789
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.014042
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00014e+07, |g|=552.794, x_min=3.86692, x_mean=10.9174, x_max=25.9792
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.014108
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00014e+07, |g|=477.866, x_min=3.87093, x_mean=10.9174, x_max=25.9788
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.014137
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00014e+07, |g|=483.915, x_min=3.87467, x_mean=10.9174, x_max=25.9805
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.013936
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00014e+07, |g|=448.496, x_min=3.87917, x_mean=10.9174, x_max=25.9805
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.014042
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00014e+07, |g|=469.193, x_min=3.8829, x_mean=10.9174, x_max=25.9831
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.013802
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00015e+07, |g|=444.248, x_min=3.88664, x_mean=10.9174, x_max=25.9828
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.013886
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00015e+07, |g|=490.388, x_min=3.89029, x_mean=10.9174, x_max=25.9858
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.013733
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00015e+07, |g|=445.864, x_min=3.89336, x_mean=10.9174, x_max=25.9862
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.013842
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00015e+07, |g|=585.391, x_min=3.89634, x_mean=10.9174, x_max=25.9874
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.013719
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00015e+07, |g|=508.301, x_min=3.89894, x_mean=10.9174, x_max=25.9879
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.013609
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00015e+07, |g|=623.124, x_min=3.90152, x_mean=10.9174, x_max=25.9873
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.013633
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00015e+07, |g|=523.568, x_min=3.9035, x_mean=10.9174, x_max=25.9869
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.013086
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00015e+07, |g|=572.953, x_min=3.90534, x_mean=10.9174, x_max=25.9857
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.013234
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00015e+07, |g|=458.198, x_min=3.90686, x_mean=10.9174, x_max=25.9846
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.013088
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=449.607, x_min=3.9081, x_mean=10.9174, x_max=25.9822
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.013340
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=377.923, x_min=3.90977, x_mean=10.9174, x_max=25.9811
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle   1 rmsd(b):  0.0133 rws:  1.000 n_fev: 52
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.013340
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=377.923, x_min=3.90977, x_mean=10.9174, x_max=25.9811
+  step:   2 bond rmsd: 0.091003
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99945e+07, |g|=40519.1, x_min=3.91424, x_mean=10.9174, x_max=25.8162
+  step:   3 bond rmsd: 0.091003
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99945e+07, |g|=40519.1, x_min=3.91424, x_mean=10.9174, x_max=25.8162
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.074301
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99971e+07, |g|=29814.4, x_min=3.91339, x_mean=10.9174, x_max=25.8487
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.059274
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99987e+07, |g|=24076.2, x_min=3.91262, x_mean=10.9174, x_max=25.8681
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.046921
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99998e+07, |g|=19070.2, x_min=3.91193, x_mean=10.9174, x_max=25.886
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.038050
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00005e+07, |g|=15384.4, x_min=3.91144, x_mean=10.9174, x_max=25.8989
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.031940
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00008e+07, |g|=12435.2, x_min=3.91112, x_mean=10.9174, x_max=25.9096
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.027428
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00011e+07, |g|=10119.5, x_min=3.91092, x_mean=10.9174, x_max=25.9182
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.024135
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00012e+07, |g|=8185.91, x_min=3.91081, x_mean=10.9174, x_max=25.9259
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.021534
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00014e+07, |g|=6658.88, x_min=3.91076, x_mean=10.9174, x_max=25.9321
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.019570
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00014e+07, |g|=5400.79, x_min=3.91075, x_mean=10.9174, x_max=25.9375
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.018060
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00015e+07, |g|=4385.23, x_min=3.91077, x_mean=10.9174, x_max=25.9421
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.016929
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00015e+07, |g|=3555.22, x_min=3.91081, x_mean=10.9174, x_max=25.946
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.016079
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00015e+07, |g|=2878.55, x_min=3.91086, x_mean=10.9174, x_max=25.9494
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.015455
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=2325.11, x_min=3.91093, x_mean=10.9174, x_max=25.9523
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.014996
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=1873.05, x_min=3.91099, x_mean=10.9174, x_max=25.9548
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.014660
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=1503.45, x_min=3.91106, x_mean=10.9174, x_max=25.9568
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.014413
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=1201.04, x_min=3.91114, x_mean=10.9174, x_max=25.9586
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.014229
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=953.173, x_min=3.91122, x_mean=10.9174, x_max=25.9601
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.014089
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=749.504, x_min=3.9113, x_mean=10.9174, x_max=25.9614
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.013980
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=581.865, x_min=3.91138, x_mean=10.9174, x_max=25.9625
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.013891
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=444.196, x_min=3.91147, x_mean=10.9174, x_max=25.9634
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.013815
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=333.374, x_min=3.91158, x_mean=10.9174, x_max=25.9642
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.013746
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=251.285, x_min=3.9117, x_mean=10.9174, x_max=25.9649
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.013677
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=208.351, x_min=3.91185, x_mean=10.9174, x_max=25.9656
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.013605
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=216.196, x_min=3.91204, x_mean=10.9174, x_max=25.9661
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.013523
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=265.186, x_min=3.91232, x_mean=10.9174, x_max=25.9665
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.013427
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=332.403, x_min=3.91273, x_mean=10.9174, x_max=25.9666
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.013310
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=398.731, x_min=3.91336, x_mean=10.9174, x_max=25.966
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.013193
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=450.093, x_min=3.91433, x_mean=10.9174, x_max=25.9638
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.012843
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=477.521, x_min=3.91588, x_mean=10.9174, x_max=25.9577
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.013305
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=580.371, x_min=3.91875, x_mean=10.9174, x_max=25.9479
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.013055
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=497.436, x_min=3.92034, x_mean=10.9174, x_max=25.9401
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.013047
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=498.027, x_min=3.92193, x_mean=10.9174, x_max=25.932
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.012846
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=425.941, x_min=3.92436, x_mean=10.9174, x_max=25.9156
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.012809
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=361.312, x_min=3.92562, x_mean=10.9174, x_max=25.9081
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.012859
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=378.615, x_min=3.92697, x_mean=10.9174, x_max=25.899
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.012889
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=283.5, x_min=3.92855, x_mean=10.9174, x_max=25.889
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.012891
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=276.307, x_min=3.92975, x_mean=10.9174, x_max=25.8806
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.013077
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=277.31, x_min=3.93135, x_mean=10.9174, x_max=25.8703
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.013112
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=237.738, x_min=3.93247, x_mean=10.9174, x_max=25.8632
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.013187
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=269.105, x_min=3.93368, x_mean=10.9174, x_max=25.8551
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.013291
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=229.223, x_min=3.93502, x_mean=10.9174, x_max=25.8477
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.013304
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=218.452, x_min=3.93618, x_mean=10.9174, x_max=25.8414
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.013611
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=383.802, x_min=3.93771, x_mean=10.9174, x_max=25.8355
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.013603
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=344.858, x_min=3.93868, x_mean=10.9174, x_max=25.8308
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.013796
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=372.431, x_min=3.94018, x_mean=10.9174, x_max=25.8265
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.013741
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=308.704, x_min=3.94164, x_mean=10.9174, x_max=25.8211
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.013802
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=317.874, x_min=3.94312, x_mean=10.9174, x_max=25.8169
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.013774
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=254.24, x_min=3.94508, x_mean=10.9174, x_max=25.8115
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.013635
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=289.788, x_min=3.94697, x_mean=10.9174, x_max=25.8076
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle   2 rmsd(b):  0.0136 rws:  1.000 n_fev: 104
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.013635
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=289.788, x_min=3.94697, x_mean=10.9174, x_max=25.8076
+  step:   2 bond rmsd: 0.089527
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.9993e+07, |g|=58248, x_min=3.95492, x_mean=10.9174, x_max=25.6808
+  step:   3 bond rmsd: 0.089527
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.9993e+07, |g|=58248, x_min=3.95492, x_mean=10.9174, x_max=25.6808
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.072424
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99964e+07, |g|=39465.8, x_min=3.95336, x_mean=10.9174, x_max=25.706
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.060056
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.9998e+07, |g|=31559.5, x_min=3.95228, x_mean=10.9174, x_max=25.7178
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.047012
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99994e+07, |g|=24994.5, x_min=3.95113, x_mean=10.9174, x_max=25.7278
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.036846
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00002e+07, |g|=19948.4, x_min=3.95016, x_mean=10.9174, x_max=25.7365
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.029902
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00007e+07, |g|=16123.9, x_min=3.94946, x_mean=10.9174, x_max=25.7443
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.025157
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00011e+07, |g|=13172.9, x_min=3.94897, x_mean=10.9174, x_max=25.7513
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.021828
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00013e+07, |g|=10726.1, x_min=3.94865, x_mean=10.9174, x_max=25.7583
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.019345
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00014e+07, |g|=8755.1, x_min=3.94844, x_mean=10.9174, x_max=25.7646
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.017490
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00015e+07, |g|=7141.2, x_min=3.94831, x_mean=10.9174, x_max=25.7703
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.016118
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=5827.68, x_min=3.94824, x_mean=10.9174, x_max=25.7755
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.015130
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=4750, x_min=3.94822, x_mean=10.9174, x_max=25.7801
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.014438
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=3866.39, x_min=3.94822, x_mean=10.9174, x_max=25.7842
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.013975
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=3135.83, x_min=3.94824, x_mean=10.9174, x_max=25.788
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.013686
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=2535.54, x_min=3.94828, x_mean=10.9174, x_max=25.7913
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.013520
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=2042.19, x_min=3.94832, x_mean=10.9174, x_max=25.7942
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.013437
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=1637.99, x_min=3.94837, x_mean=10.9174, x_max=25.7968
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.013408
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=1307.7, x_min=3.94843, x_mean=10.9174, x_max=25.7991
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.013410
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=1038.51, x_min=3.94848, x_mean=10.9174, x_max=25.8011
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.013429
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=819.388, x_min=3.94854, x_mean=10.9174, x_max=25.8028
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.013455
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=641.311, x_min=3.9486, x_mean=10.9174, x_max=25.8043
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.013484
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=496.767, x_min=3.94866, x_mean=10.9174, x_max=25.8056
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.013511
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=380.119, x_min=3.94873, x_mean=10.9174, x_max=25.8067
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.013534
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=287.937, x_min=3.9488, x_mean=10.9174, x_max=25.8077
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.013554
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=219.753, x_min=3.94888, x_mean=10.9174, x_max=25.8087
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.013568
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=179.145, x_min=3.94899, x_mean=10.9174, x_max=25.8096
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.013577
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=169.712, x_min=3.94913, x_mean=10.9174, x_max=25.8104
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.013577
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=185.534, x_min=3.94932, x_mean=10.9174, x_max=25.8112
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.013570
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=212.157, x_min=3.94961, x_mean=10.9174, x_max=25.8118
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.013555
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=234.226, x_min=3.95006, x_mean=10.9174, x_max=25.8121
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.013548
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=284.19, x_min=3.95082, x_mean=10.9174, x_max=25.8117
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.013513
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=244.252, x_min=3.95186, x_mean=10.9174, x_max=25.8112
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.013481
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=248.439, x_min=3.9527, x_mean=10.9174, x_max=25.8103
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.013583
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=321.244, x_min=3.95399, x_mean=10.9174, x_max=25.8092
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.013542
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=273.181, x_min=3.95486, x_mean=10.9174, x_max=25.808
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.013591
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=293.053, x_min=3.95585, x_mean=10.9174, x_max=25.8073
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.013505
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=214.771, x_min=3.9572, x_mean=10.9174, x_max=25.8049
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.013564
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=202.94, x_min=3.95832, x_mean=10.9174, x_max=25.804
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.013374
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=332.97, x_min=3.9599, x_mean=10.9174, x_max=25.801
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.013421
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=300.064, x_min=3.96093, x_mean=10.9174, x_max=25.8003
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.013498
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=299.305, x_min=3.96229, x_mean=10.9174, x_max=25.7994
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.013587
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=225.045, x_min=3.96399, x_mean=10.9174, x_max=25.7988
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.013654
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=196.597, x_min=3.96514, x_mean=10.9174, x_max=25.7985
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.013747
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=244.399, x_min=3.96663, x_mean=10.9174, x_max=25.7976
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.013829
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=194.425, x_min=3.96764, x_mean=10.9174, x_max=25.7978
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.013804
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=196.388, x_min=3.96867, x_mean=10.9174, x_max=25.7969
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.014000
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=204.195, x_min=3.96973, x_mean=10.9174, x_max=25.7978
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.014000
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=189.642, x_min=3.97039, x_mean=10.9174, x_max=25.7975
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.014065
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=275.216, x_min=3.97119, x_mean=10.9174, x_max=25.7974
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.014049
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=246.419, x_min=3.97185, x_mean=10.9174, x_max=25.7968
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle   3 rmsd(b):  0.0140 rws:  1.000 n_fev: 156
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.014049
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=246.419, x_min=3.97185, x_mean=10.9174, x_max=25.7968
+  step:   2 bond rmsd: 0.070359
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99915e+07, |g|=83721.7, x_min=3.97355, x_mean=10.9174, x_max=25.6202
+  step:   3 bond rmsd: 0.070359
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99915e+07, |g|=83721.7, x_min=3.97355, x_mean=10.9174, x_max=25.6202
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.056029
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99959e+07, |g|=52226.5, x_min=3.97321, x_mean=10.9174, x_max=25.6554
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.049912
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99973e+07, |g|=43428.4, x_min=3.97304, x_mean=10.9174, x_max=25.6679
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.043077
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=35354.9, x_min=3.97282, x_mean=10.9174, x_max=25.6806
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.036916
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99994e+07, |g|=28927, x_min=3.9726, x_mean=10.9174, x_max=25.6917
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.031628
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00001e+07, |g|=23736.7, x_min=3.97242, x_mean=10.9174, x_max=25.7016
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.027212
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00006e+07, |g|=19514.2, x_min=3.97227, x_mean=10.9174, x_max=25.7105
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.023581
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00009e+07, |g|=16016.2, x_min=3.97216, x_mean=10.9174, x_max=25.7188
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.020626
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00012e+07, |g|=13126, x_min=3.97208, x_mean=10.9174, x_max=25.7265
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.018268
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00014e+07, |g|=10745.2, x_min=3.97203, x_mean=10.9174, x_max=25.7336
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.016452
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00015e+07, |g|=8788.58, x_min=3.97199, x_mean=10.9174, x_max=25.7401
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.015115
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=7177.32, x_min=3.97196, x_mean=10.9174, x_max=25.7461
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.014195
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=5856.14, x_min=3.97194, x_mean=10.9174, x_max=25.7515
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.013610
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=4770.14, x_min=3.97193, x_mean=10.9174, x_max=25.7565
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.013281
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=3882.52, x_min=3.97191, x_mean=10.9174, x_max=25.7609
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.013129
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=3154.93, x_min=3.9719, x_mean=10.9174, x_max=25.765
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.013092
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=2555.77, x_min=3.97189, x_mean=10.9174, x_max=25.7686
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.013129
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=2067.01, x_min=3.97188, x_mean=10.9174, x_max=25.7718
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.013206
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=1667.49, x_min=3.97187, x_mean=10.9174, x_max=25.7747
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.013301
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=1341.27, x_min=3.97185, x_mean=10.9174, x_max=25.7773
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.013400
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=1074.97, x_min=3.97184, x_mean=10.9174, x_max=25.7795
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.013496
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=857.611, x_min=3.97183, x_mean=10.9174, x_max=25.7815
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.013583
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=680.051, x_min=3.97182, x_mean=10.9174, x_max=25.7833
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.013660
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=534.895, x_min=3.97181, x_mean=10.9174, x_max=25.7849
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.013727
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=416.163, x_min=3.9718, x_mean=10.9174, x_max=25.7863
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.013784
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=319.475, x_min=3.97178, x_mean=10.9174, x_max=25.7876
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.013831
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=241.94, x_min=3.97177, x_mean=10.9174, x_max=25.7889
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.013868
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=183.352, x_min=3.97176, x_mean=10.9174, x_max=25.7901
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.013896
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=146.206, x_min=3.97175, x_mean=10.9174, x_max=25.7912
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.013913
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=133.926, x_min=3.97173, x_mean=10.9174, x_max=25.7925
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.013916
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=142.392, x_min=3.97171, x_mean=10.9174, x_max=25.7937
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.013901
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=160.396, x_min=3.97169, x_mean=10.9174, x_max=25.795
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.013875
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=179.624, x_min=3.97167, x_mean=10.9174, x_max=25.796
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.013776
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=207.202, x_min=3.97163, x_mean=10.9174, x_max=25.7965
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.013753
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=220.85, x_min=3.9716, x_mean=10.9174, x_max=25.7967
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.013681
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=212.848, x_min=3.97159, x_mean=10.9174, x_max=25.7961
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.013541
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=211.409, x_min=3.97155, x_mean=10.9174, x_max=25.7942
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.013548
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=192.096, x_min=3.97159, x_mean=10.9174, x_max=25.7919
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.013401
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=186.7, x_min=3.97169, x_mean=10.9174, x_max=25.7882
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.013400
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=168.581, x_min=3.97174, x_mean=10.9174, x_max=25.7853
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.013338
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=216.479, x_min=3.97185, x_mean=10.9174, x_max=25.7808
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.013363
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=194.061, x_min=3.97197, x_mean=10.9174, x_max=25.7779
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.013308
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=265.447, x_min=3.97219, x_mean=10.9174, x_max=25.7733
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.013346
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=233.557, x_min=3.97233, x_mean=10.9174, x_max=25.7706
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.013405
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=217.561, x_min=3.97253, x_mean=10.9174, x_max=25.7678
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.013488
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=154.763, x_min=3.97286, x_mean=10.9174, x_max=25.7646
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.013511
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=142.325, x_min=3.97314, x_mean=10.9174, x_max=25.7617
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.013729
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=179.693, x_min=3.97355, x_mean=10.9174, x_max=25.7595
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.013749
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=162.168, x_min=3.97383, x_mean=10.9174, x_max=25.7576
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.013759
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=160.19, x_min=3.97423, x_mean=10.9174, x_max=25.7552
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle   4 rmsd(b):  0.0138 rws:  1.000 n_fev: 208
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.013759
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=160.19, x_min=3.97423, x_mean=10.9174, x_max=25.7552
+  step:   2 bond rmsd: 0.098658
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99876e+07, |g|=69240.1, x_min=3.98725, x_mean=10.9174, x_max=25.731
+  step:   3 bond rmsd: 0.074981
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.9994e+07, |g|=45421.1, x_min=3.98424, x_mean=10.9174, x_max=25.7366
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.059494
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99971e+07, |g|=33145.7, x_min=3.98226, x_mean=10.9174, x_max=25.7404
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.049632
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=27049, x_min=3.98094, x_mean=10.9174, x_max=25.7422
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.040336
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99996e+07, |g|=21835.4, x_min=3.97972, x_mean=10.9174, x_max=25.7428
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.032635
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00003e+07, |g|=17678.2, x_min=3.97871, x_mean=10.9174, x_max=25.7435
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.026611
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00008e+07, |g|=14341.7, x_min=3.97791, x_mean=10.9174, x_max=25.7441
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.022079
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00011e+07, |g|=11661.2, x_min=3.97727, x_mean=10.9174, x_max=25.7449
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.018761
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00013e+07, |g|=9472.42, x_min=3.97679, x_mean=10.9174, x_max=25.7459
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.016429
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00015e+07, |g|=7686.44, x_min=3.97642, x_mean=10.9174, x_max=25.747
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.014868
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=6228.82, x_min=3.97613, x_mean=10.9174, x_max=25.748
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.013894
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=5042.21, x_min=3.97592, x_mean=10.9174, x_max=25.749
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.013339
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=4077.22, x_min=3.97576, x_mean=10.9174, x_max=25.75
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.013066
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=3293.15, x_min=3.97564, x_mean=10.9174, x_max=25.7508
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.012971
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=2656.8, x_min=3.97555, x_mean=10.9174, x_max=25.7516
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.012982
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=2140.87, x_min=3.97549, x_mean=10.9174, x_max=25.7523
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.013047
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=1723.27, x_min=3.97544, x_mean=10.9174, x_max=25.7529
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.013137
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=1385.5, x_min=3.9754, x_mean=10.9174, x_max=25.7535
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.013232
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=1112.72, x_min=3.97538, x_mean=10.9174, x_max=25.7539
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.013322
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=892.349, x_min=3.97536, x_mean=10.9174, x_max=25.7544
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.013403
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=714.413, x_min=3.97535, x_mean=10.9174, x_max=25.7547
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.013473
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=570.62, x_min=3.97534, x_mean=10.9174, x_max=25.755
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.013531
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=454.089, x_min=3.97534, x_mean=10.9174, x_max=25.7553
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.013579
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=359.536, x_min=3.97534, x_mean=10.9174, x_max=25.7555
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.013618
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=282.38, x_min=3.97534, x_mean=10.9174, x_max=25.7557
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.013649
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=219.349, x_min=3.97535, x_mean=10.9174, x_max=25.7559
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.013673
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=167.907, x_min=3.97536, x_mean=10.9174, x_max=25.756
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.013692
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=126.934, x_min=3.97537, x_mean=10.9174, x_max=25.7561
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.013704
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=97.0793, x_min=3.97539, x_mean=10.9174, x_max=25.7563
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.013711
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=81.745, x_min=3.97542, x_mean=10.9174, x_max=25.7564
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.013710
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=83.7474, x_min=3.97545, x_mean=10.9174, x_max=25.7565
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.013700
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=99.0149, x_min=3.97551, x_mean=10.9174, x_max=25.7566
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.013679
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=119.846, x_min=3.97562, x_mean=10.9174, x_max=25.7566
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.013649
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=139.67, x_min=3.97579, x_mean=10.9174, x_max=25.7565
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.013603
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=177.319, x_min=3.97614, x_mean=10.9174, x_max=25.7566
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.013544
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=165.108, x_min=3.97665, x_mean=10.9174, x_max=25.7558
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.013563
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=182.137, x_min=3.97714, x_mean=10.9174, x_max=25.7556
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.013393
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=178.165, x_min=3.97786, x_mean=10.9174, x_max=25.7539
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.013430
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=153.967, x_min=3.97836, x_mean=10.9174, x_max=25.7533
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.013414
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=164.864, x_min=3.97897, x_mean=10.9174, x_max=25.7522
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.013497
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=118.303, x_min=3.97972, x_mean=10.9174, x_max=25.751
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.013595
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=111.114, x_min=3.98032, x_mean=10.9174, x_max=25.75
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.013443
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=182.05, x_min=3.98119, x_mean=10.9174, x_max=25.7482
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.013544
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=160.827, x_min=3.98169, x_mean=10.9174, x_max=25.7474
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.013602
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=152.119, x_min=3.98225, x_mean=10.9174, x_max=25.746
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.013809
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=115.324, x_min=3.98306, x_mean=10.9174, x_max=25.7447
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.013886
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=99.4406, x_min=3.98361, x_mean=10.9174, x_max=25.7433
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.014005
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=126.038, x_min=3.98427, x_mean=10.9174, x_max=25.7421
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.014098
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=110.197, x_min=3.98484, x_mean=10.9174, x_max=25.7406
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.014111
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=114.319, x_min=3.98551, x_mean=10.9174, x_max=25.7388
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.014393
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=188.122, x_min=3.9865, x_mean=10.9174, x_max=25.7357
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle   5 rmsd(b):  0.0144 rws:  1.000 n_fev: 260
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.014393
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=188.122, x_min=3.9865, x_mean=10.9174, x_max=25.7357
+  step:   2 bond rmsd: 0.101495
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99874e+07, |g|=68749.3, x_min=3.98502, x_mean=10.9174, x_max=25.6647
+  step:   3 bond rmsd: 0.101495
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99874e+07, |g|=68749.3, x_min=3.98502, x_mean=10.9174, x_max=25.6647
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.079824
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99931e+07, |g|=47622.4, x_min=3.98531, x_mean=10.9174, x_max=25.6789
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.066742
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99956e+07, |g|=39141.7, x_min=3.98543, x_mean=10.9174, x_max=25.687
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.054294
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99976e+07, |g|=31630.4, x_min=3.98555, x_mean=10.9174, x_max=25.6921
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.043849
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99989e+07, |g|=25761.6, x_min=3.9857, x_mean=10.9174, x_max=25.6971
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.035423
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99998e+07, |g|=20924.7, x_min=3.9859, x_mean=10.9174, x_max=25.7008
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.028799
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00005e+07, |g|=17056.3, x_min=3.98613, x_mean=10.9174, x_max=25.7043
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.023662
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00009e+07, |g|=13853, x_min=3.98635, x_mean=10.9174, x_max=25.7074
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.019799
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00012e+07, |g|=11271.4, x_min=3.98657, x_mean=10.9174, x_max=25.7104
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.016982
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00014e+07, |g|=9154.4, x_min=3.98675, x_mean=10.9174, x_max=25.713
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.015060
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00015e+07, |g|=7431.68, x_min=3.9869, x_mean=10.9174, x_max=25.7155
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.013851
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=6025.59, x_min=3.987, x_mean=10.9174, x_max=25.7177
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.013182
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=4878.86, x_min=3.98708, x_mean=10.9174, x_max=25.7197
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.012887
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=3944.61, x_min=3.98711, x_mean=10.9174, x_max=25.7215
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.012831
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=3184.29, x_min=3.98712, x_mean=10.9174, x_max=25.7231
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.012908
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=2566.14, x_min=3.9871, x_mean=10.9174, x_max=25.7245
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.013050
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=2064.43, x_min=3.98706, x_mean=10.9174, x_max=25.7258
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.013215
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=1657.9, x_min=3.98701, x_mean=10.9174, x_max=25.7269
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.013378
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=1329.06, x_min=3.98696, x_mean=10.9174, x_max=25.7278
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.013526
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=1063.36, x_min=3.98689, x_mean=10.9174, x_max=25.7286
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.013654
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=848.975, x_min=3.98683, x_mean=10.9174, x_max=25.7294
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.013760
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=676.041, x_min=3.98676, x_mean=10.9174, x_max=25.73
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.013845
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=536.523, x_min=3.98669, x_mean=10.9174, x_max=25.7306
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.013912
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=423.854, x_min=3.98662, x_mean=10.9174, x_max=25.7311
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.013963
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=332.888, x_min=3.98656, x_mean=10.9174, x_max=25.7315
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.014000
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=259.199, x_min=3.98649, x_mean=10.9174, x_max=25.7319
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.014026
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=199.749, x_min=3.98643, x_mean=10.9174, x_max=25.7322
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.014041
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=152.37, x_min=3.98636, x_mean=10.9174, x_max=25.7326
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.014046
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=116.113, x_min=3.98629, x_mean=10.9174, x_max=25.7329
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.014040
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=91.353, x_min=3.98622, x_mean=10.9174, x_max=25.7332
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.014024
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=79.0374, x_min=3.98614, x_mean=10.9174, x_max=25.7335
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.013995
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=77.8855, x_min=3.98606, x_mean=10.9174, x_max=25.7338
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.013957
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=83.3331, x_min=3.98597, x_mean=10.9174, x_max=25.7341
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.013875
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=113.675, x_min=3.98587, x_mean=10.9174, x_max=25.7339
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.013820
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=106.488, x_min=3.98578, x_mean=10.9174, x_max=25.7342
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.013749
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=113.047, x_min=3.98574, x_mean=10.9174, x_max=25.7339
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.013745
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=151.034, x_min=3.98571, x_mean=10.9174, x_max=25.7342
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.013685
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=130.713, x_min=3.98572, x_mean=10.9174, x_max=25.7338
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.013678
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=126.957, x_min=3.98577, x_mean=10.9174, x_max=25.7332
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.013529
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=131.158, x_min=3.98593, x_mean=10.9174, x_max=25.7316
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.013529
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=114.925, x_min=3.98602, x_mean=10.9174, x_max=25.7308
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.013565
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=118.134, x_min=3.98615, x_mean=10.9174, x_max=25.7299
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.013565
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=85.8593, x_min=3.98635, x_mean=10.9174, x_max=25.7281
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.013626
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=75.2301, x_min=3.98652, x_mean=10.9174, x_max=25.7271
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.013624
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=86.7698, x_min=3.98671, x_mean=10.9174, x_max=25.7254
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.013668
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=73.5504, x_min=3.98686, x_mean=10.9174, x_max=25.7245
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.013680
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=81.1941, x_min=3.98705, x_mean=10.9174, x_max=25.7234
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.013733
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=63.6647, x_min=3.98726, x_mean=10.9174, x_max=25.7223
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.013774
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=61.1947, x_min=3.98744, x_mean=10.9174, x_max=25.7214
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.013750
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=90.1932, x_min=3.98781, x_mean=10.9174, x_max=25.7198
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle   6 rmsd(b):  0.0137 rws:  1.000 n_fev: 312
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.013750
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=90.1932, x_min=3.98781, x_mean=10.9174, x_max=25.7198
+  step:   2 bond rmsd: 0.116796
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99909e+07, |g|=37379.5, x_min=3.98274, x_mean=10.9174, x_max=25.855
+  step:   3 bond rmsd: 0.051167
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99999e+07, |g|=15894.8, x_min=3.9858, x_mean=10.9174, x_max=25.7735
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.042736
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00006e+07, |g|=12994.7, x_min=3.9862, x_mean=10.9174, x_max=25.7628
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.034430
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00011e+07, |g|=10252.1, x_min=3.98653, x_mean=10.9174, x_max=25.7503
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.028696
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00014e+07, |g|=8082.61, x_min=3.98677, x_mean=10.9174, x_max=25.7415
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.024700
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=6422.77, x_min=3.98698, x_mean=10.9174, x_max=25.7354
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.021862
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=5120.73, x_min=3.98717, x_mean=10.9174, x_max=25.7312
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.019809
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=4092.46, x_min=3.98733, x_mean=10.9174, x_max=25.7281
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.018318
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=3275.32, x_min=3.98747, x_mean=10.9174, x_max=25.7259
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.017223
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=2624.31, x_min=3.9876, x_mean=10.9174, x_max=25.7243
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.016414
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=2104.29, x_min=3.9877, x_mean=10.9174, x_max=25.7231
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.015814
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=1688.38, x_min=3.98779, x_mean=10.9174, x_max=25.7222
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.015364
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=1355.46, x_min=3.98787, x_mean=10.9174, x_max=25.7215
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.015025
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=1088.81, x_min=3.98793, x_mean=10.9174, x_max=25.721
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.014766
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=874.915, x_min=3.98799, x_mean=10.9174, x_max=25.7206
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.014567
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=703.345, x_min=3.98804, x_mean=10.9174, x_max=25.7204
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.014412
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=565.469, x_min=3.98809, x_mean=10.9174, x_max=25.7202
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.014290
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=454.499, x_min=3.98813, x_mean=10.9174, x_max=25.72
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.014194
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=365.079, x_min=3.98816, x_mean=10.9174, x_max=25.7199
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.014117
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=292.647, x_min=3.9882, x_mean=10.9174, x_max=25.7198
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.014055
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=233.92, x_min=3.98823, x_mean=10.9174, x_max=25.7197
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.014004
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=185.802, x_min=3.98826, x_mean=10.9174, x_max=25.7197
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.013961
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=146.269, x_min=3.98828, x_mean=10.9174, x_max=25.7196
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.013925
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=113.606, x_min=3.98831, x_mean=10.9174, x_max=25.7196
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.013894
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=86.6287, x_min=3.98834, x_mean=10.9174, x_max=25.7195
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.013865
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=64.8476, x_min=3.98837, x_mean=10.9174, x_max=25.7195
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.013838
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=49.2888, x_min=3.98841, x_mean=10.9174, x_max=25.7195
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.013812
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=43.1744, x_min=3.98845, x_mean=10.9174, x_max=25.7194
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.013784
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=49.171, x_min=3.98851, x_mean=10.9174, x_max=25.7194
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.013754
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=64.3316, x_min=3.98859, x_mean=10.9174, x_max=25.7194
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.013720
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=84.0064, x_min=3.98871, x_mean=10.9174, x_max=25.7193
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.013687
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=103.78, x_min=3.9889, x_mean=10.9174, x_max=25.7192
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.013653
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=117.602, x_min=3.98918, x_mean=10.9174, x_max=25.7189
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.013739
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=135.582, x_min=3.98968, x_mean=10.9174, x_max=25.7184
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.013690
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=116.951, x_min=3.99033, x_mean=10.9174, x_max=25.7173
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.013721
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=110.51, x_min=3.99083, x_mean=10.9174, x_max=25.7166
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.013777
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=104.175, x_min=3.99145, x_mean=10.9174, x_max=25.7151
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.013797
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=81.0184, x_min=3.99186, x_mean=10.9174, x_max=25.7143
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.013812
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=77.1234, x_min=3.99224, x_mean=10.9174, x_max=25.7135
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.013894
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=69.1593, x_min=3.99273, x_mean=10.9174, x_max=25.7124
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.013908
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=62.6992, x_min=3.99305, x_mean=10.9174, x_max=25.7116
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.013977
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=83.0691, x_min=3.99345, x_mean=10.9174, x_max=25.7107
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.013995
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=78.3381, x_min=3.99389, x_mean=10.9174, x_max=25.7097
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.014054
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=94.7751, x_min=3.99443, x_mean=10.9174, x_max=25.708
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.014080
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=86.4565, x_min=3.99509, x_mean=10.9174, x_max=25.7065
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.014057
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=121.828, x_min=3.99594, x_mean=10.9174, x_max=25.7039
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.014110
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=108.639, x_min=3.9968, x_mean=10.9174, x_max=25.7019
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.014000
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=156.301, x_min=3.99784, x_mean=10.9174, x_max=25.6988
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.014042
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=141.172, x_min=3.99883, x_mean=10.9174, x_max=25.6963
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.014015
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=165.927, x_min=4.0001, x_mean=10.9174, x_max=25.6932
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.014054
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=146.989, x_min=4.00136, x_mean=10.9174, x_max=25.69
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle   7 rmsd(b):  0.0141 rws:  1.000 n_fev: 364
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.014054
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=146.989, x_min=4.00136, x_mean=10.9174, x_max=25.69
+  step:   2 bond rmsd: 0.104353
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99941e+07, |g|=29236.1, x_min=3.99706, x_mean=10.9174, x_max=25.8554
+  step:   3 bond rmsd: 0.104353
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99941e+07, |g|=29236.1, x_min=3.99706, x_mean=10.9174, x_max=25.8554
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.085341
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99967e+07, |g|=24025.2, x_min=3.99791, x_mean=10.9174, x_max=25.8226
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.058776
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99993e+07, |g|=18291.4, x_min=3.99894, x_mean=10.9174, x_max=25.7648
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.042506
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00006e+07, |g|=13450.8, x_min=3.99957, x_mean=10.9174, x_max=25.7198
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.034819
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00011e+07, |g|=10680.6, x_min=4.00002, x_mean=10.9174, x_max=25.7007
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.029721
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00014e+07, |g|=8529.45, x_min=4.00039, x_mean=10.9174, x_max=25.6926
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.026029
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00015e+07, |g|=6851.17, x_min=4.0007, x_mean=10.9174, x_max=25.688
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.023282
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=5497.34, x_min=4.00096, x_mean=10.9174, x_max=25.6857
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.021178
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=4414.46, x_min=4.00116, x_mean=10.9174, x_max=25.6844
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.019576
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=3541.7, x_min=4.00132, x_mean=10.9174, x_max=25.6837
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.018350
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=2839.4, x_min=4.00143, x_mean=10.9174, x_max=25.6835
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.017414
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=2274.27, x_min=4.0015, x_mean=10.9174, x_max=25.6836
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.016697
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=1820.06, x_min=4.00155, x_mean=10.9174, x_max=25.6839
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.016146
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=1455.42, x_min=4.00158, x_mean=10.9174, x_max=25.6843
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.015720
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=1162.79, x_min=4.00158, x_mean=10.9174, x_max=25.6847
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.015388
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=928.354, x_min=4.00158, x_mean=10.9174, x_max=25.6851
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.015127
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=740.479, x_min=4.00156, x_mean=10.9174, x_max=25.6856
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.014920
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=590.087, x_min=4.00154, x_mean=10.9174, x_max=25.686
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.014755
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=469.603, x_min=4.00152, x_mean=10.9174, x_max=25.6864
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.014621
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=372.94, x_min=4.00149, x_mean=10.9174, x_max=25.6868
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.014512
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=295.307, x_min=4.00146, x_mean=10.9174, x_max=25.6871
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.014422
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=232.724, x_min=4.00143, x_mean=10.9174, x_max=25.6874
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.014347
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=182.133, x_min=4.0014, x_mean=10.9174, x_max=25.6877
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.014283
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=141.14, x_min=4.00137, x_mean=10.9174, x_max=25.688
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.014226
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=108.1, x_min=4.00134, x_mean=10.9174, x_max=25.6883
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.014175
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=82.036, x_min=4.0013, x_mean=10.9174, x_max=25.6885
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.014127
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=63.1623, x_min=4.00127, x_mean=10.9174, x_max=25.6887
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.014080
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=52.7583, x_min=4.00122, x_mean=10.9174, x_max=25.689
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.014036
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=51.5521, x_min=4.00117, x_mean=10.9174, x_max=25.6893
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.013983
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=57.0599, x_min=4.00111, x_mean=10.9174, x_max=25.6895
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.013966
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=70.9755, x_min=4.00103, x_mean=10.9174, x_max=25.6899
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.013866
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=77.3036, x_min=4.00093, x_mean=10.9174, x_max=25.6899
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.013841
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=79.2362, x_min=4.00086, x_mean=10.9174, x_max=25.69
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.013823
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=105.754, x_min=4.00078, x_mean=10.9174, x_max=25.6895
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.013801
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=91.9724, x_min=4.00072, x_mean=10.9174, x_max=25.6893
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.013796
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=86.887, x_min=4.0007, x_mean=10.9174, x_max=25.6889
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.013824
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=65.9755, x_min=4.00066, x_mean=10.9174, x_max=25.6882
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.013814
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=53.094, x_min=4.00065, x_mean=10.9174, x_max=25.6876
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.013879
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=59.5953, x_min=4.00066, x_mean=10.9174, x_max=25.6871
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.013861
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=44.5568, x_min=4.00065, x_mean=10.9174, x_max=25.6865
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.013879
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=43.0559, x_min=4.00064, x_mean=10.9174, x_max=25.6861
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.013860
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=37.9344, x_min=4.00065, x_mean=10.9174, x_max=25.6855
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.013864
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=32.0396, x_min=4.00065, x_mean=10.9174, x_max=25.6852
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.013871
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=38.2468, x_min=4.00065, x_mean=10.9174, x_max=25.6847
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.013875
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=30.97, x_min=4.00066, x_mean=10.9174, x_max=25.6844
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.013879
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=31.4041, x_min=4.00069, x_mean=10.9174, x_max=25.6839
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.013894
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=30.336, x_min=4.00072, x_mean=10.9174, x_max=25.6836
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.013888
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=31.9627, x_min=4.00076, x_mean=10.9174, x_max=25.6832
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.013917
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=33.1894, x_min=4.00085, x_mean=10.9174, x_max=25.6828
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.013901
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=39.8331, x_min=4.00095, x_mean=10.9174, x_max=25.6822
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle   8 rmsd(b):  0.0139 rws:  1.000 n_fev: 416
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.013901
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=39.833, x_min=4.00095, x_mean=10.9174, x_max=25.6822
+  step:   2 bond rmsd: 0.070224
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99979e+07, |g|=21042.4, x_min=4.01964, x_mean=10.9174, x_max=25.7566
+  step:   3 bond rmsd: 0.023071
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=5155.3, x_min=4.00487, x_mean=10.9174, x_max=25.6978
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.020914
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=4179.81, x_min=4.00411, x_mean=10.9174, x_max=25.6948
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.019163
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=3338.8, x_min=4.00348, x_mean=10.9174, x_max=25.6922
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.017876
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=2668.42, x_min=4.00301, x_mean=10.9174, x_max=25.6902
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.016926
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=2135.08, x_min=4.00265, x_mean=10.9174, x_max=25.6886
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.016219
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=1709.9, x_min=4.00237, x_mean=10.9174, x_max=25.6874
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.015689
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=1370.56, x_min=4.00216, x_mean=10.9174, x_max=25.6864
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.015288
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=1099.41, x_min=4.00199, x_mean=10.9174, x_max=25.6857
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.014983
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=882.592, x_min=4.00186, x_mean=10.9174, x_max=25.6851
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.014747
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=709.026, x_min=4.00176, x_mean=10.9174, x_max=25.6846
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.014565
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=569.956, x_min=4.00168, x_mean=10.9174, x_max=25.6842
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.014423
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=458.542, x_min=4.00162, x_mean=10.9174, x_max=25.6839
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.014312
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=369.073, x_min=4.00157, x_mean=10.9174, x_max=25.6837
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.014224
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=297.134, x_min=4.00153, x_mean=10.9174, x_max=25.6835
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.014155
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=239.251, x_min=4.0015, x_mean=10.9174, x_max=25.6833
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.014099
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=192.484, x_min=4.00147, x_mean=10.9174, x_max=25.6832
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.014054
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=154.569, x_min=4.00145, x_mean=10.9174, x_max=25.6831
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.014018
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=123.729, x_min=4.00144, x_mean=10.9174, x_max=25.683
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.013989
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=98.4394, x_min=4.00143, x_mean=10.9174, x_max=25.6829
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.013965
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=77.6326, x_min=4.00142, x_mean=10.9174, x_max=25.6828
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.013944
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=60.3515, x_min=4.00141, x_mean=10.9174, x_max=25.6827
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.013928
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=46.1326, x_min=4.00141, x_mean=10.9174, x_max=25.6827
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.013913
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=34.6499, x_min=4.00141, x_mean=10.9174, x_max=25.6826
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.013900
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=26.4001, x_min=4.0014, x_mean=10.9174, x_max=25.6825
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.013890
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=22.7029, x_min=4.0014, x_mean=10.9174, x_max=25.6824
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.013881
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=24.3468, x_min=4.0014, x_mean=10.9174, x_max=25.6823
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.013875
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=29.3566, x_min=4.0014, x_mean=10.9174, x_max=25.6822
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.013876
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=34.2524, x_min=4.00141, x_mean=10.9174, x_max=25.682
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.013884
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=36.4601, x_min=4.00144, x_mean=10.9174, x_max=25.6818
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.013909
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=68.0152, x_min=4.00152, x_mean=10.9174, x_max=25.6813
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.013923
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=63.504, x_min=4.00157, x_mean=10.9174, x_max=25.681
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.013933
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=62.5769, x_min=4.00168, x_mean=10.9174, x_max=25.6807
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.013982
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=49.6265, x_min=4.00191, x_mean=10.9174, x_max=25.68
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.013999
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=46.5255, x_min=4.00212, x_mean=10.9174, x_max=25.6794
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.014029
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=62.1265, x_min=4.00243, x_mean=10.9174, x_max=25.6786
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.014058
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=54.8004, x_min=4.00278, x_mean=10.9174, x_max=25.678
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.014039
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=60.5045, x_min=4.00314, x_mean=10.9174, x_max=25.6771
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.014086
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=56.1118, x_min=4.00354, x_mean=10.9174, x_max=25.6766
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.014076
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=53.6463, x_min=4.00386, x_mean=10.9174, x_max=25.676
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.014091
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=59.0232, x_min=4.00425, x_mean=10.9174, x_max=25.6755
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.014084
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=52.0014, x_min=4.0045, x_mean=10.9174, x_max=25.675
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.014067
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=56.1591, x_min=4.00475, x_mean=10.9174, x_max=25.6746
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.014051
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=49.8601, x_min=4.00504, x_mean=10.9174, x_max=25.674
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.014063
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=83.6482, x_min=4.00534, x_mean=10.9174, x_max=25.6735
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.014043
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=78.0929, x_min=4.00557, x_mean=10.9174, x_max=25.6729
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.014044
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=80.2976, x_min=4.00589, x_mean=10.9174, x_max=25.6721
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.014006
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=69.063, x_min=4.00629, x_mean=10.9174, x_max=25.6708
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.013989
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=78.8388, x_min=4.00671, x_mean=10.9174, x_max=25.6694
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.013947
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=78.062, x_min=4.00729, x_mean=10.9174, x_max=25.6672
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.013917
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=81.9211, x_min=4.0079, x_mean=10.9174, x_max=25.665
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle   9 rmsd(b):  0.0139 rws:  1.000 n_fev: 468
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.013917
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=81.9211, x_min=4.0079, x_mean=10.9174, x_max=25.665
+  step:   2 bond rmsd: 0.052423
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99987e+07, |g|=23172.1, x_min=3.99645, x_mean=10.9174, x_max=25.5892
+  step:   3 bond rmsd: 0.052423
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99987e+07, |g|=23172.1, x_min=3.99645, x_mean=10.9174, x_max=25.5892
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.042801
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-3.99999e+07, |g|=17906.2, x_min=3.99871, x_mean=10.9174, x_max=25.6042
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.035008
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00006e+07, |g|=14417.7, x_min=4.00067, x_mean=10.9174, x_max=25.616
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.028973
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.0001e+07, |g|=11528.1, x_min=4.00216, x_mean=10.9174, x_max=25.6248
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.024539
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00013e+07, |g|=9283.75, x_min=4.00333, x_mean=10.9174, x_max=25.6323
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.021282
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00015e+07, |g|=7471.38, x_min=4.00425, x_mean=10.9174, x_max=25.638
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.018929
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00016e+07, |g|=6022.79, x_min=4.005, x_mean=10.9174, x_max=25.6428
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.017263
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00017e+07, |g|=4849.6, x_min=4.0056, x_mean=10.9174, x_max=25.6466
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.016103
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=3905.74, x_min=4.00608, x_mean=10.9174, x_max=25.6497
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.015321
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=3144.34, x_min=4.00646, x_mean=10.9174, x_max=25.6522
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.014809
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=2530.65, x_min=4.00676, x_mean=10.9174, x_max=25.6543
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.014482
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=2035.88, x_min=4.00699, x_mean=10.9174, x_max=25.656
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.014282
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00018e+07, |g|=1637.19, x_min=4.00718, x_mean=10.9174, x_max=25.6573
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.014162
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=1315.95, x_min=4.00732, x_mean=10.9174, x_max=25.6584
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.014094
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=1057.35, x_min=4.00742, x_mean=10.9174, x_max=25.6593
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.014058
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=849.16, x_min=4.0075, x_mean=10.9174, x_max=25.66
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.014041
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=681.71, x_min=4.00756, x_mean=10.9174, x_max=25.6606
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.014034
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=546.742, x_min=4.00761, x_mean=10.9174, x_max=25.6611
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.014033
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=438.163, x_min=4.00764, x_mean=10.9174, x_max=25.6615
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.014035
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=350.599, x_min=4.00766, x_mean=10.9174, x_max=25.6618
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.014038
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=279.949, x_min=4.00768, x_mean=10.9174, x_max=25.662
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.014041
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=222.795, x_min=4.00769, x_mean=10.9174, x_max=25.6622
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.014043
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=176.447, x_min=4.00769, x_mean=10.9174, x_max=25.6624
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.014044
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=138.795, x_min=4.0077, x_mean=10.9174, x_max=25.6625
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.014044
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=108.159, x_min=4.00769, x_mean=10.9174, x_max=25.6626
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.014043
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=83.292, x_min=4.00769, x_mean=10.9174, x_max=25.6628
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.014040
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=63.5177, x_min=4.00769, x_mean=10.9174, x_max=25.6628
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.014036
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=48.6221, x_min=4.00768, x_mean=10.9174, x_max=25.6629
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.014030
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=38.8102, x_min=4.00767, x_mean=10.9174, x_max=25.663
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.014021
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=34.0904, x_min=4.00765, x_mean=10.9174, x_max=25.6631
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.014009
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=32.7417, x_min=4.00763, x_mean=10.9174, x_max=25.6631
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.014000
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=34.134, x_min=4.00761, x_mean=10.9174, x_max=25.6632
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.013970
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=47.2678, x_min=4.00757, x_mean=10.9174, x_max=25.663
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.013963
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=42.027, x_min=4.00754, x_mean=10.9174, x_max=25.663
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.013942
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=45.1496, x_min=4.00752, x_mean=10.9174, x_max=25.6629
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.013946
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=38.0935, x_min=4.00747, x_mean=10.9174, x_max=25.6629
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.013929
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=34.3508, x_min=4.00744, x_mean=10.9174, x_max=25.6628
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.013936
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=41.5811, x_min=4.0074, x_mean=10.9174, x_max=25.6627
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.013925
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=33.1783, x_min=4.00737, x_mean=10.9174, x_max=25.6625
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.013922
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=33.5544, x_min=4.00733, x_mean=10.9174, x_max=25.6623
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.013930
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=47.9714, x_min=4.0073, x_mean=10.9174, x_max=25.6621
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.013927
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=42.1477, x_min=4.00728, x_mean=10.9174, x_max=25.6619
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.013947
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=49.1497, x_min=4.00726, x_mean=10.9174, x_max=25.6619
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.013942
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=38.6863, x_min=4.00724, x_mean=10.9174, x_max=25.6616
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.013948
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=34.4906, x_min=4.00724, x_mean=10.9174, x_max=25.6615
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.013939
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=25.8113, x_min=4.00724, x_mean=10.9174, x_max=25.6613
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.013942
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=20.8505, x_min=4.00724, x_mean=10.9174, x_max=25.6612
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.013939
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=21.4746, x_min=4.00726, x_mean=10.9174, x_max=25.6611
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.013939
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=17.1968, x_min=4.00727, x_mean=10.9174, x_max=25.6609
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.013942
+/usr/local/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+lbfgs minimizer.run(): f=-4.00019e+07, |g|=17.1637, x_min=4.00729, x_mean=10.9174, x_max=25.6609
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle  10 rmsd(b):  0.0139 rws:  1.000 n_fev: 520
+ Convergence at micro_cycle: 10
+See 7_refined.pdb in pdb folder.
+Time: 9918.2005

@@ -1,0 +1,101 @@
+Sender: LSF System <lsfadmin@cu39>
+Subject: Job 816194: <helix_1us0_xtb-gfn2> in cluster <platform> Done
+
+Job <helix_1us0_xtb-gfn2> was submitted from host <mu> by user <qr> in cluster <platform>.
+Job was executed on host(s) <24*cu39>, in queue <cpu39>, as user <qr> in cluster <platform>.
+</home/qr> was used as the home directory.
+</home/qr/benchmark/helix_1us0/helix_1us0_gfn2-xtb_offcluster> was used as the working directory.
+Started at Mon May 18 21:27:02 2020
+Results reported on Tue May 19 15:42:55 2020
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -J helix_1us0_xtb-gfn2
+#BSUB -q cpu39      # this queue just contain cu39.
+#BSUB -n 24
+#BSUB -o xtb-gfn1
+
+for i in 0.3  0.6  0.9  1.2  1.5; do
+cd $i
+
+for k in $(seq 0 9);do
+echo " -- $i.$k --"
+qr.refine $k.pdb mode=opt max_bond_rmsd=0.03 stpmax=0.2 quantum.nproc=12 parallel.nproc=2 restraints=qm clustering=false gradient_only=true use_convergence_test=true opt_log=1 engine_name=xtb quantum.method='--gfn 2 --gbsa h2o' > qm_test_$k.log 2>&1
+
+done
+
+cd ..
+done
+
+
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   461408.09 sec.
+    Max Memory :                                 632 MB
+    Average Memory :                             458.71 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   33 MB
+    Max Processes :                              7
+    Max Threads :                                19
+
+The output (if any) follows:
+
+ -- 0.3.0 --
+ -- 0.3.1 --
+ -- 0.3.2 --
+ -- 0.3.3 --
+ -- 0.3.4 --
+ -- 0.3.5 --
+ -- 0.3.6 --
+ -- 0.3.7 --
+ -- 0.3.8 --
+ -- 0.3.9 --
+ -- 0.6.0 --
+ -- 0.6.1 --
+ -- 0.6.2 --
+ -- 0.6.3 --
+ -- 0.6.4 --
+ -- 0.6.5 --
+ -- 0.6.6 --
+ -- 0.6.7 --
+ -- 0.6.8 --
+ -- 0.6.9 --
+ -- 0.9.0 --
+ -- 0.9.1 --
+ -- 0.9.2 --
+ -- 0.9.3 --
+ -- 0.9.4 --
+ -- 0.9.5 --
+ -- 0.9.6 --
+ -- 0.9.7 --
+ -- 0.9.8 --
+ -- 0.9.9 --
+ -- 1.2.0 --
+ -- 1.2.1 --
+ -- 1.2.2 --
+ -- 1.2.3 --
+ -- 1.2.4 --
+ -- 1.2.5 --
+ -- 1.2.6 --
+ -- 1.2.7 --
+ -- 1.2.8 --
+ -- 1.2.9 --
+ -- 1.5.0 --
+ -- 1.5.1 --
+ -- 1.5.2 --
+ -- 1.5.3 --
+ -- 1.5.4 --
+ -- 1.5.5 --
+ -- 1.5.6 --
+ -- 1.5.7 --
+ -- 1.5.8 --
+ -- 1.5.9 --

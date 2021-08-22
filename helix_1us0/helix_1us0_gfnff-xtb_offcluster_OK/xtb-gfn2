@@ -1,0 +1,49 @@
+Sender: LSF System <lsfadmin@cu38>
+Subject: Job 831262: <helix_1us0_xtb-gfnff> in cluster <platform> Done
+
+Job <helix_1us0_xtb-gfnff> was submitted from host <mu> by user <qr> in cluster <platform>.
+Job was executed on host(s) <24*cu38>, in queue <cpu38>, as user <qr> in cluster <platform>.
+</home/qr> was used as the home directory.
+</home/qr/benchmark/helix_1us0/helix_1us0_gfnff-xtb6.3_offcluster> was used as the working directory.
+Started at Sun Jun 21 19:23:49 2020
+Results reported on Sun Jun 21 21:45:18 2020
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -J helix_1us0_xtb-gfnff
+#BSUB -q cpu38      # this queue just contain cu39.
+#BSUB -n 24
+#BSUB -o xtb-gfn2
+
+for i in 0.3 0.6  0.9  1.2  1.5; do
+cd $i
+
+for k in $(seq 0 9);do
+qr.refine $k.pdb mode=opt max_bond_rmsd=0.03 stpmax=0.2 quantum.nproc=12 parallel.nproc=2 restraints=qm clustering=false  gradient_only=true use_convergence_test=true opt_log=1 engine_name=xtb quantum.method='--gfnff --gbsa h2o' > qm_test_$k.log 2>&1
+
+done
+
+cd ..
+done
+
+
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   37707.11 sec.
+    Max Memory :                                 556 MB
+    Average Memory :                             487.84 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Processes :                              6
+    Max Threads :                                18
+
+The output (if any) follows:
+

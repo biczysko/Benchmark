@@ -1,0 +1,119 @@
+==> qm_test_0.log <==
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78731348
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=23.5519, x_min=4.01725, x_mean=10.9101, x_max=25.9165
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle  17 rmsd(b):  0.0125 rws:  1.000 n_fev: 884
+ Convergence at micro_cycle: 17
+See 0_refined.pdb in pdb folder.
+Time: 18391.5557
+
+==> qm_test_1.log <==
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78594505
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=21.8088, x_min=3.92564, x_mean=10.9249, x_max=25.6452
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle  18 rmsd(b):  0.0123 rws:  1.000 n_fev: 936
+ Convergence at micro_cycle: 18
+See 1_refined.pdb in pdb folder.
+Time: 19615.9676
+
+==> qm_test_2.log <==
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78628704
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=21.6872, x_min=4.00862, x_mean=10.9194, x_max=25.6104
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle  29 rmsd(b):  0.0122 rws:  1.000 n_fev: 1509
+ Convergence at micro_cycle: 29
+See 2_refined.pdb in pdb folder.
+Time: 31161.1214
+
+==> qm_test_3.log <==
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.79096853
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=22.869, x_min=4.02654, x_mean=10.9181, x_max=25.6516
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle  21 rmsd(b):  0.0125 rws:  1.000 n_fev: 1092
+ Convergence at micro_cycle: 21
+See 3_refined.pdb in pdb folder.
+Time: 22456.5997
+
+==> qm_test_4.log <==
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78840227
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=27.6688, x_min=3.9651, x_mean=10.9316, x_max=25.5105
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle  34 rmsd(b):  0.0121 rws:  1.000 n_fev: 1769
+ Convergence at micro_cycle: 34
+See 4_refined.pdb in pdb folder.
+Time: 36332.0981
+
+==> qm_test_5.log <==
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77680621
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=39.7701, x_min=4.01504, x_mean=10.9256, x_max=26.207
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle  37 rmsd(b):  0.0121 rws:  1.000 n_fev: 1925
+ Convergence at micro_cycle: 37
+See 5_refined.pdb in pdb folder.
+Time: 40482.8559
+
+==> qm_test_6.log <==
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78438841
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=21.4475, x_min=3.85799, x_mean=10.9222, x_max=25.3749
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle  17 rmsd(b):  0.0124 rws:  1.000 n_fev: 884
+ Convergence at micro_cycle: 17
+See 6_refined.pdb in pdb folder.
+Time: 17790.2730
+
+==> qm_test_7.log <==
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78499557
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=17.8705, x_min=3.9798, x_mean=10.937, x_max=25.4978
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle  20 rmsd(b):  0.0121 rws:  1.000 n_fev: 1041
+ Convergence at micro_cycle: 20
+See 7_refined.pdb in pdb folder.
+Time: 20591.9125
+
+==> qm_test_8.log <==
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78644269
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=20.34, x_min=4.34095, x_mean=10.8986, x_max=26.832
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle  23 rmsd(b):  0.0128 rws:  1.000 n_fev: 1145
+ Convergence at micro_cycle: 23
+See 8_refined.pdb in pdb folder.
+Time: 23735.1447
+
+==> qm_test_9.log <==
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78714497
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=9.5255, x_min=3.96603, x_mean=10.9097, x_max=26.1982
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle  29 rmsd(b):  0.0124 rws:  1.000 n_fev: 1509
+ Convergence at micro_cycle: 29
+See 9_refined.pdb in pdb folder.
+Time: 29417.3850

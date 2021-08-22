@@ -1,0 +1,2973 @@
+Starting Q|R
+version:   v1.0-176-gc3c7dd-dirty  
+Running refinement
+   input {
+     xray_data {
+       file_name = None
+       labels = None
+       high_resolution = None
+       low_resolution = None
+       outliers_rejection = True
+       french_wilson_scale = True
+       french_wilson {
+         max_bins = 60
+         min_bin_size = 40
+       }
+       sigma_fobs_rejection_criterion = None
+       sigma_iobs_rejection_criterion = None
+       ignore_all_zeros = True
+       force_anomalous_flag_to_be_equal_to = None
+       convert_to_non_anomalous_if_ratio_pairs_lone_less_than_threshold = 0.5
+       r_free_flags {
+         file_name = None
+         label = None
+         test_flag_value = None
+         ignore_r_free_flags = False
+         disable_suitability_test = False
+         ignore_pdb_hexdigest = False
+         generate = False
+         fraction = 0.1
+         max_free = 2000
+         lattice_symmetry_max_delta = 5
+         use_lattice_symmetry = True
+         use_dataman_shells = False
+         n_shells = 20
+       }
+     }
+     pdb {
+       file_name = None
+     }
+     monomers {
+       file_name = None
+     }
+     maps {
+       map_file_name = None
+       d_min = None
+       map_coefficients_file_name = None
+       map_coefficients_label = None
+     }
+     sequence = None
+     scattering_table = wk1995 it1992 *n_gaussian neutron electron
+     wavelength = None
+     energy = None
+     twin_law = Auto
+   }
+   max_atoms = 15000
+   debug = False
+   cluster {
+     fast_interaction = False
+     charge_cutoff = 8.0
+     clustering = false
+     charge_embedding = False
+     two_buffers = False
+     maxnum_residues_in_cluster = 15
+     clustering_method = gnc *bcc
+     altloc_method = *average subtract
+     g_scan = 10 15 20
+     g_mode = None
+     save_clusters = True
+   }
+   restraints = cctbx *qm
+   quantum {
+     engine_name = mopac ani torchani terachem turbomole pyscf orca gaussian \
+                   *xtb
+     charge = None
+     basis = Auto
+     method = --gfn 2 --gbsa h2o
+     memory = None
+     nproc = 12
+     qm_addon = gcp dftd3 gcp-d3
+     qm_addon_method = None
+   }
+   refine {
+     dry_run = False
+     sf_algorithm = *direct fft
+     refinement_target_name = *ml ls_wunit_k1
+     mode = *opt refine gtest
+     number_of_macro_cycles = 1
+     number_of_weight_search_cycles = 50
+     number_of_refine_cycles = 5
+     number_of_micro_cycles = 50
+     data_weight = None
+     choose_best_use_r_work = False
+     skip_weight_search = False
+     adjust_restraints_weight_scale_value = 2
+     max_iterations_weight = 50
+     max_iterations_refine = 50
+     use_ase_lbfgs = False
+     line_search = True
+     stpmax = 0.2
+     gradient_only = true
+     update_all_scales = True
+     refine_sites = True
+     refine_adp = False
+     restraints_weight_scale = 1.0
+     shake_sites = False
+     use_convergence_test = true
+     max_bond_rmsd = 0.03
+     max_r_work_r_free_gap = 5.0
+     r_tolerance = 0.001
+     rmsd_tolerance = 0.01
+     opt_log = 1
+     pre_opt = False
+     pre_opt_stpmax = 0.1
+     pre_opt_iter = 10
+     pre_opt_switch = 2
+     pre_opt_gconv = 3000
+   }
+   parallel {
+     method = *multiprocessing slurm pbs sge lsf threading
+     nproc = 2
+     qsub_command = None
+   }
+   output_file_name_prefix = None
+   output_folder_name = "pdb"
+   shared_disk = True
+   rst_file = None
+   dump_gradients = None
+
+***********************************************************
+restart info will be stored in /home/qr/benchmark/helix_1us0/helix_1us0_gfn2-xtb_offcluster/0.6/pdb/5.rst.pickle
+***********************************************************
+
+start   0 rmsd(b):  0.0143 rws:  1.000 n_fev: 0
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.014309
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48459e+06, |g|=6218.19, x_min=4.006, x_mean=10.9236, x_max=25.8
+  step:   2 bond rmsd: 0.066257
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48118e+06, |g|=26704.4, x_min=3.97049, x_mean=10.9236, x_max=25.7874
+  step:   3 bond rmsd: 0.066257
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48118e+06, |g|=26704.4, x_min=3.97049, x_mean=10.9236, x_max=25.7874
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.055092
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48263e+06, |g|=19614.7, x_min=3.97469, x_mean=10.9236, x_max=25.7899
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.046817
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48344e+06, |g|=15973.9, x_min=3.97809, x_mean=10.9236, x_max=25.7921
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.039240
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48405e+06, |g|=12792.7, x_min=3.98107, x_mean=10.9236, x_max=25.7937
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.033105
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48447e+06, |g|=10307.4, x_min=3.98327, x_mean=10.9236, x_max=25.795
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.028413
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48474e+06, |g|=8291.49, x_min=3.98458, x_mean=10.9236, x_max=25.796
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.024795
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48491e+06, |g|=6717.59, x_min=3.98537, x_mean=10.9236, x_max=25.7969
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.021904
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48504e+06, |g|=5392.76, x_min=3.98572, x_mean=10.9236, x_max=25.7977
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.019487
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48513e+06, |g|=4303.67, x_min=3.98588, x_mean=10.9236, x_max=25.7985
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.017477
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48519e+06, |g|=3386.15, x_min=3.98592, x_mean=10.9236, x_max=25.7992
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.015816
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48524e+06, |g|=2630.1, x_min=3.9859, x_mean=10.9236, x_max=25.7998
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.014471
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48528e+06, |g|=2009.41, x_min=3.98584, x_mean=10.9236, x_max=25.8003
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.013395
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48531e+06, |g|=1512.1, x_min=3.98572, x_mean=10.9236, x_max=25.8006
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.012542
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48534e+06, |g|=1135.89, x_min=3.98553, x_mean=10.9236, x_max=25.8008
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.011891
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48537e+06, |g|=889.932, x_min=3.98525, x_mean=10.9236, x_max=25.8009
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.011423
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4854e+06, |g|=774.902, x_min=3.98485, x_mean=10.9236, x_max=25.8007
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.011181
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48543e+06, |g|=724.329, x_min=3.98429, x_mean=10.9236, x_max=25.7999
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.011043
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48546e+06, |g|=666.252, x_min=3.98354, x_mean=10.9236, x_max=25.7987
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.012244
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48549e+06, |g|=1331.07, x_min=3.98223, x_mean=10.9236, x_max=25.7917
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.011972
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48551e+06, |g|=1112.48, x_min=3.98161, x_mean=10.9236, x_max=25.7907
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.011780
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48553e+06, |g|=935.496, x_min=3.98098, x_mean=10.9236, x_max=25.7886
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.011580
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48554e+06, |g|=778.863, x_min=3.98004, x_mean=10.9236, x_max=25.7884
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.011439
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48556e+06, |g|=583.448, x_min=3.9791, x_mean=10.9236, x_max=25.785
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.011389
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48557e+06, |g|=510.476, x_min=3.97816, x_mean=10.9236, x_max=25.7832
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.011055
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48558e+06, |g|=482.129, x_min=3.9768, x_mean=10.9236, x_max=25.7785
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.011200
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4856e+06, |g|=460.16, x_min=3.97524, x_mean=10.9236, x_max=25.7753
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.010687
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48561e+06, |g|=590.879, x_min=3.97325, x_mean=10.9236, x_max=25.7699
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.010806
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48563e+06, |g|=580.307, x_min=3.97096, x_mean=10.9236, x_max=25.7648
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.010745
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48565e+06, |g|=635.818, x_min=3.96818, x_mean=10.9236, x_max=25.7605
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.010643
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48567e+06, |g|=646.409, x_min=3.96436, x_mean=10.9236, x_max=25.7505
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.010664
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48569e+06, |g|=652.169, x_min=3.96103, x_mean=10.9236, x_max=25.7459
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.010689
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48572e+06, |g|=659.202, x_min=3.95702, x_mean=10.9236, x_max=25.7369
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.010684
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48574e+06, |g|=644.908, x_min=3.95361, x_mean=10.9236, x_max=25.7318
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.010938
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48577e+06, |g|=961.715, x_min=3.9498, x_mean=10.9236, x_max=25.7248
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.010849
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48578e+06, |g|=878.581, x_min=3.94714, x_mean=10.9236, x_max=25.7209
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.011379
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48581e+06, |g|=986.988, x_min=3.9446, x_mean=10.9236, x_max=25.7174
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.011003
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48583e+06, |g|=785.615, x_min=3.94205, x_mean=10.9236, x_max=25.7137
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.011100
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48585e+06, |g|=715.622, x_min=3.94058, x_mean=10.9236, x_max=25.7131
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.010522
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48588e+06, |g|=570.904, x_min=3.93875, x_mean=10.9236, x_max=25.7096
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.010511
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4859e+06, |g|=481.669, x_min=3.93814, x_mean=10.9236, x_max=25.7114
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.010405
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48591e+06, |g|=444.914, x_min=3.93754, x_mean=10.9236, x_max=25.7109
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.009981
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48593e+06, |g|=654.511, x_min=3.9379, x_mean=10.9236, x_max=25.7146
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.010005
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48594e+06, |g|=628.949, x_min=3.93787, x_mean=10.9236, x_max=25.716
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.009229
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48596e+06, |g|=1005.51, x_min=3.93837, x_mean=10.9236, x_max=25.7164
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.009290
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48597e+06, |g|=919.241, x_min=3.93867, x_mean=10.9236, x_max=25.7191
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.009516
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48599e+06, |g|=839.685, x_min=3.93948, x_mean=10.9236, x_max=25.7213
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.009571
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.486e+06, |g|=615.599, x_min=3.94029, x_mean=10.9236, x_max=25.7271
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.009772
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48602e+06, |g|=543.636, x_min=3.94097, x_mean=10.9236, x_max=25.7312
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.009965
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48603e+06, |g|=460.104, x_min=3.94186, x_mean=10.9236, x_max=25.7365
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.010029
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48604e+06, |g|=357.896, x_min=3.94239, x_mean=10.9236, x_max=25.7396
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle   1 rmsd(b):  0.0100 rws:  1.000 n_fev: 52
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.010029
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48604e+06, |g|=357.896, x_min=3.94239, x_mean=10.9236, x_max=25.7396
+  step:   2 bond rmsd: 0.094285
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.47843e+06, |g|=41034.5, x_min=3.92717, x_mean=10.9236, x_max=25.8368
+  step:   3 bond rmsd: 0.094285
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.47843e+06, |g|=41034.5, x_min=3.92717, x_mean=10.9236, x_max=25.8368
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.076025
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48127e+06, |g|=29621.2, x_min=3.93012, x_mean=10.9236, x_max=25.8179
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.061445
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4829e+06, |g|=23899.2, x_min=3.93262, x_mean=10.9236, x_max=25.7994
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.048299
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48409e+06, |g|=18974.9, x_min=3.93487, x_mean=10.9236, x_max=25.7795
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.038822
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4848e+06, |g|=15329.9, x_min=3.93648, x_mean=10.9236, x_max=25.7644
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.032313
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48522e+06, |g|=12411.3, x_min=3.93758, x_mean=10.9236, x_max=25.7549
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.027447
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48549e+06, |g|=10146.5, x_min=3.93842, x_mean=10.9236, x_max=25.749
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.023583
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48567e+06, |g|=8215.24, x_min=3.93905, x_mean=10.9236, x_max=25.7458
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.020473
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48579e+06, |g|=6685.7, x_min=3.93958, x_mean=10.9236, x_max=25.7435
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.017969
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48588e+06, |g|=5429.08, x_min=3.94002, x_mean=10.9236, x_max=25.7421
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.015972
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48593e+06, |g|=4411.98, x_min=3.94039, x_mean=10.9236, x_max=25.741
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.014399
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48597e+06, |g|=3580.76, x_min=3.94069, x_mean=10.9236, x_max=25.7401
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.013179
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.486e+06, |g|=2902.92, x_min=3.94094, x_mean=10.9236, x_max=25.7394
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.012250
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48602e+06, |g|=2348.7, x_min=3.94115, x_mean=10.9236, x_max=25.7389
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.011555
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48603e+06, |g|=1896.11, x_min=3.94133, x_mean=10.9236, x_max=25.7385
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.011043
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48604e+06, |g|=1526.44, x_min=3.94148, x_mean=10.9236, x_max=25.7381
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.010670
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48605e+06, |g|=1224.53, x_min=3.94161, x_mean=10.9236, x_max=25.7379
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.010401
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48605e+06, |g|=977.762, x_min=3.94172, x_mean=10.9236, x_max=25.7377
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.010208
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48606e+06, |g|=775.744, x_min=3.94182, x_mean=10.9236, x_max=25.7376
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.010069
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48606e+06, |g|=609.986, x_min=3.94192, x_mean=10.9236, x_max=25.7375
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.009970
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48606e+06, |g|=473.708, x_min=3.94201, x_mean=10.9236, x_max=25.7374
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.009899
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48606e+06, |g|=361.876, x_min=3.9421, x_mean=10.9236, x_max=25.7373
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.009849
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48606e+06, |g|=271.727, x_min=3.94219, x_mean=10.9236, x_max=25.7373
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.009813
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48606e+06, |g|=204.403, x_min=3.94229, x_mean=10.9236, x_max=25.7373
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.009790
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48606e+06, |g|=167.468, x_min=3.94241, x_mean=10.9236, x_max=25.7373
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.009778
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48606e+06, |g|=169.745, x_min=3.94257, x_mean=10.9236, x_max=25.7373
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.009778
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48607e+06, |g|=203.818, x_min=3.94277, x_mean=10.9236, x_max=25.7373
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.009790
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48607e+06, |g|=250.438, x_min=3.94306, x_mean=10.9236, x_max=25.7373
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.009813
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48607e+06, |g|=292.89, x_min=3.94348, x_mean=10.9236, x_max=25.7372
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.009836
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48607e+06, |g|=320.484, x_min=3.94414, x_mean=10.9236, x_max=25.737
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.009857
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48608e+06, |g|=289.493, x_min=3.9452, x_mean=10.9236, x_max=25.7364
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.009688
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48609e+06, |g|=799.115, x_min=3.94693, x_mean=10.9236, x_max=25.7337
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.009705
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48609e+06, |g|=671.404, x_min=3.94797, x_mean=10.9236, x_max=25.7332
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.009664
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4861e+06, |g|=555.942, x_min=3.9489, x_mean=10.9236, x_max=25.7324
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.009727
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4861e+06, |g|=437.234, x_min=3.94989, x_mean=10.9236, x_max=25.7324
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.009721
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4861e+06, |g|=326.811, x_min=3.95074, x_mean=10.9236, x_max=25.7315
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.009737
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4861e+06, |g|=257.606, x_min=3.95144, x_mean=10.9236, x_max=25.7313
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.009755
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48611e+06, |g|=185.11, x_min=3.95208, x_mean=10.9236, x_max=25.7306
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.009774
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48611e+06, |g|=155.112, x_min=3.95279, x_mean=10.9236, x_max=25.7303
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.009747
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48611e+06, |g|=173.776, x_min=3.95347, x_mean=10.9236, x_max=25.7294
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.009774
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48611e+06, |g|=155.441, x_min=3.95413, x_mean=10.9236, x_max=25.7292
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.009753
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48611e+06, |g|=170.555, x_min=3.95478, x_mean=10.9236, x_max=25.7289
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.009729
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48611e+06, |g|=157.146, x_min=3.95551, x_mean=10.9236, x_max=25.7281
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.009801
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48612e+06, |g|=166.662, x_min=3.95607, x_mean=10.9236, x_max=25.7282
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.009715
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48612e+06, |g|=139.536, x_min=3.95668, x_mean=10.9236, x_max=25.7273
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.009755
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48612e+06, |g|=160.375, x_min=3.95709, x_mean=10.9236, x_max=25.7271
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.009704
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48612e+06, |g|=144.693, x_min=3.95743, x_mean=10.9236, x_max=25.7264
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.009702
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48612e+06, |g|=145.279, x_min=3.95767, x_mean=10.9236, x_max=25.7255
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.009655
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48613e+06, |g|=178.672, x_min=3.95776, x_mean=10.9236, x_max=25.7247
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.009620
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48613e+06, |g|=159.08, x_min=3.95773, x_mean=10.9236, x_max=25.7238
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle   2 rmsd(b):  0.0096 rws:  1.000 n_fev: 104
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.009620
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48613e+06, |g|=159.08, x_min=3.95773, x_mean=10.9236, x_max=25.7238
+  step:   2 bond rmsd: 0.078064
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.47905e+06, |g|=52996, x_min=3.93804, x_mean=10.9236, x_max=25.5741
+  step:   3 bond rmsd: 0.078064
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.47905e+06, |g|=52996, x_min=3.93804, x_mean=10.9236, x_max=25.5741
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.062845
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48199e+06, |g|=35668.7, x_min=3.94192, x_mean=10.9236, x_max=25.6038
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.055172
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48305e+06, |g|=29440.3, x_min=3.94392, x_mean=10.9236, x_max=25.6173
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.047254
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48394e+06, |g|=23958.2, x_min=3.94602, x_mean=10.9236, x_max=25.6306
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.040272
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48458e+06, |g|=19562.8, x_min=3.94791, x_mean=10.9236, x_max=25.6425
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.034396
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48504e+06, |g|=16024.5, x_min=3.94953, x_mean=10.9236, x_max=25.6528
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.029537
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48537e+06, |g|=13154.8, x_min=3.95088, x_mean=10.9236, x_max=25.662
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.025511
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48559e+06, |g|=10785.7, x_min=3.95197, x_mean=10.9236, x_max=25.67
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.022144
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48575e+06, |g|=8828.58, x_min=3.95285, x_mean=10.9236, x_max=25.6771
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.019331
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48587e+06, |g|=7216.7, x_min=3.95355, x_mean=10.9236, x_max=25.6833
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.017009
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48595e+06, |g|=5893.25, x_min=3.95411, x_mean=10.9236, x_max=25.6887
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.015127
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48601e+06, |g|=4808.21, x_min=3.95456, x_mean=10.9236, x_max=25.6934
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.013635
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48605e+06, |g|=3919.46, x_min=3.95491, x_mean=10.9236, x_max=25.6974
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.012480
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48608e+06, |g|=3191.9, x_min=3.95518, x_mean=10.9236, x_max=25.7008
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.011611
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48609e+06, |g|=2596.75, x_min=3.95539, x_mean=10.9236, x_max=25.7038
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.010972
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48611e+06, |g|=2110.28, x_min=3.95554, x_mean=10.9236, x_max=25.7062
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.010515
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48612e+06, |g|=1712.91, x_min=3.95566, x_mean=10.9236, x_max=25.7083
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.010195
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48612e+06, |g|=1388.43, x_min=3.95573, x_mean=10.9236, x_max=25.71
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.009976
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48613e+06, |g|=1123.47, x_min=3.95579, x_mean=10.9236, x_max=25.7114
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.009828
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48613e+06, |g|=906.964, x_min=3.95582, x_mean=10.9236, x_max=25.7127
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.009730
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48613e+06, |g|=729.839, x_min=3.95583, x_mean=10.9236, x_max=25.7137
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.009666
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48613e+06, |g|=584.643, x_min=3.95584, x_mean=10.9236, x_max=25.7145
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.009626
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48613e+06, |g|=465.309, x_min=3.95584, x_mean=10.9236, x_max=25.7152
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.009601
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48614e+06, |g|=366.929, x_min=3.95583, x_mean=10.9236, x_max=25.7158
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.009587
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48614e+06, |g|=285.622, x_min=3.95581, x_mean=10.9236, x_max=25.7163
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.009580
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48614e+06, |g|=218.506, x_min=3.95579, x_mean=10.9236, x_max=25.7167
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.009578
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48614e+06, |g|=163.978, x_min=3.95577, x_mean=10.9236, x_max=25.7171
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.009580
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48614e+06, |g|=122.691, x_min=3.95574, x_mean=10.9236, x_max=25.7175
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.009585
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48614e+06, |g|=99.4131, x_min=3.9557, x_mean=10.9236, x_max=25.7178
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.009593
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48614e+06, |g|=100.676, x_min=3.95565, x_mean=10.9236, x_max=25.7181
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.009604
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48614e+06, |g|=123.04, x_min=3.95557, x_mean=10.9236, x_max=25.7184
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.009619
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48614e+06, |g|=154.539, x_min=3.95545, x_mean=10.9236, x_max=25.7186
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.009635
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48614e+06, |g|=183.676, x_min=3.95526, x_mean=10.9236, x_max=25.7186
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.009645
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48614e+06, |g|=201.935, x_min=3.95496, x_mean=10.9236, x_max=25.7182
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.009634
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48614e+06, |g|=206.124, x_min=3.95446, x_mean=10.9236, x_max=25.7167
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.009873
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48614e+06, |g|=373.784, x_min=3.95386, x_mean=10.9236, x_max=25.7122
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.009804
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48615e+06, |g|=318.753, x_min=3.95335, x_mean=10.9236, x_max=25.7101
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.009845
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48615e+06, |g|=290.078, x_min=3.95289, x_mean=10.9236, x_max=25.7082
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.009562
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48615e+06, |g|=218.175, x_min=3.9523, x_mean=10.9236, x_max=25.7036
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.009566
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48615e+06, |g|=173.272, x_min=3.95199, x_mean=10.9236, x_max=25.7017
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.009511
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48615e+06, |g|=158.091, x_min=3.95177, x_mean=10.9236, x_max=25.6995
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.009481
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48615e+06, |g|=105.042, x_min=3.95155, x_mean=10.9236, x_max=25.6976
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.009481
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48616e+06, |g|=90.236, x_min=3.9514, x_mean=10.9236, x_max=25.6957
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.009380
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48616e+06, |g|=139.617, x_min=3.95129, x_mean=10.9236, x_max=25.6938
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.009387
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48616e+06, |g|=131.18, x_min=3.9512, x_mean=10.9236, x_max=25.692
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.009295
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48616e+06, |g|=146.217, x_min=3.95114, x_mean=10.9236, x_max=25.6893
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.009387
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48616e+06, |g|=125.862, x_min=3.95109, x_mean=10.9236, x_max=25.6864
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.009308
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48616e+06, |g|=138.38, x_min=3.95112, x_mean=10.9236, x_max=25.6832
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.009358
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48616e+06, |g|=137.412, x_min=3.95123, x_mean=10.9236, x_max=25.6792
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.009421
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48616e+06, |g|=156.962, x_min=3.95144, x_mean=10.9236, x_max=25.6749
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle   3 rmsd(b):  0.0094 rws:  1.000 n_fev: 156
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.009421
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48616e+06, |g|=156.962, x_min=3.95144, x_mean=10.9236, x_max=25.6749
+  step:   2 bond rmsd: 0.083393
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48096e+06, |g|=26165, x_min=3.9629, x_mean=10.9236, x_max=25.8272
+  step:   3 bond rmsd: 0.083393
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48096e+06, |g|=26165, x_min=3.9629, x_mean=10.9236, x_max=25.8272
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.067070
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48276e+06, |g|=20581.8, x_min=3.96066, x_mean=10.9236, x_max=25.7974
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.049192
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48426e+06, |g|=16073.8, x_min=3.95808, x_mean=10.9236, x_max=25.7593
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.036607
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4851e+06, |g|=12492.7, x_min=3.95619, x_mean=10.9236, x_max=25.7309
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.029113
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48551e+06, |g|=9949.19, x_min=3.95509, x_mean=10.9236, x_max=25.7151
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.024031
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48574e+06, |g|=8015.53, x_min=3.9544, x_mean=10.9236, x_max=25.7054
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.020211
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48589e+06, |g|=6482.2, x_min=3.95393, x_mean=10.9236, x_max=25.6986
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.017216
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48598e+06, |g|=5226.17, x_min=3.95362, x_mean=10.9236, x_max=25.694
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.014912
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48605e+06, |g|=4221.74, x_min=3.95341, x_mean=10.9236, x_max=25.6905
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.013163
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48609e+06, |g|=3409.9, x_min=3.95327, x_mean=10.9236, x_max=25.6878
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.011873
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48612e+06, |g|=2754.09, x_min=3.95317, x_mean=10.9236, x_max=25.6858
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.010950
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48613e+06, |g|=2223.54, x_min=3.9531, x_mean=10.9236, x_max=25.6842
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.010312
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48615e+06, |g|=1794.44, x_min=3.95306, x_mean=10.9236, x_max=25.683
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.009884
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48615e+06, |g|=1447.36, x_min=3.95302, x_mean=10.9236, x_max=25.682
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.009608
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48616e+06, |g|=1166.64, x_min=3.953, x_mean=10.9236, x_max=25.6813
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.009437
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48616e+06, |g|=939.43, x_min=3.95299, x_mean=10.9236, x_max=25.6807
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.009335
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48617e+06, |g|=755.304, x_min=3.95298, x_mean=10.9236, x_max=25.6802
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.009279
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48617e+06, |g|=605.769, x_min=3.95297, x_mean=10.9236, x_max=25.6799
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.009252
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48617e+06, |g|=483.944, x_min=3.95297, x_mean=10.9236, x_max=25.6796
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.009244
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48617e+06, |g|=384.292, x_min=3.95297, x_mean=10.9236, x_max=25.6794
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.009247
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48617e+06, |g|=302.41, x_min=3.95297, x_mean=10.9236, x_max=25.6792
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.009257
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48617e+06, |g|=234.902, x_min=3.95297, x_mean=10.9236, x_max=25.679
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.009272
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48617e+06, |g|=179.405, x_min=3.95298, x_mean=10.9236, x_max=25.6789
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.009291
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48617e+06, |g|=134.94, x_min=3.95298, x_mean=10.9236, x_max=25.6787
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.009313
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48617e+06, |g|=102.949, x_min=3.95299, x_mean=10.9236, x_max=25.6786
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.009338
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48617e+06, |g|=88.4293, x_min=3.953, x_mean=10.9236, x_max=25.6785
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.009368
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48617e+06, |g|=95.2781, x_min=3.95301, x_mean=10.9236, x_max=25.6784
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.009404
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48617e+06, |g|=117.876, x_min=3.95304, x_mean=10.9236, x_max=25.6783
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.009446
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48617e+06, |g|=146.354, x_min=3.95308, x_mean=10.9236, x_max=25.6782
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.009488
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48617e+06, |g|=171.809, x_min=3.95316, x_mean=10.9236, x_max=25.6781
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.009520
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48618e+06, |g|=185.14, x_min=3.95333, x_mean=10.9236, x_max=25.6781
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.009500
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48618e+06, |g|=159.135, x_min=3.95381, x_mean=10.9236, x_max=25.6785
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.009773
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48618e+06, |g|=451.941, x_min=3.95461, x_mean=10.9236, x_max=25.6793
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.009682
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48618e+06, |g|=361.711, x_min=3.95507, x_mean=10.9236, x_max=25.6796
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.009629
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48618e+06, |g|=294.246, x_min=3.9555, x_mean=10.9236, x_max=25.6799
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.009532
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48618e+06, |g|=230.665, x_min=3.95595, x_mean=10.9236, x_max=25.68
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.009515
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48619e+06, |g|=172.344, x_min=3.95633, x_mean=10.9236, x_max=25.6803
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.009448
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48619e+06, |g|=136.054, x_min=3.95668, x_mean=10.9236, x_max=25.6802
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.009442
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48619e+06, |g|=97.1457, x_min=3.957, x_mean=10.9236, x_max=25.6804
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.009410
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48619e+06, |g|=81.6273, x_min=3.95731, x_mean=10.9236, x_max=25.6803
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.009394
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48619e+06, |g|=83.6808, x_min=3.9576, x_mean=10.9236, x_max=25.6803
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.009377
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48619e+06, |g|=91.6941, x_min=3.95802, x_mean=10.9236, x_max=25.6798
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.009350
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48619e+06, |g|=90.903, x_min=3.95842, x_mean=10.9236, x_max=25.6795
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.009343
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48619e+06, |g|=101.369, x_min=3.9588, x_mean=10.9236, x_max=25.6789
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.009313
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48619e+06, |g|=134.068, x_min=3.95926, x_mean=10.9236, x_max=25.678
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.009306
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48619e+06, |g|=132.497, x_min=3.95958, x_mean=10.9236, x_max=25.6772
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.009304
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48619e+06, |g|=292.013, x_min=3.95998, x_mean=10.9236, x_max=25.6748
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.009296
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48619e+06, |g|=262.209, x_min=3.96019, x_mean=10.9236, x_max=25.6738
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.009299
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48619e+06, |g|=239.217, x_min=3.96032, x_mean=10.9236, x_max=25.6719
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.009262
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4862e+06, |g|=183.516, x_min=3.96038, x_mean=10.9236, x_max=25.6691
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle   4 rmsd(b):  0.0093 rws:  1.000 n_fev: 208
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.009262
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4862e+06, |g|=183.516, x_min=3.96038, x_mean=10.9236, x_max=25.6691
+  step:   2 bond rmsd: 0.078228
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.47803e+06, |g|=75528, x_min=3.94415, x_mean=10.9236, x_max=25.6466
+  step:   3 bond rmsd: 0.078228
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.47803e+06, |g|=75528, x_min=3.94415, x_mean=10.9236, x_max=25.6466
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.063021
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48171e+06, |g|=45675.7, x_min=3.94737, x_mean=10.9236, x_max=25.6511
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.057265
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48266e+06, |g|=38302.4, x_min=3.94861, x_mean=10.9236, x_max=25.6529
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.050452
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48357e+06, |g|=31251.8, x_min=3.9501, x_mean=10.9236, x_max=25.6551
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.044020
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48427e+06, |g|=25596.6, x_min=3.95154, x_mean=10.9236, x_max=25.6573
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.038278
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4848e+06, |g|=21028.5, x_min=3.95286, x_mean=10.9236, x_max=25.6592
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.033409
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48518e+06, |g|=17337.8, x_min=3.95401, x_mean=10.9236, x_max=25.6609
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.029377
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48546e+06, |g|=14310.6, x_min=3.95496, x_mean=10.9236, x_max=25.6622
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.025998
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48566e+06, |g|=11796.4, x_min=3.95573, x_mean=10.9236, x_max=25.6632
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.023103
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48581e+06, |g|=9701.19, x_min=3.95635, x_mean=10.9236, x_max=25.664
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.020595
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48592e+06, |g|=7960.01, x_min=3.95684, x_mean=10.9236, x_max=25.6646
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.018425
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.486e+06, |g|=6518.77, x_min=3.95725, x_mean=10.9236, x_max=25.6651
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.016570
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48606e+06, |g|=5329.69, x_min=3.95758, x_mean=10.9236, x_max=25.6656
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.015009
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4861e+06, |g|=4350.76, x_min=3.95784, x_mean=10.9236, x_max=25.6659
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.013723
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48613e+06, |g|=3546.34, x_min=3.95806, x_mean=10.9236, x_max=25.6662
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.012684
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48615e+06, |g|=2886.54, x_min=3.95823, x_mean=10.9236, x_max=25.6664
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.011861
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48617e+06, |g|=2346.33, x_min=3.95837, x_mean=10.9236, x_max=25.6666
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.011221
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48618e+06, |g|=1904.7, x_min=3.95847, x_mean=10.9236, x_max=25.6667
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.010732
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48619e+06, |g|=1544.11, x_min=3.95854, x_mean=10.9236, x_max=25.6668
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.010361
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48619e+06, |g|=1249.95, x_min=3.9586, x_mean=10.9236, x_max=25.6668
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.010083
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48619e+06, |g|=1010.08, x_min=3.95863, x_mean=10.9236, x_max=25.6669
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.009876
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4862e+06, |g|=814.447, x_min=3.95865, x_mean=10.9236, x_max=25.6669
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.009722
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4862e+06, |g|=654.719, x_min=3.95865, x_mean=10.9236, x_max=25.6669
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.009606
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4862e+06, |g|=524.04, x_min=3.95865, x_mean=10.9236, x_max=25.6668
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.009520
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4862e+06, |g|=416.781, x_min=3.95863, x_mean=10.9236, x_max=25.6668
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.009454
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4862e+06, |g|=328.385, x_min=3.95862, x_mean=10.9236, x_max=25.6668
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.009404
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4862e+06, |g|=255.259, x_min=3.95859, x_mean=10.9236, x_max=25.6667
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.009365
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4862e+06, |g|=194.833, x_min=3.95856, x_mean=10.9236, x_max=25.6667
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.009334
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4862e+06, |g|=145.891, x_min=3.95852, x_mean=10.9236, x_max=25.6666
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.009310
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4862e+06, |g|=109.853, x_min=3.95847, x_mean=10.9236, x_max=25.6665
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.009291
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4862e+06, |g|=92.4548, x_min=3.95841, x_mean=10.9236, x_max=25.6663
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.009277
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4862e+06, |g|=99.2525, x_min=3.95832, x_mean=10.9236, x_max=25.6662
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.009269
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4862e+06, |g|=124.216, x_min=3.95819, x_mean=10.9236, x_max=25.6659
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.009270
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4862e+06, |g|=154.793, x_min=3.95799, x_mean=10.9236, x_max=25.6655
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.009282
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4862e+06, |g|=177.685, x_min=3.95769, x_mean=10.9236, x_max=25.6649
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.009297
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=179.495, x_min=3.9572, x_mean=10.9236, x_max=25.6638
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.009293
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=175.571, x_min=3.95635, x_mean=10.9236, x_max=25.6619
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.009372
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=355.601, x_min=3.95501, x_mean=10.9236, x_max=25.6587
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.009349
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=286.861, x_min=3.95451, x_mean=10.9236, x_max=25.6575
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.009315
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=238.516, x_min=3.95407, x_mean=10.9236, x_max=25.6565
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.009339
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=182.117, x_min=3.95367, x_mean=10.9236, x_max=25.6554
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.009315
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=140.403, x_min=3.95333, x_mean=10.9236, x_max=25.6546
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.009306
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=113.88, x_min=3.95307, x_mean=10.9236, x_max=25.6539
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.009301
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=84.5395, x_min=3.95284, x_mean=10.9236, x_max=25.6533
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.009278
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=63.5678, x_min=3.95257, x_mean=10.9236, x_max=25.6526
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.009293
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=60.0147, x_min=3.9523, x_mean=10.9236, x_max=25.6519
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.009244
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=57.0579, x_min=3.95203, x_mean=10.9236, x_max=25.6511
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.009251
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=60.2174, x_min=3.95176, x_mean=10.9236, x_max=25.6504
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.009190
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=93.4419, x_min=3.95139, x_mean=10.9236, x_max=25.6493
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.009187
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=87.2862, x_min=3.95109, x_mean=10.9236, x_max=25.6485
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle   5 rmsd(b):  0.0092 rws:  1.000 n_fev: 260
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.009187
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=87.2862, x_min=3.95109, x_mean=10.9236, x_max=25.6485
+  step:   2 bond rmsd: 0.084216
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.47581e+06, |g|=80719.7, x_min=3.95285, x_mean=10.9236, x_max=25.6799
+  step:   3 bond rmsd: 0.025188
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4858e+06, |g|=9204.85, x_min=3.95155, x_mean=10.9236, x_max=25.6567
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.021330
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48596e+06, |g|=7028.66, x_min=3.95146, x_mean=10.9236, x_max=25.6551
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.018864
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48604e+06, |g|=5723.06, x_min=3.9514, x_mean=10.9236, x_max=25.6539
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.016789
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48609e+06, |g|=4642.06, x_min=3.95135, x_mean=10.9236, x_max=25.6528
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.015106
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48613e+06, |g|=3762.48, x_min=3.95131, x_mean=10.9236, x_max=25.652
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.013762
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48616e+06, |g|=3047.33, x_min=3.95128, x_mean=10.9236, x_max=25.6513
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.012705
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48618e+06, |g|=2466.61, x_min=3.95125, x_mean=10.9236, x_max=25.6508
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.011885
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48619e+06, |g|=1995.57, x_min=3.95123, x_mean=10.9236, x_max=25.6504
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.011255
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4862e+06, |g|=1614, x_min=3.95121, x_mean=10.9236, x_max=25.65
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.010776
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4862e+06, |g|=1305.23, x_min=3.9512, x_mean=10.9236, x_max=25.6498
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.010413
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=1055.53, x_min=3.95119, x_mean=10.9236, x_max=25.6496
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.010139
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=853.644, x_min=3.95118, x_mean=10.9236, x_max=25.6494
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.009932
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=690.346, x_min=3.95118, x_mean=10.9236, x_max=25.6493
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.009774
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=558.123, x_min=3.95117, x_mean=10.9236, x_max=25.6492
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.009654
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=450.855, x_min=3.95117, x_mean=10.9236, x_max=25.6491
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.009561
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=363.571, x_min=3.95117, x_mean=10.9236, x_max=25.649
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.009489
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=292.245, x_min=3.95117, x_mean=10.9236, x_max=25.649
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.009432
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48622e+06, |g|=233.635, x_min=3.95117, x_mean=10.9236, x_max=25.649
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.009386
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48622e+06, |g|=185.155, x_min=3.95117, x_mean=10.9236, x_max=25.6489
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.009348
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48622e+06, |g|=144.793, x_min=3.95118, x_mean=10.9236, x_max=25.6489
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.009317
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48622e+06, |g|=111.09, x_min=3.95118, x_mean=10.9236, x_max=25.6489
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.009290
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48622e+06, |g|=83.3028, x_min=3.95118, x_mean=10.9236, x_max=25.6489
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.009266
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48622e+06, |g|=62.0644, x_min=3.95118, x_mean=10.9236, x_max=25.6489
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.009243
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48622e+06, |g|=50.9664, x_min=3.95119, x_mean=10.9236, x_max=25.6488
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.009221
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48622e+06, |g|=55.5012, x_min=3.95119, x_mean=10.9236, x_max=25.6488
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.009199
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48622e+06, |g|=74.9543, x_min=3.9512, x_mean=10.9236, x_max=25.6488
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.009175
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48622e+06, |g|=104.733, x_min=3.95121, x_mean=10.9236, x_max=25.6488
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.009150
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48622e+06, |g|=141.956, x_min=3.95123, x_mean=10.9236, x_max=25.6489
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.009126
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48622e+06, |g|=182.954, x_min=3.95127, x_mean=10.9236, x_max=25.6489
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.009111
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48622e+06, |g|=217.775, x_min=3.95132, x_mean=10.9236, x_max=25.649
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.009119
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48622e+06, |g|=215.858, x_min=3.95139, x_mean=10.9236, x_max=25.6492
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.009193
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48622e+06, |g|=98.9588, x_min=3.95139, x_mean=10.9236, x_max=25.649
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.009206
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48622e+06, |g|=92.1712, x_min=3.95143, x_mean=10.9236, x_max=25.6491
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.009104
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48622e+06, |g|=178.315, x_min=3.95136, x_mean=10.9236, x_max=25.6487
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.009123
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48622e+06, |g|=163.296, x_min=3.9513, x_mean=10.9236, x_max=25.6484
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.009060
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48622e+06, |g|=194.496, x_min=3.9509, x_mean=10.9236, x_max=25.6477
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.009069
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48622e+06, |g|=168.009, x_min=3.95061, x_mean=10.9236, x_max=25.6467
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.009239
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48623e+06, |g|=176.477, x_min=3.95017, x_mean=10.9236, x_max=25.6456
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.009214
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48623e+06, |g|=134.553, x_min=3.94961, x_mean=10.9236, x_max=25.6436
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.009299
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48623e+06, |g|=133.253, x_min=3.94904, x_mean=10.9236, x_max=25.6419
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.009224
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48623e+06, |g|=129.74, x_min=3.94835, x_mean=10.9236, x_max=25.639
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.009289
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48623e+06, |g|=118.1, x_min=3.9478, x_mean=10.9236, x_max=25.637
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.009224
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48623e+06, |g|=146.283, x_min=3.9471, x_mean=10.9236, x_max=25.6342
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.009268
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48623e+06, |g|=125.914, x_min=3.94652, x_mean=10.9236, x_max=25.6319
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.009299
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48623e+06, |g|=118.33, x_min=3.94605, x_mean=10.9236, x_max=25.6298
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.009129
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48623e+06, |g|=225.22, x_min=3.94535, x_mean=10.9236, x_max=25.6262
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.009168
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=196.774, x_min=3.94498, x_mean=10.9236, x_max=25.6245
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.009128
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=189.765, x_min=3.94463, x_mean=10.9236, x_max=25.6223
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.009224
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=130.892, x_min=3.9442, x_mean=10.9236, x_max=25.6203
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.009224
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=104.892, x_min=3.94391, x_mean=10.9236, x_max=25.6185
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle   6 rmsd(b):  0.0092 rws:  1.000 n_fev: 312
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.009224
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=104.892, x_min=3.94391, x_mean=10.9236, x_max=25.6185
+  step:   2 bond rmsd: 0.104452
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4765e+06, |g|=46298.6, x_min=3.94578, x_mean=10.9236, x_max=25.7018
+  step:   3 bond rmsd: 0.056045
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4837e+06, |g|=19846.4, x_min=3.94489, x_mean=10.9236, x_max=25.6622
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.045588
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48462e+06, |g|=15451.9, x_min=3.9447, x_mean=10.9236, x_max=25.6535
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.037022
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48521e+06, |g|=12406.5, x_min=3.94454, x_mean=10.9236, x_max=25.6442
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.030301
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48558e+06, |g|=9916.77, x_min=3.94442, x_mean=10.9236, x_max=25.6366
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.025298
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48582e+06, |g|=7973.46, x_min=3.94434, x_mean=10.9236, x_max=25.6314
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.021500
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48596e+06, |g|=6419.52, x_min=3.94429, x_mean=10.9236, x_max=25.6278
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.018573
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48606e+06, |g|=5176.59, x_min=3.94425, x_mean=10.9236, x_max=25.6253
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.016302
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48612e+06, |g|=4171.66, x_min=3.94422, x_mean=10.9236, x_max=25.6236
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.014554
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48616e+06, |g|=3363.71, x_min=3.9442, x_mean=10.9236, x_max=25.6223
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.013217
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48619e+06, |g|=2712.14, x_min=3.94418, x_mean=10.9236, x_max=25.6213
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.012205
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=2186.85, x_min=3.94416, x_mean=10.9236, x_max=25.6205
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.011445
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48622e+06, |g|=1763.33, x_min=3.94414, x_mean=10.9236, x_max=25.6199
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.010879
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48623e+06, |g|=1421.95, x_min=3.94412, x_mean=10.9236, x_max=25.6194
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.010458
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48623e+06, |g|=1146.72, x_min=3.94411, x_mean=10.9236, x_max=25.6191
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.010146
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48623e+06, |g|=924.812, x_min=3.94409, x_mean=10.9236, x_max=25.6188
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.009914
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=745.766, x_min=3.94408, x_mean=10.9236, x_max=25.6186
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.009741
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=601.144, x_min=3.94407, x_mean=10.9236, x_max=25.6184
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.009610
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=484.128, x_min=3.94405, x_mean=10.9236, x_max=25.6183
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.009512
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=389.205, x_min=3.94404, x_mean=10.9236, x_max=25.6181
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.009436
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=311.898, x_min=3.94403, x_mean=10.9236, x_max=25.6181
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.009377
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=248.789, x_min=3.94403, x_mean=10.9236, x_max=25.618
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.009331
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=196.806, x_min=3.94402, x_mean=10.9236, x_max=25.6179
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.009295
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=153.909, x_min=3.94401, x_mean=10.9236, x_max=25.6179
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.009265
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=118.385, x_min=3.944, x_mean=10.9236, x_max=25.6178
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.009241
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=89.273, x_min=3.94399, x_mean=10.9236, x_max=25.6178
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.009221
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=66.7296, x_min=3.94399, x_mean=10.9236, x_max=25.6177
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.009203
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=53.0549, x_min=3.94398, x_mean=10.9236, x_max=25.6177
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.009189
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=52.2536, x_min=3.94397, x_mean=10.9236, x_max=25.6177
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.009177
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=63.8744, x_min=3.94395, x_mean=10.9236, x_max=25.6176
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.009168
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=81.9279, x_min=3.94393, x_mean=10.9236, x_max=25.6176
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.009166
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=99.5753, x_min=3.94391, x_mean=10.9236, x_max=25.6175
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.009172
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=107.663, x_min=3.94387, x_mean=10.9236, x_max=25.6174
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.009164
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=95.7688, x_min=3.94383, x_mean=10.9236, x_max=25.617
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.009270
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=82.6095, x_min=3.94373, x_mean=10.9236, x_max=25.6167
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.009246
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=66.5986, x_min=3.94368, x_mean=10.9236, x_max=25.6162
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.009264
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=103.775, x_min=3.94362, x_mean=10.9236, x_max=25.6156
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.009246
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=81.3841, x_min=3.94359, x_mean=10.9236, x_max=25.6154
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.009215
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=71.0572, x_min=3.94356, x_mean=10.9236, x_max=25.615
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.009211
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=50.3367, x_min=3.94352, x_mean=10.9236, x_max=25.6149
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.009192
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=39.7446, x_min=3.9435, x_mean=10.9236, x_max=25.6147
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.009190
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=35.3861, x_min=3.94348, x_mean=10.9236, x_max=25.6146
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.009156
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=27.1364, x_min=3.94345, x_mean=10.9236, x_max=25.6143
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.009152
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=24.643, x_min=3.94343, x_mean=10.9236, x_max=25.6142
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.009137
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=39.4738, x_min=3.9434, x_mean=10.9236, x_max=25.6141
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.009130
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=38.514, x_min=3.94337, x_mean=10.9236, x_max=25.6139
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.009166
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=53.632, x_min=3.94332, x_mean=10.9236, x_max=25.6139
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.009159
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=48.3625, x_min=3.94328, x_mean=10.9236, x_max=25.6138
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.009174
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=54.0568, x_min=3.94323, x_mean=10.9236, x_max=25.6139
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.009170
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=46.6994, x_min=3.94316, x_mean=10.9236, x_max=25.6138
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.009167
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=65.7664, x_min=3.94306, x_mean=10.9236, x_max=25.614
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle   7 rmsd(b):  0.0092 rws:  1.000 n_fev: 364
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.009167
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=65.7664, x_min=3.94306, x_mean=10.9236, x_max=25.614
+  step:   2 bond rmsd: 0.075564
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.47701e+06, |g|=85962.9, x_min=3.94054, x_mean=10.9236, x_max=25.4636
+  step:   3 bond rmsd: 0.014367
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48611e+06, |g|=4952.79, x_min=3.94265, x_mean=10.9236, x_max=25.5896
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.012577
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48616e+06, |g|=3858.33, x_min=3.94273, x_mean=10.9236, x_max=25.5944
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.011401
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48619e+06, |g|=3117.88, x_min=3.94279, x_mean=10.9236, x_max=25.5976
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.010559
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=2514.49, x_min=3.94284, x_mean=10.9236, x_max=25.6003
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.009982
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48622e+06, |g|=2026.55, x_min=3.94288, x_mean=10.9236, x_max=25.6026
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.009601
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48623e+06, |g|=1632.17, x_min=3.94291, x_mean=10.9236, x_max=25.6045
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.009359
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48623e+06, |g|=1313.74, x_min=3.94293, x_mean=10.9236, x_max=25.6061
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.009212
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=1056.86, x_min=3.94295, x_mean=10.9236, x_max=25.6075
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.009129
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=849.89, x_min=3.94297, x_mean=10.9236, x_max=25.6086
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.009085
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=683.263, x_min=3.94298, x_mean=10.9236, x_max=25.6096
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.009067
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=549.202, x_min=3.94298, x_mean=10.9236, x_max=25.6103
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.009063
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=441.383, x_min=3.94299, x_mean=10.9236, x_max=25.611
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.009067
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=354.667, x_min=3.94299, x_mean=10.9236, x_max=25.6115
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.009075
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=284.907, x_min=3.94299, x_mean=10.9236, x_max=25.612
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.009084
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=228.733, x_min=3.94299, x_mean=10.9236, x_max=25.6123
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.009094
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=183.428, x_min=3.94299, x_mean=10.9236, x_max=25.6126
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.009104
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=146.795, x_min=3.94299, x_mean=10.9236, x_max=25.6129
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.009112
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=117.062, x_min=3.94299, x_mean=10.9236, x_max=25.6131
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.009120
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=92.8024, x_min=3.94299, x_mean=10.9236, x_max=25.6133
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.009127
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=72.8764, x_min=3.94298, x_mean=10.9236, x_max=25.6134
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.009134
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=56.3982, x_min=3.94298, x_mean=10.9236, x_max=25.6135
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.009139
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=42.7465, x_min=3.94298, x_mean=10.9236, x_max=25.6137
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.009145
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=31.6973, x_min=3.94297, x_mean=10.9236, x_max=25.6138
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.009150
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=23.8791, x_min=3.94297, x_mean=10.9236, x_max=25.6139
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.009155
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=21.4521, x_min=3.94296, x_mean=10.9236, x_max=25.614
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.009162
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=26.1402, x_min=3.94295, x_mean=10.9236, x_max=25.6141
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.009169
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=36.3469, x_min=3.94293, x_mean=10.9236, x_max=25.6143
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.009177
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=50.1195, x_min=3.9429, x_mean=10.9236, x_max=25.6145
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.009187
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=65.9072, x_min=3.94286, x_mean=10.9236, x_max=25.6148
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.009198
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=80.4925, x_min=3.94279, x_mean=10.9236, x_max=25.6152
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.009205
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=84.5114, x_min=3.94269, x_mean=10.9236, x_max=25.6157
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.009162
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=15.5744, x_min=3.94255, x_mean=10.9236, x_max=25.6153
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.009161
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=15.4878, x_min=3.94246, x_mean=10.9236, x_max=25.6156
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.009170
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=20.5572, x_min=3.94235, x_mean=10.9236, x_max=25.6159
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.009155
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=23.3534, x_min=3.94221, x_mean=10.9236, x_max=25.6162
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.009169
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=27.236, x_min=3.94205, x_mean=10.9236, x_max=25.6164
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.009163
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=22.3545, x_min=3.94196, x_mean=10.9236, x_max=25.6166
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.009155
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=32.0049, x_min=3.94184, x_mean=10.9236, x_max=25.6167
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.009153
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=27.3195, x_min=3.94173, x_mean=10.9236, x_max=25.6169
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.009124
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=36.4538, x_min=3.94159, x_mean=10.9236, x_max=25.6171
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.009123
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=32.6476, x_min=3.94145, x_mean=10.9236, x_max=25.6174
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.009123
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=34.3002, x_min=3.94125, x_mean=10.9236, x_max=25.6177
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.009128
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=32.5104, x_min=3.94091, x_mean=10.9236, x_max=25.6181
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.009112
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=34.3691, x_min=3.94053, x_mean=10.9236, x_max=25.6187
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.009129
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=32.8307, x_min=3.94007, x_mean=10.9236, x_max=25.6191
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.009130
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=45.1776, x_min=3.93955, x_mean=10.9236, x_max=25.6197
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.009125
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=37.5914, x_min=3.93893, x_mean=10.9236, x_max=25.6201
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.009181
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=73.3458, x_min=3.93812, x_mean=10.9236, x_max=25.6208
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.009180
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=67.7958, x_min=3.93758, x_mean=10.9236, x_max=25.6211
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.009219
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=86.6274, x_min=3.93677, x_mean=10.9236, x_max=25.6214
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle   8 rmsd(b):  0.0092 rws:  1.000 n_fev: 416
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.009219
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=86.6274, x_min=3.93677, x_mean=10.9236, x_max=25.6214
+  step:   2 bond rmsd: 0.115456
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.46937e+06, |g|=95096.6, x_min=3.93072, x_mean=10.9236, x_max=25.437
+  step:   3 bond rmsd: 0.019532
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48588e+06, |g|=7628.05, x_min=3.93572, x_mean=10.9236, x_max=25.5894
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.016002
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48601e+06, |g|=6021.1, x_min=3.93593, x_mean=10.9236, x_max=25.5957
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.013458
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4861e+06, |g|=4839.07, x_min=3.93609, x_mean=10.9236, x_max=25.5999
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.011653
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48615e+06, |g|=3883.98, x_min=3.93622, x_mean=10.9236, x_max=25.6036
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.010420
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48618e+06, |g|=3118.86, x_min=3.93632, x_mean=10.9236, x_max=25.6066
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.009624
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=2504.42, x_min=3.9364, x_mean=10.9236, x_max=25.6091
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.009145
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48622e+06, |g|=2010.94, x_min=3.93646, x_mean=10.9236, x_max=25.6112
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.008881
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48623e+06, |g|=1614.46, x_min=3.93651, x_mean=10.9236, x_max=25.6129
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.008757
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=1296.13, x_min=3.93655, x_mean=10.9236, x_max=25.6144
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.008718
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=1040.56, x_min=3.93657, x_mean=10.9236, x_max=25.6155
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.008726
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=835.418, x_min=3.93659, x_mean=10.9236, x_max=25.6165
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.008760
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=670.757, x_min=3.9366, x_mean=10.9236, x_max=25.6172
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.008803
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=538.572, x_min=3.93661, x_mean=10.9236, x_max=25.6178
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.008850
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=432.417, x_min=3.93661, x_mean=10.9236, x_max=25.6183
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.008894
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=347.101, x_min=3.93661, x_mean=10.9236, x_max=25.6188
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.008934
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=278.445, x_min=3.9366, x_mean=10.9236, x_max=25.6191
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.008970
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=223.086, x_min=3.9366, x_mean=10.9236, x_max=25.6193
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.009001
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=178.316, x_min=3.93659, x_mean=10.9236, x_max=25.6195
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.009027
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=141.957, x_min=3.93658, x_mean=10.9236, x_max=25.6197
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.009050
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=112.263, x_min=3.93657, x_mean=10.9236, x_max=25.6198
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.009070
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=87.8491, x_min=3.93656, x_mean=10.9236, x_max=25.62
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.009087
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=67.6562, x_min=3.93655, x_mean=10.9236, x_max=25.6201
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.009103
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=50.9898, x_min=3.93653, x_mean=10.9236, x_max=25.6201
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.009117
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=37.7491, x_min=3.93652, x_mean=10.9236, x_max=25.6202
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.009131
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=29.1168, x_min=3.9365, x_mean=10.9236, x_max=25.6203
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.009145
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=28.0006, x_min=3.93647, x_mean=10.9236, x_max=25.6203
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.009160
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=35.4033, x_min=3.93644, x_mean=10.9236, x_max=25.6203
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.009176
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=48.5303, x_min=3.93638, x_mean=10.9236, x_max=25.6204
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.009194
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=64.5387, x_min=3.93629, x_mean=10.9236, x_max=25.6204
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.009212
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=79.871, x_min=3.93616, x_mean=10.9236, x_max=25.6203
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.009221
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=85.9667, x_min=3.93595, x_mean=10.9236, x_max=25.6201
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.009169
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=39.0792, x_min=3.93566, x_mean=10.9236, x_max=25.6194
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.009157
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=30.2046, x_min=3.93546, x_mean=10.9236, x_max=25.619
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.009162
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=32.7552, x_min=3.93525, x_mean=10.9236, x_max=25.6188
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.009146
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=42.308, x_min=3.93495, x_mean=10.9236, x_max=25.6183
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.009143
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=32.9434, x_min=3.93482, x_mean=10.9236, x_max=25.6182
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.009147
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=28.681, x_min=3.93471, x_mean=10.9236, x_max=25.6181
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.009127
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=21.6866, x_min=3.93458, x_mean=10.9236, x_max=25.6179
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.009130
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=17.6823, x_min=3.9345, x_mean=10.9236, x_max=25.6179
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.009128
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=16.5344, x_min=3.93442, x_mean=10.9236, x_max=25.6178
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.009136
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=12.2068, x_min=3.93431, x_mean=10.9236, x_max=25.6178
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.009136
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=11.5797, x_min=3.93421, x_mean=10.9236, x_max=25.6177
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.009148
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=30.2134, x_min=3.93408, x_mean=10.9236, x_max=25.6179
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.009149
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=29.4794, x_min=3.934, x_mean=10.9236, x_max=25.6178
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.009141
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=30.8447, x_min=3.93382, x_mean=10.9236, x_max=25.6178
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.009145
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=26.2826, x_min=3.93361, x_mean=10.9236, x_max=25.6178
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.009136
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=29.3348, x_min=3.93334, x_mean=10.9236, x_max=25.6178
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.009140
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=24.6792, x_min=3.93298, x_mean=10.9236, x_max=25.6179
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.009131
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=36.7953, x_min=3.93259, x_mean=10.9236, x_max=25.6178
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.009133
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=36.1174, x_min=3.9322, x_mean=10.9236, x_max=25.6179
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle   9 rmsd(b):  0.0091 rws:  1.000 n_fev: 468
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.009133
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=36.1174, x_min=3.9322, x_mean=10.9236, x_max=25.6179
+  step:   2 bond rmsd: 0.095970
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.47998e+06, |g|=35022.9, x_min=3.92635, x_mean=10.9236, x_max=25.7905
+  step:   3 bond rmsd: 0.014449
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48617e+06, |g|=3299.66, x_min=3.93159, x_mean=10.9236, x_max=25.6359
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.012988
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4862e+06, |g|=2664.57, x_min=3.93171, x_mean=10.9236, x_max=25.6323
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.011860
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48622e+06, |g|=2123.12, x_min=3.93181, x_mean=10.9236, x_max=25.6291
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.011068
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48623e+06, |g|=1693.16, x_min=3.93189, x_mean=10.9236, x_max=25.6266
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.010518
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=1352.05, x_min=3.93194, x_mean=10.9236, x_max=25.6247
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.010133
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=1080.72, x_min=3.93199, x_mean=10.9236, x_max=25.6233
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.009863
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=864.518, x_min=3.93202, x_mean=10.9236, x_max=25.6222
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.009672
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=692.028, x_min=3.93205, x_mean=10.9236, x_max=25.6213
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.009535
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=554.292, x_min=3.93207, x_mean=10.9236, x_max=25.6206
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.009437
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=444.223, x_min=3.93208, x_mean=10.9236, x_max=25.6201
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.009366
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=356.204, x_min=3.93209, x_mean=10.9236, x_max=25.6197
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.009313
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=285.767, x_min=3.9321, x_mean=10.9236, x_max=25.6194
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.009274
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=229.353, x_min=3.93211, x_mean=10.9236, x_max=25.6191
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.009245
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=184.123, x_min=3.93211, x_mean=10.9236, x_max=25.6189
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.009223
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=147.807, x_min=3.93211, x_mean=10.9236, x_max=25.6188
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.009206
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=118.589, x_min=3.93211, x_mean=10.9236, x_max=25.6186
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.009192
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=95.0163, x_min=3.93211, x_mean=10.9236, x_max=25.6186
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.009182
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=75.9241, x_min=3.93211, x_mean=10.9236, x_max=25.6185
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.009174
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=60.38, x_min=3.93211, x_mean=10.9236, x_max=25.6184
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.009167
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=47.6408, x_min=3.9321, x_mean=10.9236, x_max=25.6184
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.009162
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=37.1245, x_min=3.9321, x_mean=10.9236, x_max=25.6183
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.009157
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=28.4025, x_min=3.93209, x_mean=10.9236, x_max=25.6183
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.009153
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=21.2416, x_min=3.93209, x_mean=10.9236, x_max=25.6183
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.009149
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=15.7788, x_min=3.93208, x_mean=10.9236, x_max=25.6183
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.009146
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=12.9361, x_min=3.93208, x_mean=10.9236, x_max=25.6182
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.009142
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=14.1088, x_min=3.93207, x_mean=10.9236, x_max=25.6182
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.009139
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=19.0046, x_min=3.93205, x_mean=10.9236, x_max=25.6182
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.009135
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=26.279, x_min=3.93203, x_mean=10.9236, x_max=25.6182
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.009131
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=34.8706, x_min=3.93199, x_mean=10.9236, x_max=25.6183
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.009127
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=43.0798, x_min=3.93192, x_mean=10.9236, x_max=25.6184
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.009125
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=46.3104, x_min=3.93182, x_mean=10.9236, x_max=25.6186
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.009134
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=19.2146, x_min=3.93166, x_mean=10.9236, x_max=25.6188
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.009135
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=14.3396, x_min=3.93155, x_mean=10.9236, x_max=25.619
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.009132
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=15.5028, x_min=3.93142, x_mean=10.9236, x_max=25.6191
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.009172
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=78.4103, x_min=3.93114, x_mean=10.9236, x_max=25.6202
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.009166
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=66.0795, x_min=3.93104, x_mean=10.9236, x_max=25.6202
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.009161
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=54.9517, x_min=3.93093, x_mean=10.9236, x_max=25.6202
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.009156
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=44.3609, x_min=3.93082, x_mean=10.9236, x_max=25.6202
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.009152
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=34.3272, x_min=3.9307, x_mean=10.9236, x_max=25.6202
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.009148
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=26.002, x_min=3.93056, x_mean=10.9236, x_max=25.6203
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.009143
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=16.789, x_min=3.93044, x_mean=10.9236, x_max=25.6203
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.009140
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=13.3927, x_min=3.9303, x_mean=10.9236, x_max=25.6203
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.009136
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=14.0952, x_min=3.93014, x_mean=10.9236, x_max=25.6204
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.009136
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=19.0797, x_min=3.92997, x_mean=10.9236, x_max=25.6205
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.009132
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=20.2071, x_min=3.92978, x_mean=10.9236, x_max=25.6205
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.009156
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=22.1956, x_min=3.92952, x_mean=10.9236, x_max=25.6208
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.009152
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=20.1846, x_min=3.92925, x_mean=10.9236, x_max=25.6209
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.009176
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=66.9318, x_min=3.92876, x_mean=10.9236, x_max=25.621
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.009174
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=60.3579, x_min=3.92848, x_mean=10.9236, x_max=25.6212
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.009166
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=52.7184, x_min=3.92808, x_mean=10.9236, x_max=25.6214
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle  10 rmsd(b):  0.0092 rws:  1.000 n_fev: 520
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.009166
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=52.7184, x_min=3.92808, x_mean=10.9236, x_max=25.6214
+  step:   2 bond rmsd: 0.119279
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.47816e+06, |g|=27198.3, x_min=3.92183, x_mean=10.9236, x_max=25.7627
+  step:   3 bond rmsd: 0.024444
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48581e+06, |g|=7331.94, x_min=3.92683, x_mean=10.9236, x_max=25.6497
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.020018
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48597e+06, |g|=6024.66, x_min=3.92707, x_mean=10.9236, x_max=25.6441
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.016091
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48608e+06, |g|=4749.86, x_min=3.9273, x_mean=10.9236, x_max=25.6384
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.013426
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48615e+06, |g|=3752.89, x_min=3.92747, x_mean=10.9236, x_max=25.6342
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.011671
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48619e+06, |g|=2977.07, x_min=3.9276, x_mean=10.9236, x_max=25.6312
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.010539
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=2367.72, x_min=3.9277, x_mean=10.9236, x_max=25.629
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.009833
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48622e+06, |g|=1886.5, x_min=3.92777, x_mean=10.9236, x_max=25.6273
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.009412
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48623e+06, |g|=1505.05, x_min=3.92783, x_mean=10.9236, x_max=25.626
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.009172
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=1201.92, x_min=3.92788, x_mean=10.9236, x_max=25.625
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.009046
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=960.611, x_min=3.92791, x_mean=10.9236, x_max=25.6242
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.008987
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=768.248, x_min=3.92794, x_mean=10.9236, x_max=25.6236
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.008967
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=614.747, x_min=3.92796, x_mean=10.9236, x_max=25.6232
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.008969
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=492.15, x_min=3.92797, x_mean=10.9236, x_max=25.6228
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.008982
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=394.162, x_min=3.92798, x_mean=10.9236, x_max=25.6225
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.008999
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=315.782, x_min=3.92799, x_mean=10.9236, x_max=25.6223
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.009017
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=253.032, x_min=3.92799, x_mean=10.9236, x_max=25.6221
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.009035
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=202.743, x_min=3.92799, x_mean=10.9236, x_max=25.6219
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.009052
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=162.381, x_min=3.92799, x_mean=10.9236, x_max=25.6218
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.009066
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=129.924, x_min=3.92799, x_mean=10.9236, x_max=25.6217
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.009079
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=103.749, x_min=3.92799, x_mean=10.9236, x_max=25.6217
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.009090
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=82.5587, x_min=3.92798, x_mean=10.9236, x_max=25.6216
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.009099
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=65.3134, x_min=3.92798, x_mean=10.9236, x_max=25.6216
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.009107
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=51.1867, x_min=3.92797, x_mean=10.9236, x_max=25.6215
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.009115
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=39.5378, x_min=3.92796, x_mean=10.9236, x_max=25.6215
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.009121
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=29.9182, x_min=3.92796, x_mean=10.9236, x_max=25.6215
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.009127
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=22.1618, x_min=3.92795, x_mean=10.9236, x_max=25.6215
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.009133
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=16.6949, x_min=3.92794, x_mean=10.9236, x_max=25.6214
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.009139
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=14.966, x_min=3.92793, x_mean=10.9236, x_max=25.6214
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.009146
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=18.0524, x_min=3.92791, x_mean=10.9236, x_max=25.6214
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.009153
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=24.7197, x_min=3.92788, x_mean=10.9236, x_max=25.6214
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.009162
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=33.3746, x_min=3.92784, x_mean=10.9236, x_max=25.6213
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.009173
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=42.4661, x_min=3.92777, x_mean=10.9236, x_max=25.6213
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.009182
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=48.8608, x_min=3.92766, x_mean=10.9236, x_max=25.6213
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.009182
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=43.5073, x_min=3.9275, x_mean=10.9236, x_max=25.6212
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.009172
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=43.0443, x_min=3.92733, x_mean=10.9236, x_max=25.621
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.009149
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=30.6181, x_min=3.92708, x_mean=10.9236, x_max=25.621
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.009146
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=26.1167, x_min=3.92698, x_mean=10.9236, x_max=25.6209
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.009144
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=21.9835, x_min=3.92687, x_mean=10.9236, x_max=25.6208
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.009152
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=20.126, x_min=3.92673, x_mean=10.9236, x_max=25.6207
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.009149
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=15.5093, x_min=3.92663, x_mean=10.9236, x_max=25.6207
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.009148
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=14.2461, x_min=3.92653, x_mean=10.9236, x_max=25.6206
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.009141
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=11.8613, x_min=3.92641, x_mean=10.9236, x_max=25.6205
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.009140
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=10.533, x_min=3.9263, x_mean=10.9236, x_max=25.6205
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.009134
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=18.7878, x_min=3.92617, x_mean=10.9236, x_max=25.6204
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.009134
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=18.6822, x_min=3.92605, x_mean=10.9236, x_max=25.6204
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.009132
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=21.3829, x_min=3.92585, x_mean=10.9236, x_max=25.6205
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.009131
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=18.8598, x_min=3.92564, x_mean=10.9236, x_max=25.6205
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.009141
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=18.7093, x_min=3.92538, x_mean=10.9236, x_max=25.6206
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.009119
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=19.249, x_min=3.92485, x_mean=10.9236, x_max=25.6208
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.009132
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=17.157, x_min=3.92442, x_mean=10.9236, x_max=25.6209
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle  11 rmsd(b):  0.0091 rws:  1.000 n_fev: 572
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.009132
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=17.157, x_min=3.92442, x_mean=10.9236, x_max=25.6209
+  step:   2 bond rmsd: 0.074573
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48055e+06, |g|=34737.6, x_min=3.90949, x_mean=10.9236, x_max=25.6549
+  step:   3 bond rmsd: 0.009848
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=582.843, x_min=3.92406, x_mean=10.9236, x_max=25.6218
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.009694
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=470.49, x_min=3.92413, x_mean=10.9236, x_max=25.6216
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.009578
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=380.577, x_min=3.92417, x_mean=10.9236, x_max=25.6215
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.009488
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=308.189, x_min=3.92421, x_mean=10.9236, x_max=25.6214
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.009418
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=249.817, x_min=3.92423, x_mean=10.9236, x_max=25.6214
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.009364
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=202.627, x_min=3.92425, x_mean=10.9236, x_max=25.6214
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.009320
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=164.361, x_min=3.92426, x_mean=10.9236, x_max=25.6214
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.009286
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=133.214, x_min=3.92427, x_mean=10.9236, x_max=25.6214
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.009259
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=107.756, x_min=3.92427, x_mean=10.9236, x_max=25.6214
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.009236
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=86.8453, x_min=3.92427, x_mean=10.9236, x_max=25.6214
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.009218
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=69.5796, x_min=3.92427, x_mean=10.9236, x_max=25.6214
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.009203
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=55.2581, x_min=3.92427, x_mean=10.9236, x_max=25.6214
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.009190
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=43.3406, x_min=3.92427, x_mean=10.9236, x_max=25.6214
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.009179
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=33.4163, x_min=3.92427, x_mean=10.9236, x_max=25.6214
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.009170
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=25.1997, x_min=3.92427, x_mean=10.9236, x_max=25.6214
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.009162
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=18.5557, x_min=3.92427, x_mean=10.9236, x_max=25.6214
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.009154
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=13.6739, x_min=3.92426, x_mean=10.9236, x_max=25.6214
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.009147
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=11.4308, x_min=3.92426, x_mean=10.9236, x_max=25.6214
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.009139
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=12.8396, x_min=3.92425, x_mean=10.9236, x_max=25.6214
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.009131
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=17.225, x_min=3.92424, x_mean=10.9236, x_max=25.6215
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.009121
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=23.2097, x_min=3.92422, x_mean=10.9236, x_max=25.6215
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.009111
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=29.5782, x_min=3.9242, x_mean=10.9236, x_max=25.6215
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.009102
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=34.4496, x_min=3.92415, x_mean=10.9236, x_max=25.6216
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.009100
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=33.8326, x_min=3.92406, x_mean=10.9236, x_max=25.6218
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.009123
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=32.4804, x_min=3.92382, x_mean=10.9236, x_max=25.6224
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.009137
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=18.3159, x_min=3.92368, x_mean=10.9236, x_max=25.6227
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.009140
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=12.2187, x_min=3.9236, x_mean=10.9236, x_max=25.6228
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.009140
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=19.3385, x_min=3.92349, x_mean=10.9236, x_max=25.6231
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.009144
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=10.3739, x_min=3.92339, x_mean=10.9236, x_max=25.6232
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.009143
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=9.89587, x_min=3.92333, x_mean=10.9236, x_max=25.6233
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.009159
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=28.1357, x_min=3.92323, x_mean=10.9236, x_max=25.6234
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.009156
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=25.3112, x_min=3.92317, x_mean=10.9236, x_max=25.6235
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.009152
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=22.4309, x_min=3.9231, x_mean=10.9236, x_max=25.6236
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.009150
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=20.1411, x_min=3.92294, x_mean=10.9236, x_max=25.6238
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.009142
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=16.6577, x_min=3.92276, x_mean=10.9236, x_max=25.6239
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.009143
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=19.7012, x_min=3.92251, x_mean=10.9236, x_max=25.6242
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.009125
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=22.1725, x_min=3.92213, x_mean=10.9236, x_max=25.6245
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.009124
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=24.7192, x_min=3.92169, x_mean=10.9236, x_max=25.6249
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.009090
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=71.6673, x_min=3.92099, x_mean=10.9236, x_max=25.6253
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.009092
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=67.8975, x_min=3.92054, x_mean=10.9236, x_max=25.6257
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.009110
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=64.1831, x_min=3.91979, x_mean=10.9236, x_max=25.6263
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.009116
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=51.4518, x_min=3.9189, x_mean=10.9236, x_max=25.6271
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.009132
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=46.7557, x_min=3.91799, x_mean=10.9236, x_max=25.6279
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.009139
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=42.1046, x_min=3.91645, x_mean=10.9236, x_max=25.6289
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.009157
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=34.4259, x_min=3.91527, x_mean=10.9236, x_max=25.6299
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.009165
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=37.889, x_min=3.9137, x_mean=10.9236, x_max=25.631
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.009324
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=245.672, x_min=3.91037, x_mean=10.9236, x_max=25.6342
+  step:  50 bond rmsd: 0.009324
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=245.672, x_min=3.91037, x_mean=10.9236, x_max=25.6342
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.009307
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=213.203, x_min=3.90925, x_mean=10.9236, x_max=25.6349
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.009288
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=180.01, x_min=3.90807, x_mean=10.9236, x_max=25.6356
+lbfgs minimizer step
+  step:  53 bond rmsd: 0.009266
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=145.757, x_min=3.90694, x_mean=10.9236, x_max=25.6362
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle  12 rmsd(b):  0.0093 rws:  1.000 n_fev: 625
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.009266
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=145.757, x_min=3.90694, x_mean=10.9236, x_max=25.6362
+  step:   2 bond rmsd: 0.076961
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48041e+06, |g|=47510, x_min=3.90773, x_mean=10.9236, x_max=25.5071
+  step:   3 bond rmsd: 0.076961
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48041e+06, |g|=47510, x_min=3.90773, x_mean=10.9236, x_max=25.5071
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.061497
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48274e+06, |g|=31483.7, x_min=3.90758, x_mean=10.9236, x_max=25.5328
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.052278
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48368e+06, |g|=25660.3, x_min=3.90748, x_mean=10.9236, x_max=25.5441
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.041839
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48453e+06, |g|=20530.4, x_min=3.90737, x_mean=10.9236, x_max=25.5552
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.032805
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48513e+06, |g|=16503.2, x_min=3.9073, x_mean=10.9236, x_max=25.5648
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.026414
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.4855e+06, |g|=13438.6, x_min=3.90728, x_mean=10.9236, x_max=25.5729
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.022201
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48573e+06, |g|=11092.5, x_min=3.90731, x_mean=10.9236, x_max=25.5799
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.019130
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48588e+06, |g|=9100.3, x_min=3.90737, x_mean=10.9236, x_max=25.5867
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.016604
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48599e+06, |g|=7442.8, x_min=3.90746, x_mean=10.9236, x_max=25.593
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.014478
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48607e+06, |g|=6060.09, x_min=3.90755, x_mean=10.9236, x_max=25.5988
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.012739
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48613e+06, |g|=4925.3, x_min=3.90765, x_mean=10.9236, x_max=25.6039
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.011382
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48617e+06, |g|=3996.66, x_min=3.90774, x_mean=10.9236, x_max=25.6083
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.010377
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48619e+06, |g|=3238.66, x_min=3.90783, x_mean=10.9236, x_max=25.6123
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.009676
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48621e+06, |g|=2620.54, x_min=3.90789, x_mean=10.9236, x_max=25.6157
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.009219
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48623e+06, |g|=2117.15, x_min=3.90794, x_mean=10.9236, x_max=25.6187
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.008945
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48623e+06, |g|=1707.89, x_min=3.90797, x_mean=10.9236, x_max=25.6213
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.008799
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=1375.79, x_min=3.90797, x_mean=10.9236, x_max=25.6235
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.008739
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48624e+06, |g|=1106.79, x_min=3.90797, x_mean=10.9236, x_max=25.6254
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.008731
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=889.27, x_min=3.90794, x_mean=10.9236, x_max=25.627
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.008753
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=713.641, x_min=3.90791, x_mean=10.9236, x_max=25.6284
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.008790
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=572.015, x_min=3.90787, x_mean=10.9236, x_max=25.6295
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.008834
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=457.905, x_min=3.90782, x_mean=10.9236, x_max=25.6305
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.008878
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=366.026, x_min=3.90776, x_mean=10.9236, x_max=25.6313
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.008919
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=292.055, x_min=3.90771, x_mean=10.9236, x_max=25.632
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.008957
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=232.477, x_min=3.90766, x_mean=10.9236, x_max=25.6325
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.008990
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=184.438, x_min=3.9076, x_mean=10.9236, x_max=25.633
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.009019
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=145.625, x_min=3.90754, x_mean=10.9236, x_max=25.6334
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.009044
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=114.173, x_min=3.90749, x_mean=10.9236, x_max=25.6338
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.009066
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=88.5936, x_min=3.90743, x_mean=10.9236, x_max=25.6341
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.009085
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=67.7356, x_min=3.90738, x_mean=10.9236, x_max=25.6343
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.009102
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=50.8055, x_min=3.90732, x_mean=10.9236, x_max=25.6346
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.009117
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=37.5177, x_min=3.90725, x_mean=10.9236, x_max=25.6348
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.009132
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=28.4875, x_min=3.90718, x_mean=10.9236, x_max=25.635
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.009147
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=25.3676, x_min=3.90708, x_mean=10.9236, x_max=25.6352
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.009161
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=28.4673, x_min=3.90697, x_mean=10.9236, x_max=25.6355
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.009176
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=34.8869, x_min=3.90681, x_mean=10.9236, x_max=25.6357
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.009188
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=41.3006, x_min=3.9066, x_mean=10.9236, x_max=25.636
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.009197
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=45.7053, x_min=3.90633, x_mean=10.9236, x_max=25.6362
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.009196
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=41.9666, x_min=3.90606, x_mean=10.9236, x_max=25.6363
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.009232
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=133.925, x_min=3.90589, x_mean=10.9236, x_max=25.6364
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.009214
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=109.603, x_min=3.90571, x_mean=10.9236, x_max=25.6363
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.009201
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=89.606, x_min=3.90561, x_mean=10.9236, x_max=25.6361
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.009187
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=72.0739, x_min=3.90556, x_mean=10.9236, x_max=25.6359
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.009179
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=57.531, x_min=3.90554, x_mean=10.9236, x_max=25.6357
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.009167
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=45.1768, x_min=3.90553, x_mean=10.9236, x_max=25.6355
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.009162
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=33.4686, x_min=3.90554, x_mean=10.9236, x_max=25.6354
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.009156
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=25.2029, x_min=3.90555, x_mean=10.9236, x_max=25.6353
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.009153
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=19.7571, x_min=3.90556, x_mean=10.9236, x_max=25.6352
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.009150
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=15.128, x_min=3.90557, x_mean=10.9236, x_max=25.6352
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.009148
+Running:  /usr/local/XTB//bin/xtb  xtb_tmp.xyz --chrg 0 --grad --gfn 2 --gbsa h2o --parallel 12 > xtb.out
+lbfgs minimizer.run(): f=-2.48625e+06, |g|=12.5454, x_min=3.90558, x_mean=10.9236, x_max=25.6352
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle  13 rmsd(b):  0.0091 rws:  1.000 n_fev: 677
+ Convergence at micro_cycle: 13
+See 5_refined.pdb in pdb folder.
+Time: 386.2376

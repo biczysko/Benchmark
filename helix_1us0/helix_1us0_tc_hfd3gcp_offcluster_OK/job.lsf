@@ -1,0 +1,15 @@
+#!/bin/bash
+#BSUB -J helix_1us0_hfd3gcp
+#BSUB -q gpu      # this queue just contain cu39.
+#BSUB -n 4
+#BSUB -o out
+
+cd 0.6
+
+for k in $(seq 4 5);do
+qr.refine $k.pdb mode=opt max_bond_rmsd=0.03 stpmax=0.2 restraints=qm clustering=false gradient_only=true use_convergence_test=true opt_log=1 engine_name=terachem basis=6-31g quantum.qm_addon=gcp-d3 quantum.qm_addon_method="hf/631g+hf -bj"  > qm_test_$k.log 2>&1
+
+done
+
+
+

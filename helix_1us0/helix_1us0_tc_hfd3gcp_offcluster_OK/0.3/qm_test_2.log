@@ -1,0 +1,4442 @@
+Starting Q|R
+version:   v1.0-204-g31c685  
+Running refinement
+   input {
+     xray_data {
+       file_name = None
+       labels = None
+       high_resolution = None
+       low_resolution = None
+       outliers_rejection = True
+       french_wilson_scale = True
+       french_wilson {
+         max_bins = 60
+         min_bin_size = 40
+       }
+       sigma_fobs_rejection_criterion = None
+       sigma_iobs_rejection_criterion = None
+       ignore_all_zeros = True
+       force_anomalous_flag_to_be_equal_to = None
+       convert_to_non_anomalous_if_ratio_pairs_lone_less_than_threshold = 0.5
+       r_free_flags {
+         file_name = None
+         label = None
+         test_flag_value = None
+         ignore_r_free_flags = False
+         disable_suitability_test = False
+         ignore_pdb_hexdigest = False
+         generate = False
+         fraction = 0.1
+         max_free = 2000
+         lattice_symmetry_max_delta = 5
+         use_lattice_symmetry = True
+         use_dataman_shells = False
+         n_shells = 20
+       }
+     }
+     pdb {
+       file_name = None
+     }
+     monomers {
+       file_name = None
+     }
+     maps {
+       map_file_name = None
+       d_min = None
+       map_coefficients_file_name = None
+       map_coefficients_label = None
+     }
+     sequence = None
+     scattering_table = wk1995 it1992 *n_gaussian neutron electron
+     wavelength = None
+     energy = None
+     twin_law = Auto
+   }
+   max_atoms = 15000
+   debug = False
+   cluster {
+     fast_interaction = True
+     charge_cutoff = 8.0
+     clustering = false
+     charge_embedding = False
+     two_buffers = False
+     maxnum_residues_in_cluster = 15
+     clustering_method = gnc *bcc
+     altloc_method = average *subtract
+     g_scan = 10 15 20
+     g_mode = None
+     save_clusters = True
+   }
+   restraints = cctbx *qm
+   expansion = False
+   quantum {
+     engine_name = mopac ani torchani *terachem turbomole pyscf orca gaussian \
+                   xtb
+     basis = 6-31g
+     charge = None
+     method = Auto
+     memory = None
+     nproc = None
+     qm_addon = gcp dftd3 *gcp-d3
+     qm_addon_method = hf/631g+hf -bj
+   }
+   refine {
+     dry_run = False
+     sf_algorithm = *direct fft
+     refinement_target_name = *ml ls_wunit_k1
+     mode = *opt refine gtest
+     number_of_macro_cycles = 1
+     number_of_weight_search_cycles = 50
+     number_of_refine_cycles = 5
+     number_of_micro_cycles = 50
+     data_weight = None
+     choose_best_use_r_work = False
+     skip_weight_search = False
+     adjust_restraints_weight_scale_value = 2
+     max_iterations_weight = 50
+     max_iterations_refine = 50
+     use_ase_lbfgs = False
+     line_search = True
+     stpmax = 0.2
+     gradient_only = true
+     update_all_scales = True
+     refine_sites = True
+     refine_adp = False
+     restraints_weight_scale = 1.0
+     shake_sites = False
+     use_convergence_test = true
+     max_bond_rmsd = 0.03
+     max_r_work_r_free_gap = 5.0
+     r_tolerance = 0.001
+     rmsd_tolerance = 0.01
+     opt_log = 1
+     pre_opt = False
+     pre_opt_stpmax = 0.1
+     pre_opt_iter = 10
+     pre_opt_switch = 2
+     pre_opt_gconv = 3000
+   }
+   parallel {
+     method = *multiprocessing slurm pbs sge lsf threading
+     nproc = None
+     qsub_command = None
+   }
+   output_file_name_prefix = None
+   output_folder_name = "pdb"
+   rst_file = None
+   dump_gradients = None
+
+Setting QM defaults
+  Setting QM method to HF
+
+
+***********************************************************
+restart info will be stored in /home/qr/benchmark/helix_1us0/helix_1us0_tc_hfd3gcp_offcluster/0.3/pdb/2.rst.pickle
+***********************************************************
+
+start   0 rmsd(b):  0.0145 rws:  1.000 n_fev: 0
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.014543
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.220769603
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7665539
+lbfgs minimizer.run(): f=-3.99959e+07, |g|=9854.53, x_min=3.83, x_mean=10.9042, x_max=25.696
+  step:   2 bond rmsd: 0.065566
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2234698009
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.76966905
+lbfgs minimizer.run(): f=-3.99932e+07, |g|=21347, x_min=3.83742, x_mean=10.9042, x_max=25.874
+  step:   3 bond rmsd: 0.065566
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2234698009
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.76966905
+lbfgs minimizer.run(): f=-3.99932e+07, |g|=21347, x_min=3.83742, x_mean=10.9042, x_max=25.874
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.056553
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2230725355
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.76949146
+lbfgs minimizer.run(): f=-3.99944e+07, |g|=17341.2, x_min=3.83696, x_mean=10.9042, x_max=25.8556
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.044094
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.222908097
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.76939169
+lbfgs minimizer.run(): f=-3.99955e+07, |g|=13880.3, x_min=3.83646, x_mean=10.9042, x_max=25.8271
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.033468
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2229321254
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.76957391
+lbfgs minimizer.run(): f=-3.99963e+07, |g|=10628.6, x_min=3.8362, x_mean=10.9042, x_max=25.7971
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.026946
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2230379836
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.76995271
+lbfgs minimizer.run(): f=-3.99967e+07, |g|=8281.26, x_min=3.83629, x_mean=10.9042, x_max=25.7792
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.022792
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2231473184
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77039282
+lbfgs minimizer.run(): f=-3.99969e+07, |g|=6535.98, x_min=3.83651, x_mean=10.9042, x_max=25.7706
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.019616
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2232504321
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77085736
+lbfgs minimizer.run(): f=-3.99971e+07, |g|=5135.43, x_min=3.83674, x_mean=10.9042, x_max=25.7661
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.017123
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2233414813
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77132592
+lbfgs minimizer.run(): f=-3.99972e+07, |g|=3975.6, x_min=3.83697, x_mean=10.9042, x_max=25.7642
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.015053
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2234328775
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77178651
+lbfgs minimizer.run(): f=-3.99973e+07, |g|=3030.95, x_min=3.8372, x_mean=10.9042, x_max=25.7636
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.013394
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2235235655
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77224432
+lbfgs minimizer.run(): f=-3.99974e+07, |g|=2278.59, x_min=3.83743, x_mean=10.9042, x_max=25.7642
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.012092
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.223622025
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77271443
+lbfgs minimizer.run(): f=-3.99974e+07, |g|=1724.39, x_min=3.83767, x_mean=10.9042, x_max=25.7658
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.011138
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2237339332
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77321868
+lbfgs minimizer.run(): f=-3.99975e+07, |g|=1377.05, x_min=3.83795, x_mean=10.9042, x_max=25.7685
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.010547
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2238653604
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77376596
+lbfgs minimizer.run(): f=-3.99976e+07, |g|=1198.76, x_min=3.83828, x_mean=10.9042, x_max=25.7725
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.010319
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2240172381
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77432272
+lbfgs minimizer.run(): f=-3.99976e+07, |g|=1063.86, x_min=3.83868, x_mean=10.9042, x_max=25.778
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.010556
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2241197096
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7747183
+lbfgs minimizer.run(): f=-3.99977e+07, |g|=1121.52, x_min=3.8392, x_mean=10.9042, x_max=25.7843
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.010371
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2242696502
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77524361
+lbfgs minimizer.run(): f=-3.99978e+07, |g|=769.243, x_min=3.83972, x_mean=10.9042, x_max=25.7897
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.010385
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2243934838
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7756152
+lbfgs minimizer.run(): f=-3.99978e+07, |g|=793.768, x_min=3.84013, x_mean=10.9042, x_max=25.7956
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.010542
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2244940774
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77601006
+lbfgs minimizer.run(): f=-3.99978e+07, |g|=725.386, x_min=3.84059, x_mean=10.9042, x_max=25.7977
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.010650
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2245730306
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77627324
+lbfgs minimizer.run(): f=-3.99979e+07, |g|=634.562, x_min=3.841, x_mean=10.9042, x_max=25.8014
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.010375
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2246827096
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77653944
+lbfgs minimizer.run(): f=-3.99979e+07, |g|=822.629, x_min=3.84139, x_mean=10.9042, x_max=25.8014
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.010738
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2247498686
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77683411
+lbfgs minimizer.run(): f=-3.99979e+07, |g|=704.317, x_min=3.84175, x_mean=10.9042, x_max=25.8049
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.010479
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2248169692
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77709282
+lbfgs minimizer.run(): f=-3.99979e+07, |g|=781.011, x_min=3.84215, x_mean=10.9042, x_max=25.8053
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.010993
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2248816487
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77738343
+lbfgs minimizer.run(): f=-3.9998e+07, |g|=748.808, x_min=3.84253, x_mean=10.9042, x_max=25.8079
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.010823
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.224925516
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77764973
+lbfgs minimizer.run(): f=-3.9998e+07, |g|=746.539, x_min=3.84261, x_mean=10.9042, x_max=25.8077
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.011238
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2249225833
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77793201
+lbfgs minimizer.run(): f=-3.9998e+07, |g|=745.969, x_min=3.84254, x_mean=10.9042, x_max=25.8085
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.011344
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2249521235
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77812144
+lbfgs minimizer.run(): f=-3.99981e+07, |g|=716.482, x_min=3.84243, x_mean=10.9042, x_max=25.8076
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.011338
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2249261321
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7783542
+lbfgs minimizer.run(): f=-3.99981e+07, |g|=713.872, x_min=3.84176, x_mean=10.9042, x_max=25.8065
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.011640
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2248985923
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77852802
+lbfgs minimizer.run(): f=-3.99981e+07, |g|=628.042, x_min=3.84073, x_mean=10.9042, x_max=25.8049
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.011531
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2249158152
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77862325
+lbfgs minimizer.run(): f=-3.99981e+07, |g|=644.89, x_min=3.83967, x_mean=10.9042, x_max=25.8036
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.011625
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2248840979
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77874425
+lbfgs minimizer.run(): f=-3.99982e+07, |g|=531.662, x_min=3.83814, x_mean=10.9042, x_max=25.8011
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.011998
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2248557078
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77884635
+lbfgs minimizer.run(): f=-3.99982e+07, |g|=578.651, x_min=3.83583, x_mean=10.9042, x_max=25.8012
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.011922
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2248368916
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77891178
+lbfgs minimizer.run(): f=-3.99982e+07, |g|=459.597, x_min=3.83383, x_mean=10.9042, x_max=25.7988
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.012195
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2248214601
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77896427
+lbfgs minimizer.run(): f=-3.99982e+07, |g|=501.22, x_min=3.8318, x_mean=10.9042, x_max=25.7991
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.012019
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2248119374
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77900918
+lbfgs minimizer.run(): f=-3.99982e+07, |g|=404.209, x_min=3.8289, x_mean=10.9042, x_max=25.7965
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.012182
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.224788485
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77906076
+lbfgs minimizer.run(): f=-3.99982e+07, |g|=382.125, x_min=3.82616, x_mean=10.9042, x_max=25.7965
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.012050
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2247901641
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77908456
+lbfgs minimizer.run(): f=-3.99982e+07, |g|=397.729, x_min=3.82315, x_mean=10.9042, x_max=25.795
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.012077
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2247890167
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77911461
+lbfgs minimizer.run(): f=-3.99982e+07, |g|=352.566, x_min=3.82005, x_mean=10.9042, x_max=25.7949
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.012123
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2247746564
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77916657
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=386.475, x_min=3.81617, x_mean=10.9042, x_max=25.7948
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.012080
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2247835203
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77919073
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=358.843, x_min=3.81234, x_mean=10.9042, x_max=25.7947
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.012133
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2247995626
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77921991
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=352.411, x_min=3.80849, x_mean=10.9042, x_max=25.7954
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.012010
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2248131604
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77924958
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=355.681, x_min=3.80415, x_mean=10.9042, x_max=25.7953
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.012206
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2248273944
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7792767
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=352.486, x_min=3.80008, x_mean=10.9042, x_max=25.7968
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.011988
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2248631249
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77929059
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=352.618, x_min=3.79589, x_mean=10.9042, x_max=25.7963
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.012083
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2248872051
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77930322
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=347.969, x_min=3.79201, x_mean=10.9042, x_max=25.798
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.012030
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2249176923
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77930463
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=345.007, x_min=3.7881, x_mean=10.9042, x_max=25.7977
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.012067
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2249460733
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77930322
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=331.922, x_min=3.7848, x_mean=10.9042, x_max=25.7988
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.011985
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.224977997
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77928108
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=333.059, x_min=3.78157, x_mean=10.9042, x_max=25.7988
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.012144
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2250064246
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77924666
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=351.3, x_min=3.77835, x_mean=10.9042, x_max=25.7992
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.012084
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2250277965
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77921204
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=311.651, x_min=3.7759, x_mean=10.9042, x_max=25.7991
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.012105
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.225052395
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77915358
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=362.281, x_min=3.77336, x_mean=10.9042, x_max=25.7985
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle   1 rmsd(b):  0.0121 rws:  1.000 n_fev: 52
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.012105
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.225052395
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77915358
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=362.281, x_min=3.77336, x_mean=10.9042, x_max=25.7985
+  step:   2 bond rmsd: 0.096895
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2252514142
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7781069
+lbfgs minimizer.run(): f=-3.9986e+07, |g|=79340.4, x_min=3.81255, x_mean=10.9042, x_max=25.7647
+  step:   3 bond rmsd: 0.096895
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2252514142
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7781069
+lbfgs minimizer.run(): f=-3.9986e+07, |g|=79340.4, x_min=3.81255, x_mean=10.9042, x_max=25.7647
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.077730
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2251539776
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77835969
+lbfgs minimizer.run(): f=-3.99911e+07, |g|=50143.1, x_min=3.80485, x_mean=10.9042, x_max=25.7713
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.067823
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2251417855
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77849878
+lbfgs minimizer.run(): f=-3.9993e+07, |g|=41364.1, x_min=3.80063, x_mean=10.9042, x_max=25.7749
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.056653
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2251683757
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77867985
+lbfgs minimizer.run(): f=-3.99946e+07, |g|=33576.1, x_min=3.79581, x_mean=10.9042, x_max=25.779
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.046924
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2252225646
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77887086
+lbfgs minimizer.run(): f=-3.99958e+07, |g|=27408.9, x_min=3.79166, x_mean=10.9042, x_max=25.7826
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.039120
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2252784467
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77905474
+lbfgs minimizer.run(): f=-3.99966e+07, |g|=22471.3, x_min=3.7884, x_mean=10.9042, x_max=25.7855
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.033054
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2253211995
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77921733
+lbfgs minimizer.run(): f=-3.99971e+07, |g|=18502, x_min=3.78589, x_mean=10.9042, x_max=25.7877
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.028311
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2253431625
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77934813
+lbfgs minimizer.run(): f=-3.99975e+07, |g|=15152.2, x_min=3.78406, x_mean=10.9042, x_max=25.7893
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.024506
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2253508485
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77944737
+lbfgs minimizer.run(): f=-3.99977e+07, |g|=12413.3, x_min=3.78262, x_mean=10.9042, x_max=25.7905
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.021437
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2253475009
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77951544
+lbfgs minimizer.run(): f=-3.99979e+07, |g|=10150.1, x_min=3.78148, x_mean=10.9042, x_max=25.7915
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.018980
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2253377077
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77955577
+lbfgs minimizer.run(): f=-3.9998e+07, |g|=8294.05, x_min=3.78055, x_mean=10.9042, x_max=25.7922
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.017046
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2253235787
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77957214
+lbfgs minimizer.run(): f=-3.99981e+07, |g|=6772.5, x_min=3.7798, x_mean=10.9042, x_max=25.7927
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.015552
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2253069477
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77956922
+lbfgs minimizer.run(): f=-3.99982e+07, |g|=5525.04, x_min=3.77918, x_mean=10.9042, x_max=25.7931
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.014429
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2252878671
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77955168
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=4502.75, x_min=3.77867, x_mean=10.9042, x_max=25.7935
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.013607
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2252670737
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77952373
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=3664.55, x_min=3.77826, x_mean=10.9042, x_max=25.7937
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.013026
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2252452145
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77948893
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=2977.57, x_min=3.77793, x_mean=10.9042, x_max=25.7939
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.012629
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2252229987
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77945026
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=2414.99, x_min=3.77766, x_mean=10.9042, x_max=25.794
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.012370
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2252010634
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77941001
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=1954.53, x_min=3.77744, x_mean=10.9042, x_max=25.7941
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.012208
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2251799635
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77936992
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=1577.85, x_min=3.77726, x_mean=10.9042, x_max=25.7941
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.012113
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2251600948
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77933116
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=1269.64, x_min=3.77712, x_mean=10.9042, x_max=25.7942
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.012063
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2251416698
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77929448
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=1017.31, x_min=3.77699, x_mean=10.9042, x_max=25.7942
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.012040
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2251247294
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77926019
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=810.352, x_min=3.77689, x_mean=10.9042, x_max=25.7942
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.012035
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.225109187
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77922829
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=640.155, x_min=3.7768, x_mean=10.9042, x_max=25.7942
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.012039
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2250948381
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77919849
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=499.888, x_min=3.77672, x_mean=10.9042, x_max=25.7941
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.012049
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2250813933
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77917028
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=384.251, x_min=3.77664, x_mean=10.9042, x_max=25.7941
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.012060
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2250684612
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77914294
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=290.116, x_min=3.77656, x_mean=10.9042, x_max=25.794
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.012071
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2250555788
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77911552
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=217.624, x_min=3.77648, x_mean=10.9042, x_max=25.794
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.012081
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2250421949
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77908693
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=172.986, x_min=3.77639, x_mean=10.9042, x_max=25.7939
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.012087
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2250277141
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77905599
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=166.604, x_min=3.77628, x_mean=10.9042, x_max=25.7937
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.012087
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2250117254
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77902202
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=196.167, x_min=3.77614, x_mean=10.9042, x_max=25.7935
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.012078
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2249945871
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77898641
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=243.763, x_min=3.77595, x_mean=10.9042, x_max=25.7932
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.012050
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2249794333
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77895682
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=291.945, x_min=3.77566, x_mean=10.9042, x_max=25.7926
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.012029
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2249752229
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77895751
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=327.529, x_min=3.77521, x_mean=10.9042, x_max=25.7918
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.011731
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2250089729
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77901715
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=552.229, x_min=3.77429, x_mean=10.9042, x_max=25.7878
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.011716
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2250216925
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.779065
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=499.615, x_min=3.77363, x_mean=10.9042, x_max=25.7868
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.011577
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2250688427
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77917958
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=469.713, x_min=3.7728, x_mean=10.9042, x_max=25.7846
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.011745
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2251384728
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77938025
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=353.888, x_min=3.77142, x_mean=10.9042, x_max=25.7832
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.011697
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2252030495
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77953991
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=292.78, x_min=3.77033, x_mean=10.9042, x_max=25.7812
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.011732
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2252813913
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.77973957
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=304.135, x_min=3.76891, x_mean=10.9042, x_max=25.7791
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.011777
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2253946276
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78001725
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=253.697, x_min=3.76681, x_mean=10.9042, x_max=25.7759
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.011780
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2254791414
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78021968
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=252.817, x_min=3.76514, x_mean=10.9042, x_max=25.7734
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.012161
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2256003453
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78054957
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=645.015, x_min=3.76211, x_mean=10.9042, x_max=25.7706
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.012133
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2256804719
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78073382
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=605.318, x_min=3.76035, x_mean=10.9042, x_max=25.7679
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.012235
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2257947012
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78098229
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=566.578, x_min=3.75743, x_mean=10.9042, x_max=25.765
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.012103
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2259458189
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78130722
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=416.97, x_min=3.75334, x_mean=10.9042, x_max=25.7587
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.012121
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.226052966
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78153656
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=370.742, x_min=3.75012, x_mean=10.9042, x_max=25.7552
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.012044
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2261776234
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78178661
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=339.494, x_min=3.74626, x_mean=10.9042, x_max=25.7495
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.012001
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2262524629
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78193421
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=252.274, x_min=3.74384, x_mean=10.9042, x_max=25.7467
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.012029
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2263209382
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78208491
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=256.976, x_min=3.74159, x_mean=10.9042, x_max=25.7441
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.011763
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2264228777
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78222786
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=430.736, x_min=3.73892, x_mean=10.9042, x_max=25.7395
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle   2 rmsd(b):  0.0118 rws:  1.000 n_fev: 104
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.011763
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2264228777
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78222786
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=430.736, x_min=3.73892, x_mean=10.9042, x_max=25.7395
+  step:   2 bond rmsd: 0.107441
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2252148821
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78306353
+lbfgs minimizer.run(): f=-3.99898e+07, |g|=38703.4, x_min=3.75368, x_mean=10.9042, x_max=25.8833
+  step:   3 bond rmsd: 0.107441
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2252148821
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78306353
+lbfgs minimizer.run(): f=-3.99898e+07, |g|=38703.4, x_min=3.75368, x_mean=10.9042, x_max=25.8833
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.087251
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2253577152
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78288062
+lbfgs minimizer.run(): f=-3.99927e+07, |g|=29437, x_min=3.7508, x_mean=10.9042, x_max=25.8552
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.063213
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2257080839
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78283146
+lbfgs minimizer.run(): f=-3.99953e+07, |g|=22952.3, x_min=3.74745, x_mean=10.9042, x_max=25.8161
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.044704
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2260695005
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78304485
+lbfgs minimizer.run(): f=-3.99968e+07, |g|=17247.8, x_min=3.74532, x_mean=10.9042, x_max=25.7787
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.034739
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2262960046
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78320294
+lbfgs minimizer.run(): f=-3.99975e+07, |g|=13739.1, x_min=3.74433, x_mean=10.9042, x_max=25.7579
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.028774
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2264276282
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78331218
+lbfgs minimizer.run(): f=-3.99978e+07, |g|=11041, x_min=3.74385, x_mean=10.9042, x_max=25.7475
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.024455
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2265233111
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7833695
+lbfgs minimizer.run(): f=-3.9998e+07, |g|=8973.46, x_min=3.74352, x_mean=10.9042, x_max=25.7414
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.021263
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2265793427
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78338244
+lbfgs minimizer.run(): f=-3.99982e+07, |g|=7226.99, x_min=3.74331, x_mean=10.9042, x_max=25.7383
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.018780
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2266209588
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7833625
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=5850.85, x_min=3.74312, x_mean=10.9042, x_max=25.7362
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.016925
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2266415085
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78331613
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=4724.67, x_min=3.74295, x_mean=10.9042, x_max=25.7352
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.015516
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2266503161
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78325398
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=3815.28, x_min=3.74277, x_mean=10.9042, x_max=25.7347
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.014481
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2266484173
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7831821
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=3075.22, x_min=3.7426, x_mean=10.9042, x_max=25.7345
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.013728
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2266398106
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7831061
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=2474.86, x_min=3.74244, x_mean=10.9042, x_max=25.7345
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.013194
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2266264331
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78302973
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=1987.75, x_min=3.74228, x_mean=10.9042, x_max=25.7347
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.012819
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2266104455
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78295552
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=1593.1, x_min=3.74213, x_mean=10.9042, x_max=25.7351
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.012558
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2265931062
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78288503
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=1273.45, x_min=3.74199, x_mean=10.9042, x_max=25.7354
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.012377
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.226575361
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78281903
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=1014.56, x_min=3.74186, x_mean=10.9042, x_max=25.7358
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.012250
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2265577492
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78275772
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=804.7, x_min=3.74175, x_mean=10.9042, x_max=25.7362
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.012159
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2265405595
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78270086
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=634.186, x_min=3.74165, x_mean=10.9042, x_max=25.7367
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.012094
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2265238624
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7826479
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=495.35, x_min=3.74155, x_mean=10.9042, x_max=25.7371
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.012044
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2265075405
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7825979
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=382.11, x_min=3.74147, x_mean=10.9042, x_max=25.7375
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.012005
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2264912956
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78254969
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=290.198, x_min=3.74139, x_mean=10.9042, x_max=25.7379
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.011972
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2264746382
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78250165
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=217.456, x_min=3.74131, x_mean=10.9042, x_max=25.7383
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.011941
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2264569063
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78245186
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=165.738, x_min=3.74124, x_mean=10.9042, x_max=25.7388
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.011911
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2264371687
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78239793
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=141.338, x_min=3.74117, x_mean=10.9042, x_max=25.7393
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.011878
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2264144189
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78233731
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=147.782, x_min=3.74111, x_mean=10.9042, x_max=25.7398
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.011841
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2263879184
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78226832
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=174.794, x_min=3.74105, x_mean=10.9042, x_max=25.7405
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.011798
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2263584564
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78219316
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=206.693, x_min=3.74104, x_mean=10.9042, x_max=25.7412
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.011756
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2263310282
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7821237
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=229.757, x_min=3.74115, x_mean=10.9042, x_max=25.7418
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.011721
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2263132421
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78208466
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=358.402, x_min=3.74159, x_mean=10.9042, x_max=25.7409
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.011700
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2262928664
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78204107
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=319.648, x_min=3.74194, x_mean=10.9042, x_max=25.7412
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.011524
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2263087299
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78206164
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=331.622, x_min=3.74247, x_mean=10.9042, x_max=25.7395
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.011653
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2263156405
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78210318
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=234.03, x_min=3.74318, x_mean=10.9042, x_max=25.739
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.011643
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2263317503
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78215324
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=204.484, x_min=3.74376, x_mean=10.9042, x_max=25.7377
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.011774
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2263595744
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78223459
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=226.659, x_min=3.74447, x_mean=10.9042, x_max=25.7366
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.011827
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2263806053
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78230287
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=175.125, x_min=3.745, x_mean=10.9042, x_max=25.7352
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.011832
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2264033113
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7823676
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=168.15, x_min=3.74552, x_mean=10.9042, x_max=25.7337
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.012032
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2264306754
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78247343
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=176.461, x_min=3.74614, x_mean=10.9042, x_max=25.7321
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.012059
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2264495789
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78252996
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=161.186, x_min=3.7465, x_mean=10.9042, x_max=25.7308
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.012128
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2264712209
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7825893
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=182.526, x_min=3.74684, x_mean=10.9042, x_max=25.7297
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.012138
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2265011889
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78267157
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=146.461, x_min=3.74724, x_mean=10.9042, x_max=25.7274
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.012255
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2265298343
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78275355
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=169.494, x_min=3.74754, x_mean=10.9042, x_max=25.7257
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.012251
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2265602681
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78282644
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=142.679, x_min=3.7478, x_mean=10.9042, x_max=25.7232
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.012296
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2265843354
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78288782
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=154.648, x_min=3.74798, x_mean=10.9042, x_max=25.7213
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.012312
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2266189356
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78295983
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=157.391, x_min=3.7481, x_mean=10.9042, x_max=25.7179
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.012334
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2266409408
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78300629
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=143.075, x_min=3.74817, x_mean=10.9042, x_max=25.7158
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.012285
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2266650956
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78304544
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=214.095, x_min=3.74831, x_mean=10.9042, x_max=25.7128
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.012311
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2266843361
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7830775
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=190.576, x_min=3.74833, x_mean=10.9042, x_max=25.7103
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.012148
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2267140144
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78309397
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=278.926, x_min=3.74821, x_mean=10.9042, x_max=25.7068
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.012169
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2267283768
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78310754
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=245.364, x_min=3.74822, x_mean=10.9042, x_max=25.7042
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle   3 rmsd(b):  0.0122 rws:  1.000 n_fev: 156
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.012169
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2267283768
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78310754
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=245.364, x_min=3.74822, x_mean=10.9042, x_max=25.7042
+  step:   2 bond rmsd: 0.097515
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2259736592
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78256828
+lbfgs minimizer.run(): f=-3.99916e+07, |g|=31071.3, x_min=3.75476, x_mean=10.9042, x_max=25.7879
+  step:   3 bond rmsd: 0.097515
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2259736592
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78256828
+lbfgs minimizer.run(): f=-3.99916e+07, |g|=31071.3, x_min=3.75476, x_mean=10.9042, x_max=25.7879
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.079311
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2260578488
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7826516
+lbfgs minimizer.run(): f=-3.99939e+07, |g|=24518.7, x_min=3.75347, x_mean=10.9042, x_max=25.7714
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.057501
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2262907777
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78291692
+lbfgs minimizer.run(): f=-3.9996e+07, |g|=19227.6, x_min=3.75201, x_mean=10.9042, x_max=25.7475
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.041481
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2265137649
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78336212
+lbfgs minimizer.run(): f=-3.99972e+07, |g|=14231.3, x_min=3.75133, x_mean=10.9042, x_max=25.7282
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.032649
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2266668388
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78363674
+lbfgs minimizer.run(): f=-3.99977e+07, |g|=11292.3, x_min=3.75126, x_mean=10.9042, x_max=25.718
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.027534
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2267626736
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78381432
+lbfgs minimizer.run(): f=-3.9998e+07, |g|=9017.11, x_min=3.75142, x_mean=10.9042, x_max=25.7125
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.023800
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2268327237
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78391807
+lbfgs minimizer.run(): f=-3.99982e+07, |g|=7302.32, x_min=3.75157, x_mean=10.9042, x_max=25.7087
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.021011
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2268752176
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78396282
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=5872.32, x_min=3.75166, x_mean=10.9042, x_max=25.7064
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.018826
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2269027584
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78396482
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=4735.42, x_min=3.75165, x_mean=10.9042, x_max=25.7047
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.017176
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2269144318
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78393622
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=3812.24, x_min=3.75154, x_mean=10.9042, x_max=25.7036
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.015920
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.226915601
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78388814
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=3067.42, x_min=3.75137, x_mean=10.9042, x_max=25.7029
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.014987
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2269087699
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78382818
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=2464.57, x_min=3.75116, x_mean=10.9042, x_max=25.7025
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.014294
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2268971441
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78376249
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=1977.97, x_min=3.75094, x_mean=10.9042, x_max=25.7023
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.013786
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2268826078
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78369527
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=1585.41, x_min=3.75071, x_mean=10.9042, x_max=25.7023
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.013411
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2268667444
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78362924
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=1269.11, x_min=3.75049, x_mean=10.9042, x_max=25.7023
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.013133
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.226850552
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78356614
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=1014.48, x_min=3.75029, x_mean=10.9042, x_max=25.7023
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.012926
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2268346918
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78350693
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=809.519, x_min=3.75009, x_mean=10.9042, x_max=25.7025
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.012770
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2268195528
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78345205
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=644.404, x_min=3.74991, x_mean=10.9042, x_max=25.7026
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.012649
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2268053637
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78340149
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=511.328, x_min=3.74974, x_mean=10.9042, x_max=25.7027
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.012555
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2267921598
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78335496
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=403.654, x_min=3.74958, x_mean=10.9042, x_max=25.7029
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.012479
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2267799079
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7833119
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=316.458, x_min=3.74944, x_mean=10.9042, x_max=25.703
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.012416
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2267684266
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78327158
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=245.536, x_min=3.7493, x_mean=10.9042, x_max=25.7032
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.012362
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2267575208
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78323298
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=188.015, x_min=3.74916, x_mean=10.9042, x_max=25.7033
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.012314
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2267468791
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78319497
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=142.176, x_min=3.74903, x_mean=10.9042, x_max=25.7035
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.012268
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2267361427
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78315602
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=108.038, x_min=3.74888, x_mean=10.9042, x_max=25.7036
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.012224
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2267249219
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78311446
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=88.0304, x_min=3.74873, x_mean=10.9042, x_max=25.7038
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.012177
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2267129054
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78306839
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=84.7968, x_min=3.74855, x_mean=10.9042, x_max=25.704
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.012126
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2267001679
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78301634
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=95.0596, x_min=3.74834, x_mean=10.9042, x_max=25.7041
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.012073
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2266876951
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78295894
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=110.554, x_min=3.7481, x_mean=10.9042, x_max=25.7043
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.011998
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2266794217
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78290078
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=127.14, x_min=3.74785, x_mean=10.9042, x_max=25.7042
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.012038
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.226667644
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78282145
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=210.966, x_min=3.74746, x_mean=10.9042, x_max=25.7047
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.011963
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2266662828
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78277778
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=190.257, x_min=3.74725, x_mean=10.9042, x_max=25.7044
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.011934
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2266754303
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78276571
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=177.619, x_min=3.74718, x_mean=10.9042, x_max=25.7041
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.011812
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2266984528
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78276434
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=165.916, x_min=3.74711, x_mean=10.9042, x_max=25.7025
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.011806
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2267160023
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78278093
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=133.999, x_min=3.74714, x_mean=10.9042, x_max=25.702
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.011772
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2267403828
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78281664
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=132.448, x_min=3.74728, x_mean=10.9042, x_max=25.7011
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.011838
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2267761404
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78288631
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=105.69, x_min=3.74752, x_mean=10.9042, x_max=25.7003
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.011842
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2267994569
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78293233
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=93.0638, x_min=3.7477, x_mean=10.9042, x_max=25.6996
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.011848
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.226829314
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78300295
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=131.492, x_min=3.74801, x_mean=10.9042, x_max=25.6987
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.011871
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2268574859
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78306851
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=112.866, x_min=3.74829, x_mean=10.9042, x_max=25.6981
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.011858
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2268879595
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78314647
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=119.61, x_min=3.74859, x_mean=10.9042, x_max=25.697
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.011907
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2269208458
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78323471
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=91.4655, x_min=3.74897, x_mean=10.9042, x_max=25.6965
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.011901
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2269526102
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7833134
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=90.3354, x_min=3.74936, x_mean=10.9042, x_max=25.6957
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.011992
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2269913827
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78343339
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=79.5604, x_min=3.74988, x_mean=10.9042, x_max=25.6952
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.012001
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2270221468
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78351871
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=71.6617, x_min=3.75028, x_mean=10.9042, x_max=25.6946
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.012044
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2270613529
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78362944
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=84.037, x_min=3.75086, x_mean=10.9042, x_max=25.694
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.012066
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2271097621
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78376757
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=86.1193, x_min=3.75157, x_mean=10.9042, x_max=25.6934
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.012077
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.227148159
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78388046
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=88.1395, x_min=3.75215, x_mean=10.9042, x_max=25.6927
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.012284
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272214612
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78408854
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=255.936, x_min=3.75352, x_mean=10.9042, x_max=25.6929
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.012269
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272589587
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78419766
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=234.29, x_min=3.75412, x_mean=10.9042, x_max=25.6922
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle   4 rmsd(b):  0.0123 rws:  1.000 n_fev: 208
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.012269
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272589587
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78419766
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=234.29, x_min=3.75412, x_mean=10.9042, x_max=25.6922
+  step:   2 bond rmsd: 0.063792
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2274011879
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78348063
+lbfgs minimizer.run(): f=-3.99898e+07, |g|=86067.1, x_min=3.74086, x_mean=10.9042, x_max=25.5314
+  step:   3 bond rmsd: 0.063792
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2274011879
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78348063
+lbfgs minimizer.run(): f=-3.99898e+07, |g|=86067.1, x_min=3.74086, x_mean=10.9042, x_max=25.5314
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.050597
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273134482
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78363704
+lbfgs minimizer.run(): f=-3.99938e+07, |g|=52020.8, x_min=3.7435, x_mean=10.9042, x_max=25.5635
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.045989
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272988578
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78369031
+lbfgs minimizer.run(): f=-3.99947e+07, |g|=43845.4, x_min=3.74454, x_mean=10.9042, x_max=25.5737
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.040560
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272943678
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78375489
+lbfgs minimizer.run(): f=-3.99957e+07, |g|=35904.7, x_min=3.74587, x_mean=10.9042, x_max=25.5848
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.035390
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273010939
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78382094
+lbfgs minimizer.run(): f=-3.99964e+07, |g|=29491, x_min=3.74722, x_mean=10.9042, x_max=25.595
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.030652
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.227315305
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78388859
+lbfgs minimizer.run(): f=-3.9997e+07, |g|=24271.9, x_min=3.74851, x_mean=10.9042, x_max=25.6043
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.026484
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273325075
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78395678
+lbfgs minimizer.run(): f=-3.99974e+07, |g|=20018.4, x_min=3.74969, x_mean=10.9042, x_max=25.6128
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.022925
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.227348168
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78402374
+lbfgs minimizer.run(): f=-3.99977e+07, |g|=16515.9, x_min=3.75069, x_mean=10.9042, x_max=25.6207
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.019941
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273595739
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78408705
+lbfgs minimizer.run(): f=-3.99979e+07, |g|=13606.3, x_min=3.7515, x_mean=10.9042, x_max=25.6281
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.017481
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273664243
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78414411
+lbfgs minimizer.run(): f=-3.99981e+07, |g|=11179.6, x_min=3.75214, x_mean=10.9042, x_max=25.635
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.015506
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273691781
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78419322
+lbfgs minimizer.run(): f=-3.99982e+07, |g|=9165.26, x_min=3.75263, x_mean=10.9042, x_max=25.6414
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.013972
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273688796
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78423335
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=7497.59, x_min=3.75301, x_mean=10.9042, x_max=25.6473
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.012835
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273663708
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78426423
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=6119.61, x_min=3.75329, x_mean=10.9042, x_max=25.6526
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.012047
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.227361922
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78428649
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=4987.63, x_min=3.75351, x_mean=10.9042, x_max=25.6575
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.011542
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273562325
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78430069
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=4056.42, x_min=3.75367, x_mean=10.9042, x_max=25.6619
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.011259
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.22734952
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78430801
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=3294.59, x_min=3.75379, x_mean=10.9042, x_max=25.6658
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.011134
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273423128
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78430945
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=2668.5, x_min=3.75389, x_mean=10.9042, x_max=25.6694
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.011117
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273344337
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78430674
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=2158.55, x_min=3.75396, x_mean=10.9042, x_max=25.6725
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.011165
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273262059
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7843009
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=1742.79, x_min=3.75402, x_mean=10.9042, x_max=25.6752
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.011249
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273179139
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78429287
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=1404.37, x_min=3.75406, x_mean=10.9042, x_max=25.6777
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.011348
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273097943
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78428345
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=1129.53, x_min=3.75409, x_mean=10.9042, x_max=25.6798
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.011449
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273020231
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78427327
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=906.503, x_min=3.75412, x_mean=10.9042, x_max=25.6816
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.011545
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272947201
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78426282
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=725.774, x_min=3.75415, x_mean=10.9042, x_max=25.6832
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.011632
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272879546
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78425245
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=579.417, x_min=3.75417, x_mean=10.9042, x_max=25.6846
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.011708
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272817433
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7842424
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=461.036, x_min=3.75418, x_mean=10.9042, x_max=25.6857
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.011774
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272760663
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78423281
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=365.136, x_min=3.7542, x_mean=10.9042, x_max=25.6867
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.011830
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272708904
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7842237
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=287.447, x_min=3.75422, x_mean=10.9042, x_max=25.6876
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.011878
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272661369
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78421507
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=224.384, x_min=3.75423, x_mean=10.9042, x_max=25.6884
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.011918
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272617259
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78420686
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=173.128, x_min=3.75425, x_mean=10.9042, x_max=25.6891
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.011951
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272575625
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7841989
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=131.698, x_min=3.75427, x_mean=10.9042, x_max=25.6896
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.011980
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272535139
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78419102
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=98.9529, x_min=3.75429, x_mean=10.9042, x_max=25.6902
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.012004
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272494396
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78418298
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=75.0979, x_min=3.75431, x_mean=10.9042, x_max=25.6907
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.012025
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272451957
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78417453
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=62.0197, x_min=3.75435, x_mean=10.9042, x_max=25.6912
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.012041
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272406108
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78416547
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=61.4168, x_min=3.75439, x_mean=10.9042, x_max=25.6917
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.012054
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272356452
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78415594
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=70.3913, x_min=3.75446, x_mean=10.9042, x_max=25.6921
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.012062
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272304301
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78414698
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=83.7128, x_min=3.75457, x_mean=10.9042, x_max=25.6926
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.012061
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272258262
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78414119
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=96.9921, x_min=3.75476, x_mean=10.9042, x_max=25.6928
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.012084
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.227221465
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78414638
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=123.373, x_min=3.75511, x_mean=10.9042, x_max=25.6927
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.012054
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272193995
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78415395
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=114.555, x_min=3.75558, x_mean=10.9042, x_max=25.6924
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.012051
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272223151
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78417552
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=120.569, x_min=3.75606, x_mean=10.9042, x_max=25.6918
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.012010
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272292053
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78421717
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=140.505, x_min=3.75677, x_mean=10.9042, x_max=25.6903
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.012007
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272344825
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78424424
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=120.677, x_min=3.75721, x_mean=10.9042, x_max=25.6895
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.011984
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272458076
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78428123
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=110.088, x_min=3.75773, x_mean=10.9042, x_max=25.6885
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.012018
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272577773
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78433681
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=81.3842, x_min=3.75843, x_mean=10.9042, x_max=25.6874
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.012017
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272694757
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78438036
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=68.93, x_min=3.75898, x_mean=10.9042, x_max=25.6865
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.012047
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272830489
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78443296
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=71.5689, x_min=3.75968, x_mean=10.9042, x_max=25.6857
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.012054
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.227297659
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78448673
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=58.6424, x_min=3.76038, x_mean=10.9042, x_max=25.6846
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.012093
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273101152
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78453676
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=59.0553, x_min=3.76102, x_mean=10.9042, x_max=25.684
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.012081
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273282016
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78459877
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=84.432, x_min=3.76195, x_mean=10.9042, x_max=25.6829
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.012113
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273393176
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78464096
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=77.3759, x_min=3.76256, x_mean=10.9042, x_max=25.6825
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle   5 rmsd(b):  0.0121 rws:  1.000 n_fev: 260
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.012113
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273393176
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78464096
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=77.3758, x_min=3.76256, x_mean=10.9042, x_max=25.6825
+  step:   2 bond rmsd: 0.085967
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2267393806
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78313128
+lbfgs minimizer.run(): f=-3.99919e+07, |g|=33020.8, x_min=3.75008, x_mean=10.9042, x_max=25.8725
+  step:   3 bond rmsd: 0.042552
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.226947975
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78399602
+lbfgs minimizer.run(): f=-3.99971e+07, |g|=14414.5, x_min=3.75682, x_mean=10.9042, x_max=25.7699
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.035396
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2270090304
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78413124
+lbfgs minimizer.run(): f=-3.99976e+07, |g|=11589.5, x_min=3.75796, x_mean=10.9042, x_max=25.7526
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.028708
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2271104908
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78427457
+lbfgs minimizer.run(): f=-3.9998e+07, |g|=9200.15, x_min=3.75905, x_mean=10.9042, x_max=25.7339
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.023951
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.227185501
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78440956
+lbfgs minimizer.run(): f=-3.99982e+07, |g|=7285.86, x_min=3.75983, x_mean=10.9042, x_max=25.72
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.020610
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272430066
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78451759
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=5817.67, x_min=3.76045, x_mean=10.9042, x_max=25.7104
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.018231
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272851549
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78459989
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=4657.57, x_min=3.76095, x_mean=10.9042, x_max=25.7037
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.016523
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273165052
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78465914
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=3735.72, x_min=3.76136, x_mean=10.9042, x_max=25.6987
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.015309
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273380096
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78469966
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=2999.16, x_min=3.76168, x_mean=10.9042, x_max=25.6952
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.014438
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273528552
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78472526
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=2410.33, x_min=3.76194, x_mean=10.9042, x_max=25.6924
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.013820
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273624122
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78473976
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=1938.08, x_min=3.76214, x_mean=10.9042, x_max=25.6904
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.013379
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273681877
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78474625
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=1559.03, x_min=3.7623, x_mean=10.9042, x_max=25.6888
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.013064
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273712444
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78474718
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=1254.7, x_min=3.76242, x_mean=10.9042, x_max=25.6876
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.012839
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273724535
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78474441
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=1010.19, x_min=3.76252, x_mean=10.9042, x_max=25.6867
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.012675
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.227372438
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78473935
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=813.642, x_min=3.76259, x_mean=10.9042, x_max=25.686
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.012556
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273716617
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78473297
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=655.572, x_min=3.76265, x_mean=10.9042, x_max=25.6854
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.012467
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273704488
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78472596
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=528.238, x_min=3.7627, x_mean=10.9042, x_max=25.685
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.012401
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273690146
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7847188
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=425.523, x_min=3.76274, x_mean=10.9042, x_max=25.6847
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.012350
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.227367517
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78471177
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=342.514, x_min=3.76277, x_mean=10.9042, x_max=25.6844
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.012310
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273660372
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78470501
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=275.131, x_min=3.76279, x_mean=10.9042, x_max=25.6842
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.012279
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273646236
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78469863
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=220.208, x_min=3.76282, x_mean=10.9042, x_max=25.684
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.012254
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.227363292
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7846926
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=175.214, x_min=3.76284, x_mean=10.9042, x_max=25.6838
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.012233
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273620347
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78468685
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=138.066, x_min=3.76285, x_mean=10.9042, x_max=25.6837
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.012215
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273608312
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78468126
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=107.304, x_min=3.76287, x_mean=10.9042, x_max=25.6836
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.012199
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273596423
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78467566
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=81.7162, x_min=3.76289, x_mean=10.9042, x_max=25.6835
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.012184
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273584143
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78466981
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=61.1113, x_min=3.7629, x_mean=10.9042, x_max=25.6834
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.012170
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273570683
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78466331
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=46.3077, x_min=3.76292, x_mean=10.9042, x_max=25.6833
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.012155
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273554879
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78465559
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=40.6019, x_min=3.76294, x_mean=10.9042, x_max=25.6832
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.012138
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273535136
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78464575
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=46.7432, x_min=3.76296, x_mean=10.9042, x_max=25.683
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.012118
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273509174
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78463242
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=62.0638, x_min=3.76299, x_mean=10.9042, x_max=25.6828
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.012092
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273474204
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78461367
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=82.315, x_min=3.76304, x_mean=10.9042, x_max=25.6826
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.012059
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273428845
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78458719
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=103.459, x_min=3.76311, x_mean=10.9042, x_max=25.6823
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.012021
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273379091
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78455206
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=119.41, x_min=3.76324, x_mean=10.9042, x_max=25.6818
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.011977
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273376735
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7845157
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=120.358, x_min=3.76349, x_mean=10.9042, x_max=25.6813
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.012097
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273468443
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78449003
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=308.986, x_min=3.76416, x_mean=10.9042, x_max=25.6793
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.012048
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273497068
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78446487
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=258.007, x_min=3.7644, x_mean=10.9042, x_max=25.679
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.012004
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273564093
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78445275
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=212.711, x_min=3.76466, x_mean=10.9042, x_max=25.6787
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.011991
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273651372
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78445107
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=170.659, x_min=3.76493, x_mean=10.9042, x_max=25.6785
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.011957
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273762956
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78445534
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=135.104, x_min=3.76521, x_mean=10.9042, x_max=25.6781
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.011973
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.227387549
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78446689
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=103.153, x_min=3.7655, x_mean=10.9042, x_max=25.678
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.011945
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2274009283
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78448174
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=75.4808, x_min=3.7658, x_mean=10.9042, x_max=25.6776
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.011956
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2274134397
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78450072
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=58.0847, x_min=3.76609, x_mean=10.9042, x_max=25.6773
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.011953
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2274278175
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78452276
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=51.9653, x_min=3.76642, x_mean=10.9042, x_max=25.6768
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.011963
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2274443238
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78455339
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=54.1381, x_min=3.7668, x_mean=10.9042, x_max=25.6764
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.011991
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2274668717
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78459814
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=59.7877, x_min=3.76735, x_mean=10.9042, x_max=25.6755
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.011957
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2274970407
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78465507
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=68.8474, x_min=3.76804, x_mean=10.9042, x_max=25.6743
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.012014
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2275226475
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78471456
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=72.4043, x_min=3.76871, x_mean=10.9042, x_max=25.6734
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.011983
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2275574736
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78478703
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=78.3676, x_min=3.76955, x_mean=10.9042, x_max=25.6717
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.012030
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2275893456
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78486498
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=70.8408, x_min=3.77041, x_mean=10.9042, x_max=25.6702
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.012011
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2276350845
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78497161
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=109.509, x_min=3.77164, x_mean=10.9042, x_max=25.6682
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.012042
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2276820345
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78508999
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=93.1717, x_min=3.77298, x_mean=10.9042, x_max=25.6658
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle   6 rmsd(b):  0.0120 rws:  1.000 n_fev: 312
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.012042
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2276820345
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78508999
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=93.1717, x_min=3.77298, x_mean=10.9042, x_max=25.6658
+  step:   2 bond rmsd: 0.092003
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2263623454
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78569313
+lbfgs minimizer.run(): f=-3.99932e+07, |g|=24118.1, x_min=3.7819, x_mean=10.9042, x_max=25.6865
+  step:   3 bond rmsd: 0.083110
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2264708675
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78561599
+lbfgs minimizer.run(): f=-3.99941e+07, |g|=21858.3, x_min=3.78097, x_mean=10.9042, x_max=25.6844
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.067889
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2266699483
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78551226
+lbfgs minimizer.run(): f=-3.99956e+07, |g|=18037.8, x_min=3.7794, x_mean=10.9042, x_max=25.6807
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.047290
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2270121976
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78561346
+lbfgs minimizer.run(): f=-3.99971e+07, |g|=13910.6, x_min=3.77727, x_mean=10.9042, x_max=25.6762
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.034795
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2272306095
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78584534
+lbfgs minimizer.run(): f=-3.99978e+07, |g|=10158.7, x_min=3.77597, x_mean=10.9042, x_max=25.6742
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.028175
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2273935021
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78591158
+lbfgs minimizer.run(): f=-3.99981e+07, |g|=8035.25, x_min=3.77532, x_mean=10.9042, x_max=25.6721
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.024032
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2275001039
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78593778
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=6386.42, x_min=3.77502, x_mean=10.9042, x_max=25.6706
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.021021
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2275816417
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78592467
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=5125.27, x_min=3.77488, x_mean=10.9042, x_max=25.6694
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.018804
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2276388238
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78588825
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=4105.8, x_min=3.77484, x_mean=10.9042, x_max=25.6684
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.017125
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2276796517
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78583972
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=3293.82, x_min=3.77484, x_mean=10.9042, x_max=25.6677
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.015874
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277065558
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78578547
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=2640.64, x_min=3.77485, x_mean=10.9042, x_max=25.6672
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.014936
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277238812
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78572971
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=2116.49, x_min=3.77486, x_mean=10.9042, x_max=25.6668
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.014239
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277340795
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78567555
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=1695.47, x_min=3.77486, x_mean=10.9042, x_max=25.6665
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.013719
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277394389
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78562473
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=1357.75, x_min=3.77486, x_mean=10.9042, x_max=25.6663
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.013331
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277414617
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78557821
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=1086.78, x_min=3.77485, x_mean=10.9042, x_max=25.6662
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.013041
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.227741301
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78553642
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=869.6, x_min=3.77483, x_mean=10.9042, x_max=25.666
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.012822
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.227739754
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78549943
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=695.503, x_min=3.77481, x_mean=10.9042, x_max=25.666
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.012655
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277373951
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78546707
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=555.967, x_min=3.77478, x_mean=10.9042, x_max=25.6659
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.012528
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277346313
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78543902
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=444.014, x_min=3.77476, x_mean=10.9042, x_max=25.6659
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.012429
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277317233
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78541493
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=354.174, x_min=3.77473, x_mean=10.9042, x_max=25.6658
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.012352
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277288515
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78539431
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=281.813, x_min=3.77471, x_mean=10.9042, x_max=25.6658
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.012292
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277261073
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78537674
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=223.439, x_min=3.77469, x_mean=10.9042, x_max=25.6658
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.012243
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277235357
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78536174
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=176.166, x_min=3.77467, x_mean=10.9042, x_max=25.6658
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.012204
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277211334
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78534889
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=137.741, x_min=3.77465, x_mean=10.9042, x_max=25.6658
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.012171
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277188869
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78533777
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=106.553, x_min=3.77464, x_mean=10.9042, x_max=25.6657
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.012145
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277167469
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78532807
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=81.4552, x_min=3.77463, x_mean=10.9042, x_max=25.6657
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.012122
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277146624
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78531953
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=62.1815, x_min=3.77462, x_mean=10.9042, x_max=25.6657
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.012102
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277126289
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78531201
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=49.124, x_min=3.77462, x_mean=10.9042, x_max=25.6657
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.012086
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277106292
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78530575
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=43.2887, x_min=3.77462, x_mean=10.9042, x_max=25.6656
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.012072
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277088955
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78530142
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=44.1726, x_min=3.77464, x_mean=10.9042, x_max=25.6656
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.012063
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277076786
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.785301
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=49.0106, x_min=3.77469, x_mean=10.9042, x_max=25.6655
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.012058
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277082917
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78530586
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=60.1886, x_min=3.77482, x_mean=10.9042, x_max=25.6655
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.012050
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277088893
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78531921
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=65.7135, x_min=3.77503, x_mean=10.9042, x_max=25.6651
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.012066
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277103218
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78533489
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=67.6272, x_min=3.77525, x_mean=10.9042, x_max=25.665
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.012011
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277182757
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78535812
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=89.8877, x_min=3.77561, x_mean=10.9042, x_max=25.6644
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.012040
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277219709
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78538506
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=79.1967, x_min=3.77595, x_mean=10.9042, x_max=25.6642
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.012049
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277263995
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78541919
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=84.2598, x_min=3.77638, x_mean=10.9042, x_max=25.6639
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.012090
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.227734927
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78546294
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=63.7029, x_min=3.77696, x_mean=10.9042, x_max=25.6637
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.012099
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277408949
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78549694
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=58.663, x_min=3.77743, x_mean=10.9042, x_max=25.6635
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.012144
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277464602
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78553759
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=62.4594, x_min=3.77803, x_mean=10.9042, x_max=25.6632
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.012160
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277510591
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78556344
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=50.8575, x_min=3.7784, x_mean=10.9042, x_max=25.6631
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.012132
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277569442
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78558673
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=53.2204, x_min=3.77877, x_mean=10.9042, x_max=25.6629
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.012174
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277603837
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78561313
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=38.4436, x_min=3.77919, x_mean=10.9042, x_max=25.6628
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.012165
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277645059
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78563122
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=34.9065, x_min=3.7795, x_mean=10.9042, x_max=25.6626
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.012197
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.227768441
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78565455
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=51.0269, x_min=3.77987, x_mean=10.9042, x_max=25.6626
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.012196
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277716588
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78566902
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=45.3602, x_min=3.78013, x_mean=10.9042, x_max=25.6624
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.012197
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277756938
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78568654
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=47.9111, x_min=3.78047, x_mean=10.9042, x_max=25.6622
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.012196
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277817263
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78571057
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=42.2919, x_min=3.78094, x_mean=10.9042, x_max=25.6618
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.012193
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277873055
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78572966
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=40.9541, x_min=3.78136, x_mean=10.9042, x_max=25.6614
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.012213
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2277934648
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78576064
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=59.7798, x_min=3.78207, x_mean=10.9042, x_max=25.6608
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.012207
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278017059
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78578423
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=57.7603, x_min=3.78268, x_mean=10.9042, x_max=25.6602
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle   7 rmsd(b):  0.0122 rws:  1.000 n_fev: 364
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.012207
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278017059
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78578423
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=57.7604, x_min=3.78268, x_mean=10.9042, x_max=25.6602
+  step:   2 bond rmsd: 0.095077
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2292624814
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78263202
+lbfgs minimizer.run(): f=-3.9987e+07, |g|=61822.7, x_min=3.77404, x_mean=10.9042, x_max=25.6878
+  step:   3 bond rmsd: 0.016706
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2279316743
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78542101
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=4654.7, x_min=3.78161, x_mean=10.9042, x_max=25.6636
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.015225
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2279049876
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78549206
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=3707.02, x_min=3.78182, x_mean=10.9042, x_max=25.6629
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.014180
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278873671
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78555083
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=2981.96, x_min=3.782, x_mean=10.9042, x_max=25.6622
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.013472
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278732073
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78559922
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=2397.86, x_min=3.78214, x_mean=10.9042, x_max=25.6616
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.013002
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.227861865
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78563791
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=1928.34, x_min=3.78226, x_mean=10.9042, x_max=25.6612
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.012697
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278530185
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78566774
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=1551.68, x_min=3.78236, x_mean=10.9042, x_max=25.6609
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.012501
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278454847
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78569098
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=1248.84, x_min=3.78245, x_mean=10.9042, x_max=25.6606
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.012379
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278390838
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78570849
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=1005.41, x_min=3.78251, x_mean=10.9042, x_max=25.6604
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.012302
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278336522
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78572141
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=809.819, x_min=3.78257, x_mean=10.9042, x_max=25.6602
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.012255
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278290238
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78573073
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=652.511, x_min=3.78262, x_mean=10.9042, x_max=25.6601
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.012227
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278250694
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78573727
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=525.974, x_min=3.78266, x_mean=10.9042, x_max=25.6599
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.012210
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278217019
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7857417
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=424.155, x_min=3.7827, x_mean=10.9042, x_max=25.6598
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.012200
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278188403
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78574453
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=341.972, x_min=3.78273, x_mean=10.9042, x_max=25.6597
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.012195
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278164095
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7857462
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=275.686, x_min=3.78276, x_mean=10.9042, x_max=25.6597
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.012192
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278143471
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78574701
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=221.949, x_min=3.78279, x_mean=10.9042, x_max=25.6596
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.012191
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278126057
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78574721
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=178.342, x_min=3.78281, x_mean=10.9042, x_max=25.6595
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.012190
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278111218
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78574697
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=142.699, x_min=3.78283, x_mean=10.9042, x_max=25.6595
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.012190
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.227809853
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78574643
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=113.467, x_min=3.78285, x_mean=10.9042, x_max=25.6594
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.012190
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278087549
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78574566
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=89.2704, x_min=3.78287, x_mean=10.9042, x_max=25.6594
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.012190
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278077954
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78574469
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=69.2221, x_min=3.78289, x_mean=10.9042, x_max=25.6593
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.012190
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278069353
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78574353
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=52.5745, x_min=3.78291, x_mean=10.9042, x_max=25.6593
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.012190
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278061328
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78574215
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=39.2375, x_min=3.78293, x_mean=10.9042, x_max=25.6593
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.012190
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278053516
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78574042
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=29.9931, x_min=3.78296, x_mean=10.9042, x_max=25.6592
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.012190
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278045506
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78573819
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=27.3007, x_min=3.78299, x_mean=10.9042, x_max=25.6592
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.012189
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278036868
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78573508
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=32.5929, x_min=3.78303, x_mean=10.9042, x_max=25.6591
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.012187
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278027243
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78573059
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=43.5998, x_min=3.78308, x_mean=10.9042, x_max=25.6591
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.012183
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278016991
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78572384
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=57.3519, x_min=3.78316, x_mean=10.9042, x_max=25.659
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.012178
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278007806
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78571388
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=70.4192, x_min=3.78328, x_mean=10.9042, x_max=25.6588
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.012166
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278008143
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78570036
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=76.4652, x_min=3.78345, x_mean=10.9042, x_max=25.6586
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.012200
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278053876
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7856886
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=91.6137, x_min=3.78372, x_mean=10.9042, x_max=25.6585
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.012176
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.227809863
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78567401
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=77.5156, x_min=3.78398, x_mean=10.9042, x_max=25.6579
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.012181
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278147144
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78566838
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=75.4454, x_min=3.78422, x_mean=10.9042, x_max=25.6574
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.012125
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278255955
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78565825
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=54.7666, x_min=3.78458, x_mean=10.9042, x_max=25.6564
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.012124
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278314327
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78565682
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=39.4848, x_min=3.78479, x_mean=10.9042, x_max=25.656
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.012115
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278379474
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78565789
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=43.9227, x_min=3.78504, x_mean=10.9042, x_max=25.6554
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.012107
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.227847708
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78566432
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=35.5032, x_min=3.78534, x_mean=10.9042, x_max=25.6548
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.012107
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278522753
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7856681
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=33.6029, x_min=3.78552, x_mean=10.9042, x_max=25.6545
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.012076
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278613716
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78568082
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=48.7745, x_min=3.78584, x_mean=10.9042, x_max=25.6539
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.012079
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278704356
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78569656
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=49.0498, x_min=3.78622, x_mean=10.9042, x_max=25.6533
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.012055
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2278879991
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78573661
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=89.3209, x_min=3.78696, x_mean=10.9042, x_max=25.6519
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.012061
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2279016121
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78576804
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=85.4279, x_min=3.78756, x_mean=10.9042, x_max=25.6511
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.012095
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2279276958
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78583233
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=88.9115, x_min=3.78873, x_mean=10.9042, x_max=25.6497
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.012122
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2279595146
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78591405
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=77.3769, x_min=3.79018, x_mean=10.9042, x_max=25.6481
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.012089
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.228008743
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78604286
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=116.993, x_min=3.79241, x_mean=10.9042, x_max=25.6452
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.012138
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.228053731
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78616817
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=96.2411, x_min=3.7946, x_mean=10.9042, x_max=25.6428
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.012142
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2281008365
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78629209
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=90.2025, x_min=3.79684, x_mean=10.9042, x_max=25.6404
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.012264
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2281683096
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78650598
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=153.855, x_min=3.80048, x_mean=10.9042, x_max=25.6366
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.012262
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2282086871
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78661574
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=130.97, x_min=3.80254, x_mean=10.9042, x_max=25.6344
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.012252
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2282563959
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78674211
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=125.625, x_min=3.805, x_mean=10.9042, x_max=25.6316
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.012273
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2283143678
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78689108
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=105.522, x_min=3.80794, x_mean=10.9042, x_max=25.6289
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle   8 rmsd(b):  0.0123 rws:  1.000 n_fev: 416
+lbfgs minimizer():
+  x.size(): 282
+  m: 5
+  maxfev: 20
+  gtol: 0.9
+  xtol: 1e-16
+  stpmin: 1e-09
+  stpmax: 0.2
+lbfgs traditional_convergence_test: True
+  step:   1 bond rmsd: 0.012273
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2283143678
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78689108
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=105.522, x_min=3.80794, x_mean=10.9042, x_max=25.6289
+  step:   2 bond rmsd: 0.057219
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2289319473
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78555885
+lbfgs minimizer.run(): f=-3.99913e+07, |g|=76013, x_min=3.80728, x_mean=10.9042, x_max=25.4866
+  step:   3 bond rmsd: 0.030185
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2285778539
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78619099
+lbfgs minimizer.run(): f=-3.99971e+07, |g|=22783.9, x_min=3.80758, x_mean=10.9042, x_max=25.5523
+lbfgs minimizer step
+  step:   4 bond rmsd: 0.024310
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2285138192
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78633376
+lbfgs minimizer.run(): f=-3.99977e+07, |g|=16181.6, x_min=3.80765, x_mean=10.9042, x_max=25.5675
+lbfgs minimizer step
+  step:   5 bond rmsd: 0.021323
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2284847119
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7864142
+lbfgs minimizer.run(): f=-3.99979e+07, |g|=13339.7, x_min=3.80769, x_mean=10.9042, x_max=25.5748
+lbfgs minimizer step
+  step:   6 bond rmsd: 0.018569
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2284599882
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78649671
+lbfgs minimizer.run(): f=-3.99981e+07, |g|=10889.5, x_min=3.80772, x_mean=10.9042, x_max=25.5814
+lbfgs minimizer step
+  step:   7 bond rmsd: 0.016307
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2284405044
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78657354
+lbfgs minimizer.run(): f=-3.99982e+07, |g|=8897.66, x_min=3.80774, x_mean=10.9042, x_max=25.5871
+lbfgs minimizer step
+  step:   8 bond rmsd: 0.014543
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2284252155
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78664251
+lbfgs minimizer.run(): f=-3.99983e+07, |g|=7265.68, x_min=3.80776, x_mean=10.9042, x_max=25.5922
+lbfgs minimizer step
+  step:   9 bond rmsd: 0.013243
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2284126661
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78670269
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=5925.98, x_min=3.80778, x_mean=10.9042, x_max=25.5966
+lbfgs minimizer step
+  step:  10 bond rmsd: 0.012350
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2284016786
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78675351
+lbfgs minimizer.run(): f=-3.99984e+07, |g|=4826.6, x_min=3.8078, x_mean=10.9042, x_max=25.6007
+lbfgs minimizer step
+  step:  11 bond rmsd: 0.011785
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2283921004
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78679469
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=3923.22, x_min=3.80781, x_mean=10.9042, x_max=25.6043
+lbfgs minimizer step
+  step:  12 bond rmsd: 0.011469
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2283835534
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78682701
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=3183.77, x_min=3.80783, x_mean=10.9042, x_max=25.6075
+lbfgs minimizer step
+  step:  13 bond rmsd: 0.011328
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2283757848
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78685157
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=2581.31, x_min=3.80785, x_mean=10.9042, x_max=25.6103
+lbfgs minimizer step
+  step:  14 bond rmsd: 0.011300
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2283689686
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78686921
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=2088.25, x_min=3.80786, x_mean=10.9042, x_max=25.6129
+lbfgs minimizer step
+  step:  15 bond rmsd: 0.011342
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.228362519
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78688161
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=1688.26, x_min=3.80788, x_mean=10.9042, x_max=25.6151
+lbfgs minimizer step
+  step:  16 bond rmsd: 0.011421
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.228356454
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78688972
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=1363.67, x_min=3.80789, x_mean=10.9042, x_max=25.617
+lbfgs minimizer step
+  step:  17 bond rmsd: 0.011514
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2283507786
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78689444
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=1100.38, x_min=3.80789, x_mean=10.9042, x_max=25.6187
+lbfgs minimizer step
+  step:  18 bond rmsd: 0.011611
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2283454901
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78689653
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=887.241, x_min=3.8079, x_mean=10.9042, x_max=25.6201
+lbfgs minimizer step
+  step:  19 bond rmsd: 0.011702
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2283405796
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78689668
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=714.792, x_min=3.80791, x_mean=10.9042, x_max=25.6214
+lbfgs minimizer step
+  step:  20 bond rmsd: 0.011785
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2283360533
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7868954
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=575.324, x_min=3.80791, x_mean=10.9042, x_max=25.6225
+lbfgs minimizer step
+  step:  21 bond rmsd: 0.011858
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2283318957
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7868931
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=462.532, x_min=3.80791, x_mean=10.9042, x_max=25.6234
+lbfgs minimizer step
+  step:  22 bond rmsd: 0.011921
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2283280881
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78689011
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=371.297, x_min=3.80791, x_mean=10.9042, x_max=25.6242
+lbfgs minimizer step
+  step:  23 bond rmsd: 0.011974
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2283245967
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78688664
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=297.412, x_min=3.80792, x_mean=10.9042, x_max=25.6249
+lbfgs minimizer step
+  step:  24 bond rmsd: 0.012019
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2283213836
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78688288
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=237.397, x_min=3.80792, x_mean=10.9042, x_max=25.6255
+lbfgs minimizer step
+  step:  25 bond rmsd: 0.012057
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2283184116
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78687889
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=188.595, x_min=3.80792, x_mean=10.9042, x_max=25.626
+lbfgs minimizer step
+  step:  26 bond rmsd: 0.012089
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2283156215
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78687474
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=148.653, x_min=3.80792, x_mean=10.9042, x_max=25.6264
+lbfgs minimizer step
+  step:  27 bond rmsd: 0.012116
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2283129577
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78687039
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=115.854, x_min=3.80792, x_mean=10.9042, x_max=25.6269
+lbfgs minimizer step
+  step:  28 bond rmsd: 0.012139
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2283103443
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78686578
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=88.9265, x_min=3.80792, x_mean=10.9042, x_max=25.6272
+lbfgs minimizer step
+  step:  29 bond rmsd: 0.012159
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2283076806
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78686075
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=66.9496, x_min=3.80792, x_mean=10.9042, x_max=25.6276
+lbfgs minimizer step
+  step:  30 bond rmsd: 0.012177
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2283048352
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78685505
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=50.0104, x_min=3.80793, x_mean=10.9042, x_max=25.6279
+lbfgs minimizer step
+  step:  31 bond rmsd: 0.012193
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2283016113
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78684822
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=39.4436, x_min=3.80793, x_mean=10.9042, x_max=25.6283
+lbfgs minimizer step
+  step:  32 bond rmsd: 0.012207
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2282977296
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78683959
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=37.7617, x_min=3.80794, x_mean=10.9042, x_max=25.6287
+lbfgs minimizer step
+  step:  33 bond rmsd: 0.012219
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2282927596
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7868281
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=44.3347, x_min=3.80795, x_mean=10.9042, x_max=25.6291
+lbfgs minimizer step
+  step:  34 bond rmsd: 0.012228
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2282862254
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78681224
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=54.5582, x_min=3.80797, x_mean=10.9042, x_max=25.6297
+lbfgs minimizer step
+  step:  35 bond rmsd: 0.012232
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2282774259
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78679048
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=63.4408, x_min=3.808, x_mean=10.9042, x_max=25.6303
+lbfgs minimizer step
+  step:  36 bond rmsd: 0.012223
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2282665205
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78676097
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=67.9088, x_min=3.80806, x_mean=10.9042, x_max=25.6309
+lbfgs minimizer step
+  step:  37 bond rmsd: 0.012297
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2282419236
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7867173
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=129.142, x_min=3.80821, x_mean=10.9042, x_max=25.6314
+lbfgs minimizer step
+  step:  38 bond rmsd: 0.012273
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2282316437
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78668787
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=111.294, x_min=3.80829, x_mean=10.9042, x_max=25.6318
+lbfgs minimizer step
+  step:  39 bond rmsd: 0.012251
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.228224037
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78666466
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=94.9034, x_min=3.80839, x_mean=10.9042, x_max=25.6319
+lbfgs minimizer step
+  step:  40 bond rmsd: 0.012230
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.228216524
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78664549
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=71.5222, x_min=3.8085, x_mean=10.9042, x_max=25.6317
+lbfgs minimizer step
+  step:  41 bond rmsd: 0.012214
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2282098996
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.7866267
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=56.1737, x_min=3.80862, x_mean=10.9042, x_max=25.6316
+lbfgs minimizer step
+  step:  42 bond rmsd: 0.012192
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2282071641
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78661692
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=42.9576, x_min=3.80871, x_mean=10.9042, x_max=25.6313
+lbfgs minimizer step
+  step:  43 bond rmsd: 0.012192
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2282033066
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78660818
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=31.8774, x_min=3.80881, x_mean=10.9042, x_max=25.6311
+lbfgs minimizer step
+  step:  44 bond rmsd: 0.012180
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2282004777
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78660104
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=27.6137, x_min=3.8089, x_mean=10.9042, x_max=25.6308
+lbfgs minimizer step
+  step:  45 bond rmsd: 0.012186
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2281982654
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78659676
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=21.5371, x_min=3.80899, x_mean=10.9042, x_max=25.6307
+lbfgs minimizer step
+  step:  46 bond rmsd: 0.012181
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2281965558
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78659354
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=16.85, x_min=3.80907, x_mean=10.9042, x_max=25.6305
+lbfgs minimizer step
+  step:  47 bond rmsd: 0.012192
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2281944982
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78659165
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=17.7775, x_min=3.80915, x_mean=10.9042, x_max=25.6303
+lbfgs minimizer step
+  step:  48 bond rmsd: 0.012180
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2281937035
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78658986
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=14.9951, x_min=3.80923, x_mean=10.9042, x_max=25.6301
+lbfgs minimizer step
+  step:  49 bond rmsd: 0.012185
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2281923904
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78658922
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=13.086, x_min=3.8093, x_mean=10.9042, x_max=25.6299
+lbfgs minimizer step
+  step:  50 bond rmsd: 0.012182
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.228191411
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78658892
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=20.3731, x_min=3.80938, x_mean=10.9042, x_max=25.6297
+lbfgs minimizer step
+  step:  51 bond rmsd: 0.012187
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2281904483
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78658888
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=17.809, x_min=3.80945, x_mean=10.9042, x_max=25.6296
+lbfgs minimizer step
+  step:  52 bond rmsd: 0.012190
+/public/qmsoft/TeraChem/bin/terachem ./ase/tmp_ase.sp  >     ./ase/tmp_ase.out  2>&1
+
+Running:  gcp gcp_tmp.xyz -grad -v -l hf/631g > gcp.out
+E(GCP):  0.2281891831
+Running:  dftd3 dftd3_tmp.tmol -grad -func hf -bj > dftd3.out
+E(D3):  -0.78658886
+lbfgs minimizer.run(): f=-3.99985e+07, |g|=18.2712, x_min=3.80952, x_mean=10.9042, x_max=25.6294
+lbfgs minimizer step
+lbfgs minimizer stop: max_iterations
+lbfgs minimizer done.
+micro_cycle   9 rmsd(b):  0.0122 rws:  1.000 n_fev: 468
+ Convergence at micro_cycle: 9
+See 2_refined.pdb in pdb folder.
+Time: 9647.6619

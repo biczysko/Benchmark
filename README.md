@@ -1,4 +1,4 @@
-# Benchmark
+# Benchmark QM for Q|R
 Test cases for benchmarking QM methods
 
 1. 1us0: one of the best-quality available model from the PDB solved at ultra-high resolution of 0.66 Å
